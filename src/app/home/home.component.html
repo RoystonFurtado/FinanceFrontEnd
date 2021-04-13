@@ -1,1 +1,34 @@
-<p>home works!</p>
+<div class="sample-product">
+    <button class="btn btn1" (click)="redirectToRegister()">Register</button>
+    <button class="btn btn1" (click)="redirectToLogin()">Login</button>
+    <img class="img" src={{productImageUrl}} />
+<p>Product Name:{{productName}}</p>
+<p>Product Details:{{productDescription}}</p>
+<p>Product Price:{{productPrice}}</p>
+<button class="btn product-btn">Buy Now</button>
+<div>
+    <p>Eligibility Criteria</p>
+    <p>User must be above 21 years of age</p>
+    <p>User must have a bank account</p>
+    <table>
+        <tr>
+            <th>EMI Card</th>
+            <th>Card Limit</th>
+            <th>Validity Period</th>
+            <th>Joining Fee</th>
+        </tr>
+        <tr>
+        <td>Gold</td>
+        <td>200000</td>
+        <td>2</td>
+        <td>500</td>
+        </tr>
+        <tr>
+            <td>Titanium</td>
+            <td>300000</td>
+            <td>3</td>
+            <td>1000</td>
+        </tr>
+    </table>
+</div>
+</div>
