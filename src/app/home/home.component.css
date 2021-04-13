@@ -1,0 +1,23 @@
+.sample-product{
+    margin: auto;
+    width: 500px;
+    height: 650px;
+    box-shadow: 10px 10px 5px lightgray;
+    padding: 20px;
+}
+.btn1{
+    float: right;
+    margin-right: 20px;
+    height:50px;
+    width: 80px;
+}
+.product-btn {
+    height: 50px;
+    width: 300px;
+}
+/* .sample-product p {
+    float: right;
+}
+.sample-product img {
+    float: left;
+} */
