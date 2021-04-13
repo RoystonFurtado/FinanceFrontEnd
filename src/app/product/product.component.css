@@ -1,0 +1,18 @@
+.card{
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 350px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    display: inline-block;
+    margin-right: 15px;
+    padding: 10px;
+}
+.products{
+    margin-left: 200px;
+}
+.head{
+    text-align: center;
+    font-weight: bold;
+    font-size: 4pc;
+}
