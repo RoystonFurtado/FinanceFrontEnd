@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent {
 
+  username: string;
+  password: string;
+
   constructor(private router:Router){};
 
   redirectToDashboard() {
