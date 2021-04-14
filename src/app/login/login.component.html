@@ -1,2 +1,24 @@
-<p>login works!</p>
-<button class="btn" (click)="redirectToDashboard()">Login</button>
+<form class="container">
+<div class="logincontainer">
+        <div class="fg">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" name="uname">
+        </div>
+        <div class="fg">
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" name="psw">
+        </div>
+
+        <button type="submit">Login</button>
+        <label>
+    <input type="checkbox" checked="checked" name="remember"> Remember me
+  </label>
+    </div>
+    <div class="btn">
+            <button type="button">Cancel</button>
+            <span class="psw"><a href="#">Forgot password?</a></span>
+        </div>
+        <div class="Last">
+            <span class="psw1">New User?<a href="#">Register User</a></span> 
+        </div>
+</form>
