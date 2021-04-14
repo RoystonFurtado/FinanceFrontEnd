@@ -1,16 +1,7 @@
-.container{
-    margin:auto;
-    box-sizing: border-box;
-    border-style: solid;
+.login-container{
     width: 500px;
 }
 
-.logincontainer {
-    width: 450px;
-    margin: auto;
-    padding: 5px;
-   
-}
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -19,11 +10,6 @@ input[type=password] {
     display: inline-block;
     border: 1px solid #ccc;
     box-sizing: border-box;
-}
-
-.logincontainer {
-    width: 450px;
-    margin: auto;
 }
 /* after that i used to indicate the input values*/
 
@@ -38,29 +24,12 @@ input[type=password] {
 }
 /* style the login button*/
 
-.logincontainer button {
-    background-color: #1715af;
-    color: white;
-    padding: 5px;
-    margin: 10px;
-    cursor: pointer;
-}
-
-.logincontainer button:hover {
-    color: rgba(68, 201, 150, 0.815);
-}
 /*this last class is used for cancel & forget container to organised*/
 
-.btn {
+.btnDiv {
     padding-bottom: 20px;
     margin: auto;
     width: 450px;
-}
-
-.cancelbtn {
-    width: auto;
-    padding: 10px 18px;
-    background-color: #f44336;
 }
 
 span.psw {

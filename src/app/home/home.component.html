@@ -1,11 +1,11 @@
-<div class="sample-product">
+<div class="sample-product main-container">
     <button class="btn btn1" (click)="redirectToRegister()">Register</button>
     <button class="btn btn1" (click)="redirectToLogin()">Login</button>
     <img class="img" src={{productImageUrl}} />
 <p>Product Name:{{productName}}</p>
 <p>Product Details:{{productDescription}}</p>
 <p>Product Price:{{productPrice}}</p>
-<button class="btn product-btn">Buy Now</button>
+<button class="btn product-btn" (click)="redirectToLogin()">Buy Now</button>
 <div>
     <p>Eligibility Criteria</p>
     <p>User must be above 21 years of age</p>
