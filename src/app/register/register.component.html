@@ -1,2 +1,38 @@
-<p>register works!</p>
+<div id="main">
+    <form>
+      <div>
+          <label>Name:</label>
+          <input name="name"  required #name="ngModel"  type="text"   [(ngModel)]="user.name"/><br/><br/>
+
+          <label>Phone Number:</label>
+          <input name="phoneNo"  required #phone="ngModel"  type="number"   [(ngModel)]="user.phoneNo"/><br/><br/>
+
+          <label>Email:</label>
+          <input name="email"  required #email="ngModel"  type="text"   [(ngModel)]="user.email"/><br/><br/>
+
+          <label>User Name:</label>
+          <input name="UserName"  required #name="ngModel"  type="text"   [(ngModel)]="user.userName"/><br/><br/>
+
+          <label>Address:</label>
+          <input name="address"  required #name="ngModel"  type="text"   [(ngModel)]="user.address"/><br/><br/>
+
+          <label>Password:</label>
+          <input name="password"  required #name="ngModel"  type="text"   [(ngModel)]="user.password"/><br/><br/>
+
+          <label>Confirm Password:</label>
+          <input name="confirmPassword"  required #name="ngModel"  type="text"   [(ngModel)]="user.confirmPassword"/><br/><br/>
+
+          <label>Card Type:</label>
+          <input name="cardType" value="Gold" type="radio"  [(ngModel)]="user.cardType">Gold<br/><br/>
+          <input name="cardType" value="Titanium" type="radio"  [(ngModel)]="user.cardType">Titanium<br/><br/>
+
+          <label>Card Number:</label>
+          <input name="cardNo"  required #name="ngModel"  type="text"   [(ngModel)]="user.cardNo"/><br/><br/>
+
+
+      </div>  
+
+    </form>
+</div>
+
 <button class="btn" (click)="redirectToDashboard()">Register</button>
