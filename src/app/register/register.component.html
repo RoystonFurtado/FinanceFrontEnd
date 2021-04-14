@@ -1,6 +1,5 @@
-<div id="main">
+<div class="register-container main-container">
     <form>
-      <div>
           <label>Name:</label>
           <input name="name"  required #name="ngModel"  type="text"   [(ngModel)]="user.name"/><br/><br/>
 
@@ -28,11 +27,6 @@
 
           <label>Card Number:</label>
           <input name="cardNo"  required #name="ngModel"  type="text"   [(ngModel)]="user.cardNo"/><br/><br/>
-
-
-      </div>  
-
+          <button class="btn" (click)="redirectToDashboard()">Register</button>
     </form>
 </div>
-
-<button class="btn" (click)="redirectToDashboard()">Register</button>

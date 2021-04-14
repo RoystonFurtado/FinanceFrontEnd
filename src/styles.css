@@ -2,6 +2,11 @@
 *{
     box-sizing: border-box;
 }
+.main-container {
+    margin: auto;
+    box-shadow: 10px 10px 5px lightgray;
+    padding: 20px;
+}
 .btn {
     padding:10px;
     border-radius: 5px;
