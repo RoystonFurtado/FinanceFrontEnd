@@ -1,1 +1,34 @@
-<p>dashboard works!</p>
+<div class="dashboard-container main-container">
+<div class="userDetailsBox">
+    <p>Card No:{{cardNo}}</p>
+    <p>Name:{{userName}}</p>
+    <p>Valid Till:{{expiryDate}}</p>
+    <p>Card Type:{{cardType}}</p>
+    <div class="status">ACTIVATED</div>
+</div>
+<div class="card-details">
+    <p>Total Credit:{{totalCredit}}</p>
+    <p>Credit Used:{{creditUsed}}</p>
+    <p>Remaining Credit:{{remainingCredit}}</p>
+    <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button>
+</div>
+<div class="products-purchased">
+    <h2 class="products-header">Products Purchased</h2>
+    <p>ProductName:{{productName}}</p>
+    <p>Product Price:{{productPrice}}</p>
+    <p>Amount Paid:{{amountPaid}}</p>
+    <p>Amount Balance:{{amountBalance}}</p>
+</div>
+<table class="transactions-tbl" cell>
+    <tr>
+        <th>Product</th>
+        <th>Date</th>
+        <th>Amount Paid</th>
+    </tr>
+    <tr>
+        <td>{{productName}}</td>
+        <td>{{purchaseDate}}</td>
+        <td>{{amountPaid}}</td>
+    </tr>
+</table>
+</div>
