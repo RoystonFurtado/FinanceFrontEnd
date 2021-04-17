@@ -1,0 +1,40 @@
+.dashboard-container {
+    width: 800px;
+    height: 700px;
+}
+.userDetailsBox {
+    margin: auto;
+    width:300px;
+    outline:solid black;
+}
+.userDetailsBox :not(.status) {
+    padding: 7px 10px ;
+}
+.products-purchased {
+   
+    
+}
+.card-details {
+    
+}
+.status {
+    text-align: center;
+    padding: 10px;
+    background-color: limegreen;
+}
+.products-header{
+    text-align: center;
+}
+.buy-products-btn {
+    float: right;
+}
+.transactions-tbl, th,td {
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 500px;
+    height: 30px;
+}
+.transactions-tbl th, td{
+    padding:10px;
+    text-align: center;
+}
