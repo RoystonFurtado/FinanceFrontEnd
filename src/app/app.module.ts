@@ -12,6 +12,8 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
+import { DocumentUploadComponent } from './document-upload/document-upload.component';
+import { ProfilePicUploadComponent } from './profile-pic-upload/profile-pic-upload.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
     DashboardComponent,
     ProductComponent,
     NavbarComponent,
-    ForgetPasswordComponent
+    ForgetPasswordComponent,
+    DocumentUploadComponent,
+    ProfilePicUploadComponent
   ],
   imports: [
     BrowserModule,
