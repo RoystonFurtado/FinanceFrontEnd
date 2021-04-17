@@ -1,5 +1,10 @@
-.login-container{
-    width: 500px;
+.logincontainer{
+    width: 500px;    
+    margin: auto;
+    margin-top: 10%;
+    border:2px solid rgb(173, 172, 172);
+    border-radius: 8px;
+    padding: 20px;
 }
 
 input[type=text],
@@ -26,22 +31,32 @@ input[type=password] {
 
 /*this last class is used for cancel & forget container to organised*/
 
-.btnDiv {
-    padding-bottom: 20px;
-    margin: auto;
-    width: 450px;
-}
+ 
 
-span.psw {
+.psw {
     float: right;
-    padding-top: 16px;
+    padding-top: 0px;
+    display:block;
 }
-span.psw1 {
+.psw1 {
     float: auto;
     padding-top: 16px;
 }
 .Last {
     padding: 20px;
-    margin: auto;
-    width: 450px;
+ text-align: center;
+ 
+}
+.nu {
+    text-decoration: none;
+}
+
+.loginbtn{
+    display: block;
+    margin:auto;
+}
+
+.err{
+    text-align: end;
+    color: red;
 }
