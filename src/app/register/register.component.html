@@ -1,32 +1,30 @@
 <div class="register-container main-container">
     <form>
           <label>Name:</label>
-          <input name="name"  required #name="ngModel"  type="text"   [(ngModel)]="user.name"/><br/><br/>
+          <input name="userName"  required type="text"   [(ngModel)]="userName"/><br/><br/>
 
           <label>Phone Number:</label>
-          <input name="phoneNo"  required #phone="ngModel"  type="number"   [(ngModel)]="user.phoneNo"/><br/><br/>
+          <input name="mobileNo"  required type="number"   [(ngModel)]="mobileNo"/><br/><br/>
 
           <label>Email:</label>
-          <input name="email"  required #email="ngModel"  type="text"   [(ngModel)]="user.email"/><br/><br/>
-
-          <label>User Name:</label>
-          <input name="UserName"  required #name="ngModel"  type="text"   [(ngModel)]="user.userName"/><br/><br/>
+          <input name="emailId"  required  type="text" [(ngModel)]="emailId"/><br/><br/>
 
           <label>Address:</label>
-          <input name="address"  required #name="ngModel"  type="text"   [(ngModel)]="user.address"/><br/><br/>
+          <input name="address"  required type="text"   [(ngModel)]="address"/><br/><br/>
+
+          <label>Date Of Birth:</label>
+          <input type="date" required name="dob" [(ngModel)]="dob" ><br /><br />
 
           <label>Password:</label>
-          <input name="password"  required #name="ngModel"  type="text"   [(ngModel)]="user.password"/><br/><br/>
+          <input name="password"  required type="password"   [(ngModel)]="password"/><br/><br/>
 
           <label>Confirm Password:</label>
-          <input name="confirmPassword"  required #name="ngModel"  type="text"   [(ngModel)]="user.confirmPassword"/><br/><br/>
+          <input name="confirmPassword"  required type="text" [(ngModel)]="confirmPassword"/><br/><br/>
 
           <label>Card Type:</label>
-          <input name="cardType" value="Gold" type="radio"  [(ngModel)]="user.cardType">Gold<br/><br/>
-          <input name="cardType" value="Titanium" type="radio"  [(ngModel)]="user.cardType">Titanium<br/><br/>
+          <input name="cardType" value="Gold" type="radio"  [(ngModel)]="cardType">Gold<br/><br/>
+          <input name="cardType" value="Titanium" type="radio"  [(ngModel)]="cardType">Titanium<br/><br/>
 
-          <label>Card Number:</label>
-          <input name="cardNo"  required #name="ngModel"  type="text"   [(ngModel)]="user.cardNo"/><br/><br/>
-          <button class="btn" (click)="redirectToDashboard()">Register</button>
+          <button class="btn" (click)="redirectToDashboard()">Next</button>
     </form>
 </div>

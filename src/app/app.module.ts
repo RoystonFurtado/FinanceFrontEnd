@@ -11,6 +11,8 @@ import { ProductComponent } from './product/product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { DocumentUploadComponent } from './document-upload/document-upload.component';
+import { ProfilePicUploadComponent } from './profile-pic-upload/profile-pic-upload.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { HttpClientModule } from '@angular/common/http';
     LoginComponent,
     DashboardComponent,
     ProductComponent,
-    NavbarComponent
+    NavbarComponent,
+    DocumentUploadComponent,
+    ProfilePicUploadComponent
   ],
   imports: [
     BrowserModule,
