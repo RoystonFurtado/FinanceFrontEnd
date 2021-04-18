@@ -21,6 +21,7 @@ export class DocumentUploadComponent {
     this.registerService.user.panCard=this.panCard;
     this.registerService.user.cancelledCheque=this.cancelledCheque;
     this.router.navigateByUrl('/profile-pic-upload');
+    
   }
 
 }

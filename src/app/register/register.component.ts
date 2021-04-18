@@ -18,6 +18,7 @@ export class RegisterComponent {
   address:string;
   dob:string;
   password:string;
+
   
   confirmPassword:string;
   cardType:string;
@@ -29,6 +30,8 @@ export class RegisterComponent {
     this.registerService.user.dob=this.dob;
     this.registerService.user.password=this.password;
     this.registerService.user.address=this.address;
+    this.registerService.emiCard.cardType=this.cardType;
+    this.registerService.user.emiCard = this.registerService.emiCard;
     this.router.navigateByUrl('/document-upload');
     // console.log(this.registerService.user);
     // console.log(this.confirmPassword);

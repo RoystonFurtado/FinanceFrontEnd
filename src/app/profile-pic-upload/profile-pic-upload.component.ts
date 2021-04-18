@@ -16,7 +16,13 @@ export class ProfilePicUploadComponent {
 
     register() {
       this.registerService.user.profilePic=this.profilePic;
-      console.log(this.registerService.user);
+      //console.log(this.registerService.user);
+      this.registerService.register().subscribe(response =>{
+        alert(JSON.stringify(response));
+       })
+      
+      
+
     }
 
 }
