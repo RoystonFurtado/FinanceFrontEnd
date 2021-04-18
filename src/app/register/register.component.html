@@ -1,30 +1,38 @@
 <div class="register-container main-container">
     <form>
           <label>Name:</label>
-          <input name="userName"  required type="text"   [(ngModel)]="userName"/><br/><br/>
+          <input name="userName"  required type="text"   [(ngModel)]="userName"/><br/>
+          <div class="err" *ngIf="NameError">{{NameError}}</div><br/>
+
 
           <label>Phone Number:</label>
-          <input name="mobileNo"  required type="number"   [(ngModel)]="mobileNo"/><br/><br/>
+          <input name="mobileNo"  required type="number"   [(ngModel)]="mobileNo"/><br/>
+          <div class="err" *ngIf="PhoneError">{{PhoneError}}</div><br/>
 
           <label>Email:</label>
-          <input name="emailId"  required  type="text" [(ngModel)]="emailId"/><br/><br/>
+          <input name="emailId"  required  type="text" [(ngModel)]="emailId"/><br/>
+          <div class="err" *ngIf="EmailError">{{EmailError}}</div><br/>
 
           <label>Address:</label>
-          <input name="address"  required type="text"   [(ngModel)]="address"/><br/><br/>
+          <input name="address"  required type="text"   [(ngModel)]="address"/><br/>
+          <div class="err" *ngIf="AddressError">{{AddressError}}</div><br/>
 
           <label>Date Of Birth:</label>
           <input type="date" required name="dob" [(ngModel)]="dob" ><br /><br />
 
           <label>Password:</label>
-          <input name="password"  required type="password"   [(ngModel)]="password"/><br/><br/>
+          <input name="password"  required type="password"   [(ngModel)]="password"/><br/>
+          <div class="err" *ngIf="PassError">{{PassError}}</div><br/>
 
           <label>Confirm Password:</label>
-          <input name="confirmPassword"  required type="text" [(ngModel)]="confirmPassword"/><br/><br/>
+          <input name="confirmPassword"  required type="text" [(ngModel)]="confirmPassword"/><br/>
+          <div class="err" *ngIf="ConPassError">{{ConPassError}}</div><br/>
 
           <label>Card Type:</label>
           <input name="cardType" value="Gold" type="radio"  [(ngModel)]="cardType">Gold<br/><br/>
           <input name="cardType" value="Titanium" type="radio"  [(ngModel)]="cardType">Titanium<br/><br/>
+          <div class="err" *ngIf="CardError">{{CardError}}</div>
 
-          <button class="btn" (click)="redirectToDashboard()">Next</button>
+          <button class="btn" (click)="validate()">Next</button>
     </form>
 </div>
