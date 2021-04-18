@@ -8,35 +8,40 @@ import { RegisterService } from '../register.service';
   styleUrls: ['./register.component.css']
 })
 
-export class RegisterComponent {
+export class RegisterComponent implements OnInit{
 
-  constructor(private registerService:RegisterService,
-              private router:Router){};
-  userName:string;
-  mobileNo:Number;
-  emailId:string;
-  address:string;
-  dob:string;
-  password:string;
+  constructor(private router:Router,
+              private registerService:RegisterService){};
 
-  
+  user:User;
   confirmPassword:string;
-  cardType:string;
 
-  redirectToDashboard() {
-    this.registerService.user.userName=this.userName;
-    this.registerService.user.mobileNo=this.mobileNo;
-    this.registerService.user.emailId=this.emailId;
-    this.registerService.user.dob=this.dob;
-    this.registerService.user.password=this.password;
-    this.registerService.user.address=this.address;
-    this.registerService.emiCard.cardType=this.cardType;
-    this.registerService.user.emiCard = this.registerService.emiCard;
+  ngOnInit(): void {
+    this.user=new User();
+    this.user.emiCard=new emiCard();
+  }
+
+  registerUser() {
+    this.registerService.register(this.user).subscribe(response=>{
+      console.log("User Id-->"+response["registeredUserId"]);
+      this.registerService.userId=response["registeredUserId"];
+      alert(JSON.stringify(response));
+    });
     this.router.navigateByUrl('/document-upload');
-    // console.log(this.registerService.user);
-    // console.log(this.confirmPassword);
-    // console.log(this.cardType);
   }
 
 }
 
+export class User{
+  constructor(public userName?:string,
+              public mobileNo?:Number,
+              public emailId?:string,
+              public address?:string,
+              public password?:string,
+              public dob?:string,
+              public emiCard?:emiCard){}
+              
+}
+export class emiCard{
+  constructor(public cardType?:string){}
+}

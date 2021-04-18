@@ -39,19 +39,19 @@ export class LoginComponent {
     }
 
     if (validated) {
-    //   this.http.post("http://localhost:8181/login", { "userName": this.username, "password": this.password }).subscribe(data => {
-    //     console.log(data);
-    //     if (data["loggedUserId"] == 0) {
-    //       alert(data["message"]);
-    //     }
-    //     else {
-    //       this.redirectToDashboard();
-    //     }
-    //   }, (e) => {
-    //     this.statusMessage = "Please try again later";
-    //     console.log(this.statusMessage);
-    //     alert(this.statusMessage);
-    //   });
+      this.http.post("http://localhost:8181/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+        console.log(data);
+        if (data["loggedUserId"] == 0) {
+          alert(data["message"]);
+        }
+        else {
+          this.redirectToDashboard();
+        }
+      }, (e) => {
+        this.statusMessage = "Please try again later";
+        console.log(this.statusMessage);
+        alert(this.statusMessage);
+      });
 
       console.log(this.username);
       console.log(this.password);
