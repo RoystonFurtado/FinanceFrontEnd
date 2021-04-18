@@ -53,11 +53,11 @@ export class LoginComponent {
         alert(this.statusMessage);
       });
 
-      console.log(this.username);
-      console.log(this.password);
-      if(this.username == "sonali" && this.password=="123"){
-        this.router.navigateByUrl("/dashboard");
-      }
+      // console.log(this.username);
+      // console.log(this.password);
+      // if(this.username == "sonali" && this.password=="123"){
+      //   this.router.navigateByUrl("/dashboard");
+      // }
       
 
      }
