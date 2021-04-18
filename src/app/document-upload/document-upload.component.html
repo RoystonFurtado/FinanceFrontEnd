@@ -1,7 +1,9 @@
 <label>Aadhar Card:</label>
-<input type="text" name="aadharCard" [(ngModel)]="aadharCard">
+<input type="file" name="aadharCard" (change)="onFileChange($event)">
 <label>Pan Card:</label>
-<input type="text" name="panCard" [(ngModel)]="panCard">
+<input type="file" name="panCard" (change)="onFileChange($event)">
 <label>Cancelled Cheque:</label>
-<input type="text" name="cancelledCheque" [(ngModel)]="cancelledCheque">
-<button class="btn" (click)="documentUpload()">Next</button>
+<input type="file" name="cancelledCheque" (change)="onFileChange($event)">
+<label>Profile Pic:</label>
+<input type="file" name="profilePic" (change)="onFileChange($event)">
+<button class="btn" (click)="fileUpload()">Register</button>

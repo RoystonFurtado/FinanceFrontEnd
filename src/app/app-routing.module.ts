@@ -6,7 +6,6 @@ import { DocumentUploadComponent } from './document-upload/document-upload.compo
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
-import { ProfilePicUploadComponent } from './profile-pic-upload/profile-pic-upload.component';
 import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
@@ -16,8 +15,7 @@ const routes: Routes = [
   {path:'dashboard',component: DashboardComponent},
   {path:'product-listing',component: ProductComponent},
   {path:'forget-password',component: ForgetPasswordComponent},
-  {path:'document-upload',component: DocumentUploadComponent},
-  {path:'profile-pic-upload',component: ProfilePicUploadComponent}
+  {path:'document-upload',component: DocumentUploadComponent}
 ];
 
 @NgModule({
