@@ -13,7 +13,6 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
-import { ProfilePicUploadComponent } from './profile-pic-upload/profile-pic-upload.component';
 
 @NgModule({
   declarations: [
@@ -25,8 +24,7 @@ import { ProfilePicUploadComponent } from './profile-pic-upload/profile-pic-uplo
     ProductComponent,
     NavbarComponent,
     ForgetPasswordComponent,
-    DocumentUploadComponent,
-    ProfilePicUploadComponent
+    DocumentUploadComponent
   ],
   imports: [
     BrowserModule,
