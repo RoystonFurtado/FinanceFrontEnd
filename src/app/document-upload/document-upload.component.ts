@@ -16,7 +16,6 @@ export class DocumentUploadComponent {
   aadharCard:File;
   panCard:File;
   cancelledCheque:File;
-  profilePic:File;
 
   onFileChange(event) {
     console.log("File Change Event");
@@ -27,8 +26,6 @@ export class DocumentUploadComponent {
       this.panCard=event.target.files[0];
     else if(event.target.name==="cancelledCheque")
       this.cancelledCheque=event.target.files[0];
-    else if(event.target.name==="profilePic")
-      this.profilePic=event.target.files[0];
   }
 
 
@@ -39,9 +36,11 @@ export class DocumentUploadComponent {
     formData.append('aadharCard',this.aadharCard);
     formData.append('panCard',this.panCard);
     formData.append('cancelledCheque',this.cancelledCheque);
-    formData.append('profilePic', this.profilePic); 
     this.registerService.documentsUpload(formData).subscribe(response=> {
-      alert(JSON.stringify(response));
+      if(response.status===true) {
+        sessionStorage.setItem("userId",this.userId);
+        this.router.navigateByUrl('/product-listing');
+      }
     });
     // console.log(this.userId);
     // console.log(this.aadharCard);
