@@ -39,11 +39,7 @@ export class LoginComponent {
     }
 
     if (validated) {
-<<<<<<< HEAD
       this.http.post("http://localhost:8223/login", { "userName": this.username, "password": this.password }).subscribe(data => {
-=======
-      this.http.post("http://localhost:8181/login", { "userName": this.username, "password": this.password }).subscribe(data => {
->>>>>>> ff3a323c7809aafd8b8e833820d91a5e1f8f86cb
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
@@ -57,16 +53,7 @@ export class LoginComponent {
         alert(this.statusMessage);
       });
 
-<<<<<<< HEAD
            
-=======
-      // console.log(this.username);
-      // console.log(this.password);
-      // if(this.username == "sonali" && this.password=="123"){
-      //   this.router.navigateByUrl("/dashboard");
-      // }
-      
->>>>>>> ff3a323c7809aafd8b8e833820d91a5e1f8f86cb
 
      }
   }
