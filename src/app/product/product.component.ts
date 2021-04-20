@@ -7,13 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductComponent implements OnInit {
 
+  productId: number;
   products:Product[];
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('userId'));
+    this.productId = parseInt(sessionStorage.getItem('productId'));
+   // console.log(sessionStorage.getItem('userId'));
   }
 
-  constructor() { 
+  constructor(private productService: ProductService) { 
   this.products= [
     new Product(111,"iphone 11","Apple iphone 11",49900,'assets/product-images/iphone8.jfif'),
     new Product(222,"S21 Ultra","Samsung",149900,'assets/product-images/samsung.jpg'),
