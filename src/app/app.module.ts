@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DocumentUploadComponent } from './document-upload/document-upload.compo
     ProductComponent,
     NavbarComponent,
     ForgetPasswordComponent,
-    DocumentUploadComponent
+    DocumentUploadComponent,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
