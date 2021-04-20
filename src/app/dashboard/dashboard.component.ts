@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,7 +9,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
 
-  constructor(private router:Router){};
+  constructor(private router:Router,private dashboardService:DashboardService){};
 
   cardNo:Number=1092745692745082;
   userName:string="John Doe";
@@ -17,6 +18,7 @@ export class DashboardComponent {
   totalCredit:Number=200000;
   creditUsed:Number=150000;
   remainingCredit:Number=50000;
+
   productName:string="Iphone 7";
   amountPaid:Number=20000;
   amountBalance:Number=50000;
@@ -27,5 +29,9 @@ export class DashboardComponent {
     this.router.navigateByUrl('/product-listing');
 
   }
+}
+
+
+class Products{
 
 }
