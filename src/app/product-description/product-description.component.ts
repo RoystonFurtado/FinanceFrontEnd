@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
+import { ProductService } from '../product.service';
 import { Product } from '../product/product.component';
 
 @Component({
@@ -10,13 +11,27 @@ import { Product } from '../product/product.component';
 export class ProductDescriptionComponent  {
   product:Product;
   id:number;
-  constructor( private route: ActivatedRoute,private router:Router){
+  name:string;
+  description:string;
+  price:number;
+  obj:any;
+  constructor( private route: ActivatedRoute,private router:Router,private productService:ProductService){
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
   });
-    this.product= new Product(this.id,"iphone 11","Apple iphone 11",49900,'assets/product-images/iphone8.jfif');
+
+  this.productService.fetchProductDetails(385).subscribe(response=>{
+
+    this.description=response['productDescription'];
+    this.name=response['productName'];
+    this.price=response['productPrice'];
+    console.log(response['productImage']);
+  
+    this.product= new Product(this.id,this.description,this.name,this.price,'assets/product-images/iphone8.jfif');
+  });
+  
   };
-  }
+}
 
  
 
