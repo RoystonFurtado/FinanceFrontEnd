@@ -5,6 +5,6 @@
     <p>Product Name:{{p.name}}</p>
     <p>Product Details:{{p.description}}</p>
     <p>Product Price:{{p.price}}</p>
-    <button class="btn product-btn">Buy Now</button>
+    <button class="btn product-btn" (click)="redirectToDescription(p.id)">Buy now</button>
 </div>
 </div>
