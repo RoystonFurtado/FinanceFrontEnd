@@ -1,15 +1,14 @@
 <div class="dashboard-container main-container">
 <div class="userDetailsBox">
-    <p>Card No:{{cardNo}}</p>
-    <p>Name:{{userName}}</p>
-    <p>Valid Till:{{expiryDate}}</p>
-    <p>Card Type:{{cardType}}</p>
-    <div class="status">ACTIVATED</div>
+    <p class="card-no">{{cardNo}}</p>
+    <p class="card-expiry-date">{{exp}}</p>
+    <p class="card-type">{{cardType}}</p>
+    <p class="card-user-name">{{userName}}</p>
 </div>
 <div class="card-details">
-    <p>Total Credit:{{totalCredit}}</p>
-    <p>Credit Used:{{creditUsed}}</p>
-    <p>Remaining Credit:{{remainingCredit}}</p>
+    <p>Total Credit:{{cardLimit}}</p>
+    <p>Credit Used:{{cardCreditUsed}}</p>
+    <p>Remaining Credit:{{cardBalance}}</p>
     <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button>
 </div>
 <div class="products-purchased">

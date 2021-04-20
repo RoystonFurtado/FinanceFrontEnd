@@ -10,8 +10,8 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  fetchProductImages(id: number) : Observable<Product>{
-    let url = "http://localhost:8181/product?productId="+id;
+  fetchProduct() : Observable<Product>{
+    let url = "http://localhost:8181/product";
     return this.http.get<Product>(url);
   }
 }

@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -15,7 +16,8 @@ const routes: Routes = [
   {path:'dashboard',component: DashboardComponent},
   {path:'product-listing',component: ProductComponent},
   {path:'forget-password',component: ForgetPasswordComponent},
-  {path:'document-upload',component: DocumentUploadComponent}
+  {path:'document-upload',component: DocumentUploadComponent},
+  {path:'product-description',component:ProductDescriptionComponent}
 ];
 
 @NgModule({
