@@ -1,22 +1,42 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DashboardService } from '../dashboard.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
-export class DashboardComponent {
+export class DashboardComponent implements OnInit{
 
-  constructor(private router:Router){};
+  constructor(private router:Router,
+              private dashboardService:DashboardService){};
 
-  cardNo:Number=1092745692745082;
+  ngOnInit():void {
+    //Get card details
+    this.dashboardService.cardDetails(10056).subscribe(response=>{
+      this.cardNo=response['cardNo'];
+      this.expiryDate=response['cardExpiryDate'];
+      let d=new Date(this.expiryDate);
+      this.exp=(d.getMonth()+1)+"/"+d.getFullYear();
+      this.cardCreditUsed=response['cardCreditUsed'];
+      this.cardBalance=response['cardBalance'];
+    });
+
+    //Get Emi Card Type Details
+    this.dashboardService.emiCardTypeDetails(10056).subscribe(response=>{
+      this.cardType=response['cardType'];
+      this.cardLimit=response['cardLimit'];
+    });
+  }
+  exp:string;
+  cardNo:Number;
+  expiryDate:Date;
+  cardCreditUsed:Number;
+  cardBalance:Number;
+  cardLimit:Number;
+  cardType:string;
   userName:string="John Doe";
-  expiryDate:string="11/2027";
-  cardType:string="Gold";
-  totalCredit:Number=200000;
-  creditUsed:Number=150000;
-  remainingCredit:Number=50000;
   productName:string="Iphone 7";
   amountPaid:Number=20000;
   amountBalance:Number=50000;
