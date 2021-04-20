@@ -1,0 +1,24 @@
+<p class="head"> Product Description page</p>
+<div class="description">
+    <div class="description-card" >
+        <img class="img1" src={{product.imgUrl}}/>
+        <p>Product Name:{{product.id}} </p>
+        <p>Product Name:{{product.name}} </p>
+        <p>Product Details:{{product.description}}  <br/></p>
+        <p>Product Price:{{product.price}} </p>
+        <form>
+            <label>EMI Period</label><br/>
+            <input type="radio" name="emiOptions" value="3 Months" ngModel>3 Months<br/><br/>
+
+            <input type="radio" name="emiOptions" value="6 Months" ngModel>6 Months<br/><br/>
+
+            <input type="radio" name="emiOptions" value="9 Months" ngModel>9 Months<br/><br/>
+
+            <input type="radio" name="emiOptions" value="12 Months" ngModel>12 Months<br/><br/>
+
+        </form>
+        <button class="description-btn" >Buy</button>
+
+        
+    </div>
+</div>
