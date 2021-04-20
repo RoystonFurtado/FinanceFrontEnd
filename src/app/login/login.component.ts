@@ -39,12 +39,13 @@ export class LoginComponent {
     }
 
     if (validated) {
-      this.http.post("http://localhost:8181/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+      this.http.post("http://localhost:8223/login", { "userName": this.username, "password": this.password }).subscribe(data => {
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
         else {
+         sessionStorage.setItem("userId",data["loggedUserId"]);
           this.redirectToDashboard();
         }
       }, (e) => {
@@ -53,15 +54,11 @@ export class LoginComponent {
         alert(this.statusMessage);
       });
 
-      // console.log(this.username);
-      // console.log(this.password);
-      // if(this.username == "sonali" && this.password=="123"){
-      //   this.router.navigateByUrl("/dashboard");
-      // }
-      
+           
 
      }
   }
+
 
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
