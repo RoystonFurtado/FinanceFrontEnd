@@ -6,28 +6,39 @@
     <p class="card-user-name">{{userName}}</p>
 </div>
 <div class="card-details">
-    <p>Total Credit:{{cardLimit}}</p>
-    <p>Credit Used:{{cardCreditUsed}}</p>
-    <p>Remaining Credit:{{cardBalance}}</p>
-    <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button>
+    <p>Total Credit:<span class="values">{{cardLimit}}</span></p>
+    <p>Credit Used:<span class="values">{{cardCreditUsed}}</span></p>
+    <p>Remaining Credit:<span class="values">{{cardBalance}}</span></p>
+    <!-- <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button> -->
 </div>
-<div class="products-purchased">
-    <h2 class="products-header">Products Purchased</h2>
-    <p>ProductName:{{productName}}</p>
-    <p>Product Price:{{productPrice}}</p>
-    <p>Amount Paid:{{amountPaid}}</p>
-    <p>Amount Balance:{{amountBalance}}</p>
+
+<div *ngIf="showPaymentPopup===true" class="payment-overlay">
+    <div class="payment-popup" (disappear)="hidePaymentBox()">
+        <span class="close-btn">&times;</span>
+        <p>Order Id:{{selectedOrder.orderId}}</p>
+        <p>Product Name:{{selectedOrder.productName}}</p>
+        <p>Product Price:{{selectedOrder.productPrice}}</p>
+        <p>EMI Months Paid:{{selectedOrder.emiMonthsPaid}}</p>
+        <p>Monthly EMI Amount:{{selectedOrder.monthlyEmiAmount}}</p>
+        <p>Tenure Period:{{selectedOrder.tenurePeriod}}</p>
+        <p>Purchase Date:{{selectedOrder.purchaseDate}}</p>
+        <p>Amount Paid:{{selectedOrder.amountPaid}}</p>
+        <p>Amount Balance:{{selectedOrder.amountBalance}}</p>
+    </div>
 </div>
-<table class="transactions-tbl" cell>
-    <tr>
-        <th>Product</th>
-        <th>Date</th>
-        <th>Amount Paid</th>
-    </tr>
-    <tr>
-        <td>{{productName}}</td>
-        <td>{{purchaseDate}}</td>
-        <td>{{amountPaid}}</td>
-    </tr>
-</table>
+
+<div *ngIf="activeOrders" class="orders-container">
+    <div *ngFor="let activeOrder of activeOrders" class="order-card">
+        <ul>
+            <li class="product-name">{{activeOrder.productName}}</li>
+            <li class="product-price"><span class="labels">Price</span><span class=values>{{activeOrder.productPrice}}</span></li>
+            <li class="installment-no">Installment {{activeOrder.installmentNo}} Pending</li>
+            <li class="amount-balance"><span class="labels">Amount Remaining</span><span class="values">{{activeOrder.amountBalance}}</span></li>
+            <li class="monthly-emi-amount"><span class="labels">EMI Amount</span><span class="values">{{activeOrder.monthlyEmiAmount}}/per month</span></li>
+            <li class="due-date">Pay Before <span class="values">{{activeOrder.dueDate}}</span><span><button class="btn pay-btn" (click)="showPaymentBox(activeOrder)">Pay Now</button></span></li>
+            <!-- <li><button class="btn">Pay Now</button></li> -->
+        </ul>
+    </div>
+</div>
+
 </div>

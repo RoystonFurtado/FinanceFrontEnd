@@ -1,6 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
+
+@Directive({
+  selector:'[disappear]'
+})
+export class DisappearDirective {
+  @Output() disappear = new EventEmitter<MouseEvent>();
+  constructor(private elementRef:ElementRef) {}
+  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) {
+    const targetElement=event.target as HTMLElement;
+    const paybtn=document.getElementsByClassName('orders-container')[0];
+    //const editbtn=document.getElementsByClassName('contacts-container')[0];
+    const closebtn=document.getElementsByClassName('close-btn')[0];
+    // const cancelbtn=document.getElementsByClassName('cancel-btn')[0];
+    //When clicked anywhere outside add contact box, addcontactbutton and edit contact button(to avoid first click), emit disappear event
+    if( (!(this.elementRef.nativeElement.contains(targetElement))) && !(paybtn.contains(targetElement)) || closebtn.contains(targetElement) )
+      this.disappear.emit(event);
+  }
+}
 
 @Component({
   selector: 'app-dashboard',
@@ -9,12 +27,21 @@ import { DashboardService } from '../dashboard.service';
 })
 export class DashboardComponent implements OnInit{
 
-
- 
-
   constructor(private router:Router,
               private dashboardService:DashboardService){};
 
+  exp:string;
+  cardNo:Number;
+  expiryDate:Date;
+  cardCreditUsed:Number;
+  cardBalance:Number;
+  cardLimit:Number;
+  cardType:string;
+  userName:string="John Doe";
+  showPaymentPopup:boolean;
+  
+  selectedOrder:ActiveOrder;
+  activeOrders:ActiveOrder[];
 
   ngOnInit():void {
     //Get card details
@@ -32,28 +59,39 @@ export class DashboardComponent implements OnInit{
       this.cardType=response['cardType'];
       this.cardLimit=response['cardLimit'];
     });
+
+    this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
+      this.activeOrders=response;
+      console.log(this.activeOrders);
+    });
   }
-  exp:string;
-  cardNo:Number;
-  expiryDate:Date;
-  cardCreditUsed:Number;
-  cardBalance:Number;
-  cardLimit:Number;
-  cardType:string;
-  userName:string="John Doe";
-  productName:string="Iphone 7";
-  amountPaid:Number=20000;
-  amountBalance:Number=50000;
-  productPrice:Number=70000;
-  purchaseDate:string="12/07/2020";
 
   redirectToProducts() {
     this.router.navigateByUrl('/product-listing');
-
   }
+
+  showPaymentBox(order:ActiveOrder) {
+    this.showPaymentPopup=true;
+    this.selectedOrder=order;
+  }
+
+  hidePaymentBox() {
+    this.showPaymentPopup=false;
+  }
+
 }
 
 
-class Products{
-
+export class ActiveOrder {
+  constructor(public orderId:Number,
+              public productName:string,
+              public productPrice:Number,
+              public emiMonthsPaid:Number,
+              public monthlyEmiAmount:Number,
+              public tenurePeriod:Number,
+              public purchaseDate:Date,
+              public amountPaid:Number,
+              public amountBalance:Number,
+              public installmentNo:Number,
+              public dueDate:Date){}
 }
