@@ -1,27 +1,70 @@
+@keyframes slide-effect {
+    from {
+        margin-top: 400px;
+    }
+    to {
+        margin-top: 0;
+    }
+}
+
 .dashboard-container {
-    width: 800px;
+    width: 900px;
     height: 700px;
+    box-shadow: none;
 }
 .userDetailsBox {
     margin: auto;
-    width:380px;
+    width:350px;
     height: 200px;
-    background-image: url("/assets/credit_card.png");
+    background-image: url("/assets/credit_card1.png");
     background-repeat: no-repeat;
+    background-position: center;
     background-size: 400px 200px;
     color:gold;
     font-size: 24px;
-    font-family: calibri;
+    box-shadow: 10px 10px 10px gray;
+    /* outline: 1px solid black; */
 }
 .userDetailsBox :not(.status) {
     padding: 7px 10px ;
 }
-.products-purchased {
-   
-    
+.card-details p{
+
 }
-.card-details {
-    
+.payment-overlay {
+    /* background-color: lightgreen; */
+    z-index: 1;
+    position:fixed;
+    width: 100vw;
+    height: 100vw;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,.4);
+}
+.payment-popup {
+    animation-name: slide-effect;
+    animation-duration: .5s;
+    height: 450px;
+    width:500px;
+    margin:auto;
+    position: relative;
+    top:150px;
+    padding: 30px;
+    background-color:white;
+    border:1px solid gray;
+}
+.payment-popup .close-btn {
+    position: absolute;
+    top:10px;
+    right:20px;
+    font-size:25px;
+}
+.payment-popup .close-btn {
+    color: gray;
+}
+.payment-popup .close-btn:hover {
+    color:red;
+    cursor:pointer;
 }
 .card-type {
     position: relative;
@@ -30,17 +73,17 @@
 }
 .card-user-name {
     position: relative;
-    left: 120px;
+    left: 100px;
     bottom:47px;
 }
 .card-expiry-date {
     position: relative;
-    left:160px;
+    left:140px;
     top:63px;
 }
 .card-no {
     position: relative;
-    left:100px;
+    left:80px;
     top:103px;
 }
 .status {
@@ -63,4 +106,52 @@
 .transactions-tbl th, td{
     padding:10px;
     text-align: center;
+}
+
+.order-card {
+    border:1px solid lightgray;
+    border-radius: 5px;
+}
+.order-card:hover {
+    opacity:.8;
+    box-shadow: 4px 4px lightgray;
+}
+.order-card ul {
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    grid-auto-rows: minmax(70px,auto);
+}
+
+.order-card li {
+    /* outline:1px solid black; */
+    text-align: center;
+}
+
+.product-name {
+    font-size: 35px;
+    text-align: center;
+    align-self: center;
+    grid-row-start: 1;
+    grid-row-end: 3;
+}
+.amount-balance {
+    grid-row: 1/3;
+    align-self: center;
+}
+.installment-no {
+    align-self: center;
+}
+.product-price {
+    align-self: center;
+}
+.order-card .labels {
+    display: block;
+}
+.order-card .values {
+    font-style: italic;
+    color:red;
+}
+.pay-btn {
+    margin-top: 8px;
 }
