@@ -13,12 +13,12 @@ export class RegisterService {
   userId:string;
 
   register(user:User): Observable<Object>{
-    let url = "http://localhost:8223/registerUser";
+    let url = "http://localhost:8181/registerUser";
     return this.http.post(url,user);
   }
 
   documentsUpload(formData: FormData) : Observable<any> {
-    let url = "http://localhost:8223/documentsUpload";
+    let url = "http://localhost:8181/documentsUpload";
     return this.http.post(url, formData); 
   }
 

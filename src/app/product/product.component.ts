@@ -17,17 +17,17 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/product-description?id='+id);
   }
 
-  constructor(private router:Router) { 
-  this.products= [
-    new Product(383,"iphone 11","Apple iphone 11",49900,'assets/product-images/iphone8.jfif'),
-    new Product(385,"S21 Ultra","Samsung",50000,'assets/product-images/samsung.jpg')
-  ]} 
+  constructor(private router:Router) {} 
 
 }
 export class Product{
-  constructor(public id:number,
-    public name:string,
-    public description:string,
-    public price:number,
-    public imgUrl:string) {}
+  constructor(public productId:Number,
+    public productName:string,
+    public productDescription:string,
+    public productPrice:Number,
+    public productCategory:string,
+    public productImage:string
+    ) {}
 }
+
+

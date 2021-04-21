@@ -10,7 +10,8 @@ export class ProductService {
   constructor(private http: HttpClient) { }
 
   fetchProductDetails(productId:number): Observable<Object>{
-  let url="http://localhost:8181/product-description?productId="+productId;
+    console.log(productId);
+  let url="http://localhost:8188/product-description?productId="+productId;
   return this.http.get(url);
   }
 
