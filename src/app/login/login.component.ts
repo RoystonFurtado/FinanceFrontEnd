@@ -15,21 +15,31 @@ export class LoginComponent {
   password: string;
   passwordError: string;
   statusMessage: string;
+  loginType:String;
+  loginError:String;
 
   constructor(private router: Router, private http: HttpClient) { };
 
   login() {
     var validated = false;
+    if (this.loginType == null && validated) {
+      this.loginError = "Choose the login type";
+      validated = false;
+    }
+    else{
+      this.loginError = null;
+      validated = true;
+    }
     if (this.username == null || this.username.length == 0) {
       this.userNameError = "User name can't be empty";
       validated = false;
     }
-    else {
+    else{
       this.userNameError = null;
       validated = true;
     }
 
-    if (this.password == null || this.password.length == 0) {
+    if (validated && this.password == null || this.password.length == 0) {
       this.passwordError = "Password can't be empty";
       validated = false;
     }
@@ -39,7 +49,14 @@ export class LoginComponent {
     }
 
     if (validated) {
-      this.http.post("http://localhost:8181/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+      console.log()
+      if(this.loginType=="Admin"){
+        if(this.username=="admin" && this.password=="admin"){
+            this.redirectToAdminDashboard();
+        }
+      }
+      if(this.loginType=="User"){
+      this.http.post("http://localhost:8223/login", { "userName": this.username, "password": this.password }).subscribe(data => {
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
@@ -59,12 +76,15 @@ export class LoginComponent {
       //   this.router.navigateByUrl("/dashboard");
       // }
       
-
+    }
      }
   }
 
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
+  }
+  redirectToAdminDashboard(){
+    this.router.navigateByUrl('/admin-dashboard');
   }
 
 }

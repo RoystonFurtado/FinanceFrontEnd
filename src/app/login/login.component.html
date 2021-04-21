@@ -1,5 +1,9 @@
 <div class="logincontainer">
     <form class="container">
+        <label>Login Type:</label>
+        <input name="loginType" value="Admin" type="radio"  [(ngModel)]="loginType">Admin
+        <input name="loginType" value="User" type="radio"  [(ngModel)]="loginType">User
+        <div class="err" *ngIf="loginError">{{loginError}}</div>
         <div class="fg">
             <label for="uname"><b>Username</b></label>
             <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username">
