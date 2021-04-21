@@ -34,12 +34,12 @@ export class DashboardService {
 
 
   cardDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/cardInfo?userId="+userId;
+    let url = "http://localhost:8223/cardInfo?userId="+userId;
     return this.http.get(url);
   }
 
   emiCardTypeDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/emiCard?userId="+userId;
+    let url = "http://localhost:8223/emiCard?userId="+userId;
     return this.http.get(url);
   }
 

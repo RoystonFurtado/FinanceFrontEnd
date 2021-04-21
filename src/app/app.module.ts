@@ -13,6 +13,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProductDescriptionComponent } from './product-description/product-descr
     ForgetPasswordComponent,
     DocumentUploadComponent,
     ProductDescriptionComponent,
-    DisappearDirective
+    DisappearDirective,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
