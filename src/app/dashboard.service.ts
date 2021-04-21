@@ -5,14 +5,40 @@ import { HomeComponent } from './home/home.component';
 import { Observable } from 'rxjs';
 import { User } from './register/register.component';
 import { baseUrl } from './app.component';
+import { ActiveOrder } from './dashboard/dashboard.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
- 
-  constructor(private http: HttpClient) { }
+
+  userId: string;
+  constructor(private router: Router, private http: HttpClient) {
+    console.log(this.userId);
+    this.userId = sessionStorage.getItem("userId");
+    // if (this.userId == null) this.navigateToHome();
+    // else this.getOrderDetails()
+      ;
+   }
+
+  
+
+  // cardDetails(userId:Number): Observable<Object>{
+  //   let url = baseUrl+"/cardInfo?userId="+userId;
+  // }
+
+  navigateToHome() {
+    alert("Invalid Session");
+    this.router.navigateByUrl("/");
+  }
+
+  getOrderDetails() {
+    var url = baseUrl+"/recentOrders";
+    this.http.post(url, { "userId": this.userId });
+
+  }
+
 
   cardDetails(userId:Number): Observable<Object>{
     let url = baseUrl+"/cardInfo?userId="+userId;
@@ -22,6 +48,11 @@ export class DashboardService {
   emiCardTypeDetails(userId:Number): Observable<Object>{
     let url = baseUrl+"/emiCard?userId="+userId;
     return this.http.get(url);
+  }
+
+  pendingInstallmentDetails(userId:Number): Observable<ActiveOrder[]> {
+    let url = baseUrl+"/pendingInstallmentInfo?userId="+userId;
+    return this.http.get<ActiveOrder[]>(url);
   }
 
 

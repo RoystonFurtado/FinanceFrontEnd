@@ -1,13 +1,17 @@
 <div class="logincontainer">
     <form class="container">
+        <label>Login Type:</label>
+        <input name="loginType" value="Admin" type="radio"  [(ngModel)]="loginType">Admin
+        <input name="loginType" value="User" type="radio"  [(ngModel)]="loginType">User
+        <div class="err" *ngIf="loginError">{{loginError}}</div>
         <div class="fg">
             <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]=username>
+            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username">
             <div class="err" *ngIf="userNameError">{{userNameError}}</div>
         </div>
         <div class="fg">
             <label for="psw"><b>Password</b></label>
-            <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]=password>
+            <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="password">
             <div class="err" *ngIf="passwordError">{{passwordError}}</div>
         </div>
         <div class="psw"><a class="nu" href="/forget-password">Forgot password?</a>
