@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Observable } from 'rxjs';
 import { User } from './register/register.component';
+import { ActiveOrder } from './dashboard/dashboard.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +15,8 @@ export class DashboardService {
   constructor(private router: Router, private http: HttpClient) {
     console.log(this.userId);
     this.userId = sessionStorage.getItem("userId");
-    if (this.userId == null) this.navigateToHome();
-    else this.getOrderDetails()
+    // if (this.userId == null) this.navigateToHome();
+    // else this.getOrderDetails()
       ;
   }
 
@@ -33,13 +34,18 @@ export class DashboardService {
 
 
   cardDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/cardInfo?userId="+userId;
+    let url = "http://localhost:8223/cardInfo?userId="+userId;
     return this.http.get(url);
   }
 
   emiCardTypeDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/emiCard?userId="+userId;
+    let url = "http://localhost:8223/emiCard?userId="+userId;
     return this.http.get(url);
+  }
+
+  pendingInstallmentDetails(userId:Number): Observable<ActiveOrder[]> {
+    let url = "http://localhost:8181/pendingInstallmentInfo?userId="+userId;
+    return this.http.get<ActiveOrder[]>(url);
   }
 
 
