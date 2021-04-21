@@ -10,8 +10,9 @@ export class ProductService {
 
   constructor(private http: HttpClient) { }
 
-  fetchProduct() : Observable<Product>{
+  fetchProduct() : Observable<Product[]>{
     let url = "http://localhost:8181/product";
-    return this.http.get<Product>(url);
+    return this.http.get<Product[]>(url);
   }
+
 }
