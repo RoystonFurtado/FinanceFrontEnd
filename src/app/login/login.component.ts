@@ -62,6 +62,7 @@ export class LoginComponent {
           alert(data["message"]);
         }
         else {
+         sessionStorage.setItem("userId",data["loggedUserId"]);
           this.redirectToDashboard();
         }
       }, (e) => {
@@ -79,6 +80,7 @@ export class LoginComponent {
     }
      }
   }
+
 
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
