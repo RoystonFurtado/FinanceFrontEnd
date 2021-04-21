@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ProductDescriptionComponent } from './product-description/product-descr
     NavbarComponent,
     ForgetPasswordComponent,
     DocumentUploadComponent,
-    ProductDescriptionComponent
+    ProductDescriptionComponent,
+    OrderHistoryComponent
   ],
   imports: [
     BrowserModule,

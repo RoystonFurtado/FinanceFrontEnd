@@ -8,6 +8,7 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -17,7 +18,8 @@ const routes: Routes = [
   {path:'product-listing',component: ProductComponent},
   {path:'forget-password',component: ForgetPasswordComponent},
   {path:'document-upload',component: DocumentUploadComponent},
-  {path:'product-description',component:ProductDescriptionComponent}
+  {path:'product-description',component:ProductDescriptionComponent},
+  {path:'order-history',component:OrderHistoryComponent}
 ];
 
 @NgModule({

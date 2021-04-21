@@ -1,6 +1,5 @@
 .dashboard-container {
     width: 800px;
-    height: 700px;
 }
 .userDetailsBox {
     margin: auto;
@@ -63,4 +62,10 @@
 .transactions-tbl th, td{
     padding:10px;
     text-align: center;
+}
+
+
+.loginbtn{
+    display: block;
+    margin:auto;
 }

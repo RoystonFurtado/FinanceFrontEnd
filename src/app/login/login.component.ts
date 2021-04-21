@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
+import { baseUrl, Entity_UserId } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -39,13 +40,13 @@ export class LoginComponent {
     }
 
     if (validated) {
-      this.http.post("http://localhost:8223/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+      this.http.post(baseUrl+"/login", { "userName": this.username, "password": this.password }).subscribe(data => {
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
         else {
-         sessionStorage.setItem("userId",data["loggedUserId"]);
+         sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
           this.redirectToDashboard();
         }
       }, (e) => {

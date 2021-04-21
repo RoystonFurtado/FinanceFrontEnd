@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseUrl } from './app.component';
 import { User } from './register/register.component';
 
 @Injectable({
@@ -13,12 +14,12 @@ export class RegisterService {
   userId:string;
 
   register(user:User): Observable<Object>{
-    let url = "http://localhost:8223/registerUser";
+    let url = baseUrl+"/registerUser";
     return this.http.post(url,user);
   }
 
   documentsUpload(formData: FormData) : Observable<any> {
-    let url = "http://localhost:8223/documentsUpload";
+    let url = baseUrl+"/documentsUpload";
     return this.http.post(url, formData); 
   }
 

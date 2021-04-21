@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Entity_UserId } from '../app.component';
 
 @Component({
   selector: 'app-product',
@@ -10,7 +11,7 @@ export class ProductComponent implements OnInit {
   products:Product[];
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('UserId'));
+    console.log(sessionStorage.getItem(Entity_UserId));
   }
 
   redirectToDescription(id:any){

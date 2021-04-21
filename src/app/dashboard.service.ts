@@ -4,41 +4,23 @@ import { Router } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { Observable } from 'rxjs';
 import { User } from './register/register.component';
+import { baseUrl } from './app.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DashboardService {
 
-  userId: string;
-  constructor(private router: Router, private http: HttpClient) {
-    console.log(this.userId);
-    this.userId = sessionStorage.getItem("userId");
-    if (this.userId == null) this.navigateToHome();
-    else this.getOrderDetails()
-      ;
-  }
-
-
-  navigateToHome() {
-    alert("Invalid Session");
-    this.router.navigateByUrl("/");
-  }
-
-  getOrderDetails() {
-    var url = "http://localhost:8223/recentOrders";
-    this.http.post(url, { "userId": this.userId });
-
-  }
-
+ 
+  constructor(private http: HttpClient) { }
 
   cardDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/cardInfo?userId="+userId;
+    let url = baseUrl+"/cardInfo?userId="+userId;
     return this.http.get(url);
   }
 
   emiCardTypeDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8181/emiCard?userId="+userId;
+    let url = baseUrl+"/emiCard?userId="+userId;
     return this.http.get(url);
   }
 

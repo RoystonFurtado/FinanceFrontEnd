@@ -51,9 +51,8 @@ export class DashboardComponent implements OnInit{
     this.router.navigateByUrl('/product-listing');
 
   }
+  getOrderDetails() {
+    this.router.navigateByUrl('/order-history');
+  }
 }
 
-
-class Products{
-
-}
