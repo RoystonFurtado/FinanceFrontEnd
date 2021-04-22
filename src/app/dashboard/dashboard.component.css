@@ -31,7 +31,7 @@
 .card-details p{
 
 }
-.payment-overlay {
+.order-overlay {
     /* background-color: lightgreen; */
     z-index: 1;
     position:fixed;
@@ -41,10 +41,9 @@
     left:0;
     background-color: rgba(0,0,0,.4);
 }
-.payment-popup {
+.order-popup, .payment-popup {
     animation-name: slide-effect;
     animation-duration: .5s;
-    height: 450px;
     width:500px;
     margin:auto;
     position: relative;
@@ -53,16 +52,20 @@
     background-color:white;
     border:1px solid gray;
 }
-.payment-popup .close-btn {
+.order-popup {
+    height: 550px;
+}
+.payment-popup {
+    height: 350px;
+}
+.close-btn {
     position: absolute;
     top:10px;
     right:20px;
     font-size:25px;
-}
-.payment-popup .close-btn {
     color: gray;
 }
-.payment-popup .close-btn:hover {
+.close-btn:hover {
     color:red;
     cursor:pointer;
 }
@@ -73,7 +76,7 @@
 }
 .card-user-name {
     position: relative;
-    left: 100px;
+    left: 60px;
     bottom:47px;
 }
 .card-expiry-date {
@@ -115,6 +118,7 @@
 .order-card:hover {
     opacity:.8;
     box-shadow: 4px 4px lightgray;
+    cursor: pointer;
 }
 .order-card ul {
     list-style-type: none;
@@ -154,4 +158,7 @@
 }
 .pay-btn {
     margin-top: 8px;
+}
+.pay-btn[disabled] {
+    background-color: lightgray;
 }

@@ -34,18 +34,28 @@ export class DashboardService {
 
 
   cardDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8223/cardInfo?userId="+userId;
+    let url = "http://localhost:8181/cardInfo?userId="+userId;
     return this.http.get(url);
   }
 
   emiCardTypeDetails(userId:Number): Observable<Object>{
-    let url = "http://localhost:8223/emiCard?userId="+userId;
+    let url = "http://localhost:8181/emiCard?userId="+userId;
     return this.http.get(url);
   }
 
   pendingInstallmentDetails(userId:Number): Observable<ActiveOrder[]> {
     let url = "http://localhost:8181/pendingInstallmentInfo?userId="+userId;
     return this.http.get<ActiveOrder[]>(url);
+  }
+
+  updateInstallmentPhase(userId:Number) {
+    let url = "http://localhost:8181/checkInstallmentPhase?userId="+userId;
+    return this.http.get(url);
+  }
+
+  makePayment(orderId:Number) {
+    let url = "http://localhost:8181/makePayment?orderId="+orderId;
+    return this.http.get(url);
   }
 
 
