@@ -17,8 +17,11 @@
 
             <input type="radio"  required name="emiOptions" value="12 Months" ngModel>12 Months<br/><br/>
 
+            <div *ngIf="emiError">{{emiError}}
+            </div>
+
         </form>
-        <button class="description-btn" >Buy</button>
+        <button class="description-btn" (click)="buy()">Buy</button>
 
         
     </div>

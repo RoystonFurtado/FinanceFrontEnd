@@ -9,6 +9,9 @@ import { Product } from '../product/product.component';
   styleUrls: ['./product-description.component.css']
 })
 export class ProductDescriptionComponent  {
+ validated:boolean;
+ emiError:string;
+  order:Order;
   product:Product;
   id:number;
   name:string;
@@ -16,16 +19,16 @@ export class ProductDescriptionComponent  {
   price:number;
   image:string;
   category:string;
+  tenure:string;
   constructor( private route: ActivatedRoute,private router:Router,private productService:ProductService){
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
-      console.log("vivek"+this.id);
+      
   });
 
   this.productService.fetchProductDetails(this.id).subscribe(response=>{
 
     this.description=response['productDescription'];
-    console.log(this.description);
     this.name=response['productName'];
     this.price=response['productPrice'];
     this.image=response['productImage'];
@@ -37,7 +40,30 @@ export class ProductDescriptionComponent  {
   });
 
   };
+
+  buy(){
+    if(this.validated){
+
+     
+      }
+      else{
+      this.emiError="Select the tenure period";
+      }
+    }
  
+    }
+
+ 
+
+export class Order{
+  constructor(public amountPaid: Number,
+              public tenurePeriod:Number,
+              public purchaseDate:Date,
+              public amountBalance:Number,
+              public EMIMonthsPaid:Number,
+              public orderStatus:string,
+              public monthlyEMIAmount:Number){}
+              
 }
 
  
