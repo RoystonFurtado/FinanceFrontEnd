@@ -28,9 +28,7 @@
 .userDetailsBox :not(.status) {
     padding: 7px 10px ;
 }
-.card-details p{
 
-}
 .order-overlay {
     /* background-color: lightgreen; */
     z-index: 1;
@@ -111,6 +109,11 @@
     text-align: center;
 }
 
+
+.loginbtn{
+    display: block;
+    margin:auto;
+}
 .order-card {
     border:1px solid lightgray;
     border-radius: 5px;

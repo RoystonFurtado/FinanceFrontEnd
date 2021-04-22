@@ -106,6 +106,10 @@ export class DashboardComponent implements OnInit{
 
   }
 
+  getOrderDetails() {
+    this.router.navigateByUrl('/order-history');
+  }
+
   redirectToProducts() {
     this.router.navigateByUrl('/product-listing');
   }

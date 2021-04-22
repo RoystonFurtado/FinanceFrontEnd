@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Entity_UserId } from '../app.component';
 
 @Component({
   selector: 'app-product',
@@ -10,29 +11,24 @@ export class ProductComponent implements OnInit {
   products:Product[];
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem('UserId'));
+    console.log(sessionStorage.getItem(Entity_UserId));
   }
 
   redirectToDescription(id:any){
     this.router.navigateByUrl('/product-description?id='+id);
   }
 
-  constructor(private router:Router) { 
-  this.products= [
-    new Product(111,"iphone 11","Apple iphone 11",49900,'assets/product-images/iphone8.jfif'),
-    new Product(222,"S21 Ultra","Samsung",149900,'assets/product-images/samsung.jpg'),
-    new Product(333,"maczbook","Apple mackbook",99900,'assets/product-images/appleMacBook.jpg'),
-    new Product(444,"Rockers 555 pro","Bluetooth earphones",1650,'assets/product-images/rockerz.jpg'),
-    new Product(555,"GoldTech TG113 Super Bass","Bluetooth speaker",3500,'assets/product-images/speaker.jpg')
-  ]}
-  
+  constructor(private router:Router) {} 
 
 }
-
 export class Product{
-  constructor(public id:number,
-    public name:string,
-    public description:string,
-    public price:number,
-    public imgUrl:string) { }
+  constructor(public productId:Number,
+    public productName:string,
+    public productDescription:string,
+    public productPrice:Number,
+    public productCategory:string,
+    public productImage:string
+    ) {}
 }
+
+

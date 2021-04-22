@@ -1,4 +1,5 @@
 <div class="dashboard-container main-container">
+    <button class="btn btn1" (click)="getOrderDetails()">Product Purchased</button>
 <div class="userDetailsBox">
     <p class="card-no">{{cardNo}}</p>
     <p class="card-expiry-date">{{exp}}</p>
@@ -53,6 +54,12 @@
             <li class="due-date"><span *ngIf="!activeOrder.pending">Current Installment Paid</span> <span [hidden]="!activeOrder.pending">Pay Before:</span> <span [hidden]="!activeOrder.pending" class="values">{{dueDates[i]}}</span><span><button [disabled]="!activeOrder.pending" class="btn pay-btn" name="payButton" (click)="showBox($event,activeOrder,i)">Pay Now</button></span></li>
         </ul>
     </div>
+    <!-- <div class="products-purchased">
+        <h2 class="products-header">Products Purchased</h2>
+    </div>
+    </div> -->
+
+    <!-- <app-order-history></app-order-history> -->
 </div>
 
-</div>
+

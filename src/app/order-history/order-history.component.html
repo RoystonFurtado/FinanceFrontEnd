@@ -1,0 +1,32 @@
+<div>
+    <h2>Recent Orders</h2>
+    <p class="container" *ngIf="message">{{message}}</p>
+    <div class="container" *ngIf="orders">
+        <div class="card" *ngFor="let o of orders">
+            <img class="img" src={{o.product.productImage}} alt="Product Image" />
+            <h3>{{o.product.productName}}</h3>
+            <h5>{{o.product.productDescription}}</h5>
+            <h4>₹ {{o.product.productPrice}}</h4>
+            <button class="btn" (click)="redirectToDescription(o.product.productId)">Buy Again</button>
+        </div>
+    </div>
+</div>
+<hr />
+<div *ngIf="transactions.length != 0">
+    <h2>Recent Transaction</h2>
+    <div></div>
+    <div class="container">
+        <table class="transactions-tbl" cell>
+            <tr>
+                <th>Product</th>
+                <th>Date</th>
+                <th>Amount Paid</th>
+            </tr>
+            <tr *ngFor="let t of filteredTranscations">
+                <td>{{t.productName}}</td>
+                <td>{{fd(t.paymentDate,"'dd/MM/yyyy","en-US")}}</td>
+                <td>{{t.paymentAmount}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
