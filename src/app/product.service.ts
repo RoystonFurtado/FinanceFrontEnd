@@ -15,4 +15,8 @@ export class ProductService {
     return this.http.get<Product[]>(url);
   }
 
+  fetchByCategory(productCategory: String) : Observable<Product[]>{
+    let url = "http://localhost:8181/categories?productCategory="+productCategory;
+    return this.http.get<Product[]>(url);
+  }
 }
