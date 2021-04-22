@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseUrl } from './app.component';
 import { User } from './register/register.component';
 
 @Injectable({
@@ -14,22 +15,22 @@ export class AdminDashboardService {
 
    fetchUser(userName : String):Observable<Object>{
      console.log(userName);
-    let url = "http://localhost:8223/adminDashboard?userName="+userName;
+    let url = baseUrl+"/adminDashboard?userName="+userName;
     return this.http.get(url);
 
    }
    acceptUser(userName:String):Observable<Object>{
      console.log(userName);
-     let url = "http://localhost:8223/acceptUser?userName="+userName;
+     let url = baseUrl+"/acceptUser?userName="+userName;
      return this.http.get(url);
    }
    rejectUser(userName:String):Observable<Object>{
-     let url ="http://localhost:8223/rejectUser?userName="+userName;
+     let url =baseUrl+"/rejectUser?userName="+userName;
      return this.http.get(url);
    }
 
    fetchUsers():Observable<User[]>{
-    let url1 = "http://localhost:8223/adminDashboardAll";
+    let url1 = baseUrl+"/adminDashboardAll";
     console.log(url1);
      return this.http.get<User[]>(url1);
    }

@@ -6,7 +6,7 @@
 .container{
     padding: 10px;
     display: grid;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto auto auto;
     align-items: center;
 }
 
@@ -16,8 +16,7 @@
     margin: 8px;   
     border: 1px solid gray;
     border-radius: 8px;
-    background-color: aquamarine
-    ;
+    background-color: aquamarine;
 }
 .transactions-tbl, th,td {
     border:1px solid black;

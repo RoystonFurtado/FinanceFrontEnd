@@ -1,4 +1,5 @@
 <div class="dashboard-container main-container">
+    <button class="btn btn1" (click)="getOrderDetails()">Product Purchased</button>
 <div class="userDetailsBox">
     <p class="card-no">{{cardNo}}</p>
     <p class="card-expiry-date">{{exp}}</p>
@@ -11,14 +12,12 @@
     <p>Remaining Credit:<span class="values">{{cardBalance}}</span></p>
     <!-- <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button> -->
 </div>
-<div class="products-purchased">
-    <h2 class="products-header">Products Purchased</h2>
-    <app-order-history></app-order-history>
+
         <!-- <p>ProductName:{{productName}}</p> -->
     <!-- <p>Product Price:{{productPrice}}</p>
     <p>Amount Paid:{{amountPaid}}</p>
     <p>Amount Balance:{{amountBalance}}</p> -->
-</div>
+
 <!-- <table class="transactions-tbl" cell>
     <tr>
         <th>Product</th>
@@ -31,7 +30,7 @@
         <td>{{amountPaid}}</td>
     </tr>
 </table> -->
-</div>
+
 
 <div *ngIf="showPaymentPopup===true" class="payment-overlay">
     <div class="payment-popup" (disappear)="hidePaymentBox()">
@@ -60,6 +59,12 @@
             <!-- <li><button class="btn">Pay Now</button></li> -->
         </ul>
     </div>
+    <!-- <div class="products-purchased">
+        <h2 class="products-header">Products Purchased</h2>
+    </div>
+    </div> -->
+
+    <!-- <app-order-history></app-order-history> -->
 </div>
 
 
