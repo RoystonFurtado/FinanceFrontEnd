@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Entity_UserId } from '../app.component';
 import { RegisterService } from '../register.service';
 
 @Component({
@@ -38,7 +39,7 @@ export class DocumentUploadComponent {
     formData.append('cancelledCheque',this.cancelledCheque);
     this.registerService.documentsUpload(formData).subscribe(response=> {
       if(response.status===true) {
-        sessionStorage.setItem("userId",this.userId);
+        sessionStorage.setItem(Entity_UserId,this.userId);
         this.router.navigateByUrl('/product-listing');
       }
     });

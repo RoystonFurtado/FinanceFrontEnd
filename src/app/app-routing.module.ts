@@ -8,7 +8,9 @@ import { LoginComponent } from './login/login.component';
 import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './register/register.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 import { AdminDashboardComponent} from './admin-dashboard/admin-dashboard.component';
+
 const routes: Routes = [
   {path:'',component: HomeComponent},
   {path:'login',component: LoginComponent},
@@ -18,6 +20,7 @@ const routes: Routes = [
   {path:'forget-password',component: ForgetPasswordComponent},
   {path:'document-upload',component: DocumentUploadComponent},
   {path:'product-description',component:ProductDescriptionComponent},
+  {path:'order-history',component:OrderHistoryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent}
 ];
 

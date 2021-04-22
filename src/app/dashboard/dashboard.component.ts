@@ -45,7 +45,7 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit():void {
     //Get card details
-    this.dashboardService.cardDetails(10021).subscribe(response=>{
+    this.dashboardService.cardDetails(10056).subscribe(response=>{
       this.cardNo=response['cardNo'];
       this.expiryDate=response['cardExpiryDate'];
       let d=new Date(this.expiryDate);
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit{
     });
 
     //Get Emi Card Type Details
-    this.dashboardService.emiCardTypeDetails(10021).subscribe(response=>{
+    this.dashboardService.emiCardTypeDetails(10056).subscribe(response=>{
       this.cardType=response['cardType'];
       this.cardLimit=response['cardLimit'];
     });
@@ -64,6 +64,10 @@ export class DashboardComponent implements OnInit{
       this.activeOrders=response;
       console.log(this.activeOrders);
     });
+  }
+
+  getOrderDetails() {
+    this.router.navigateByUrl('/order-history');
   }
 
   redirectToProducts() {
