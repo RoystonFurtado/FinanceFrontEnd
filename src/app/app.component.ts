@@ -8,3 +8,6 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'FinanceFrontEnd';
 }
+
+export var baseUrl = "http://localhost:8223";
+export var Entity_UserId = "userId"; 

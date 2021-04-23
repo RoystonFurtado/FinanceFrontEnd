@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
+import { DashboardComponent, DisappearDirective } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
@@ -17,6 +16,8 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { AdminPendingListComponent } from './admin-pending-list/admin-pending-list.component';
 import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,11 @@ import { AddProductComponent } from './add-product/add-product.component';
     AdminDashboardComponent,
     AdminPendingListComponent,
     AdminAcceptedListComponent,
-    AddProductComponent
+    AddProductComponent,
+    ProductDescriptionComponent,
+    OrderHistoryComponent,
+    DisappearDirective,
+    AdminDashboardComponent
   ],
   imports: [
     BrowserModule,
