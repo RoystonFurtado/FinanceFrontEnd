@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Entity_UserId } from '../app.component';
+
 import { ProductService } from '../product.service';
+
 
 @Component({
   selector: 'app-product',
@@ -14,13 +17,7 @@ export class ProductComponent implements OnInit {
   products:Product[];
 
    ngOnInit(): void {
-
-//     this.productId = parseInt(sessionStorage.getItem('productId'));
-//     this.productService.fetchProduct().subscribe(response =>{
-//     this.products = response;
-//     console.log(this.products);
-//     })
-//     console.log(sessionStorage.getItem('userId'));
+    console.log(sessionStorage.getItem(Entity_UserId));
   }
 
   constructor(private productService: ProductService, private router:Router) { 
@@ -41,19 +38,35 @@ export class ProductComponent implements OnInit {
       console.log(this.products);
       })
   }
+  fetchByLowToHighPrice(){
+    this.productService.fetchByLowToHighPrice().subscribe( response =>{
+      this.products = response;
+      console.log(this.products);
+      })
+  }
+
+  fetchByHighToLowPrice(){
+    this.productService.fetchByHighToLowPrice().subscribe( response =>{
+      this.products = response;
+      console.log(this.products);
+      })
+  }
+
   redirectToDescription(id:any){
     this.router.navigateByUrl('/product-description?id='+id);
   }
-
 }
-
 export class Product{
-  constructor(public productId:number,
+
+  constructor(public productId:Number,
     public productName:string,
     public productDescription:string,
     public productCategory:string,
-    public productPrice:number,
+    public productPrice:Number,
     public productImage:string) { }
+
+  
+
 }
 
 

@@ -1,0 +1,31 @@
+.loginbtn{
+    display: block;
+    margin:auto;
+}
+
+.container{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    align-items: center;
+}
+
+.card{
+    text-align: center;
+    padding: 8px;   
+    margin: 8px;   
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: aquamarine;
+}
+.transactions-tbl, th,td {
+    border:1px solid black;
+    border-collapse: collapse;
+    width: 500px;
+    height: 30px;
+}
+.transactions-tbl th, td{
+    padding:10px;
+    text-align: center;
+    background-color: rgb(69, 143, 228);
+}

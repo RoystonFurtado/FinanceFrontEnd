@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
@@ -15,6 +14,7 @@ import { ForgetPasswordComponent } from './forget-password/forget-password.compo
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
+import { OrderHistoryComponent } from './order-history/order-history.component';
 
 @NgModule({
   declarations: [
@@ -28,6 +28,7 @@ import { ProductDescriptionComponent } from './product-description/product-descr
     ForgetPasswordComponent,
     DocumentUploadComponent,
     ProductDescriptionComponent,
+    OrderHistoryComponent,
     DisappearDirective,
     AdminDashboardComponent
   ],
