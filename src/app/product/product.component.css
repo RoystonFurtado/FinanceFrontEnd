@@ -1,13 +1,46 @@
 .card{
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-    max-width: 350px;
-    margin: auto;
+    width: 300px;
+    height: 400px;
     text-align: center;
     font-family: arial;
-    display: inline-block;
-    margin-right: 15px;
+    margin: auto;
     padding: 10px;
 }
+.card img{
+
+    width: 100px;
+    height: 150px;
+}
+.tab {
+    float: left;
+    border: 1px solid #ccc;
+    background-color: #f1f1f1;
+    width: 150px;
+  }
+
+  .tab button {
+    display: block;
+    background-color: inherit;
+    color: black;
+    padding: 22px 16px;
+    width: 100%;
+    border: none;
+    outline: none;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 17px;
+  }
+
+  .tabcontent {
+    float: left;
+    padding: 0px 12px;
+    border: 1px solid #ccc;
+    display: grid;
+    grid-template-columns: auto auto;
+    border-left: none;
+  }
 .products{
     margin-left: 200px;
 }

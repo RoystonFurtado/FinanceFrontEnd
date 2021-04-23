@@ -1,5 +1,9 @@
+
 import { getLocaleDateFormat } from '@angular/common';
-import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
+import { Component, OnInit } from '@angular/core';
+
 import { ActivatedRoute,Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product/product.component';
@@ -62,7 +66,7 @@ export class ProductDescriptionComponent  {
     this.category=response['productCategory'];
 
     this.product= new Product(this.id,this.name,this.description,this.price,this.category,this.image);
-   
+
   });
 
  

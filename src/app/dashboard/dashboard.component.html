@@ -13,50 +13,45 @@
     <!-- <button class="buy-products-btn btn" (click)="redirectToProducts()">Buy Products</button> -->
 </div>
 
-        <!-- <p>ProductName:{{productName}}</p> -->
-    <!-- <p>Product Price:{{productPrice}}</p>
-    <p>Amount Paid:{{amountPaid}}</p>
-    <p>Amount Balance:{{amountBalance}}</p> -->
-
-<!-- <table class="transactions-tbl" cell>
-    <tr>
-        <th>Product</th>
-        <th>Date</th>
-        <th>Amount Paid</th>
-    </tr>
-    <tr>
-        <td>{{productName}}</td>
-        <td>{{purchaseDate}}</td>
-        <td>{{amountPaid}}</td>
-    </tr>
-</table> -->
-
-
-<div *ngIf="showPaymentPopup===true" class="payment-overlay">
-    <div class="payment-popup" (disappear)="hidePaymentBox()">
+<div *ngIf="showOrderPopup===true" class="order-overlay">
+    <div class="order-popup" (disappear)="hideOrderBox()">
         <span class="close-btn">&times;</span>
+        <h1>Order Info</h1>
         <p>Order Id:{{selectedOrder.orderId}}</p>
         <p>Product Name:{{selectedOrder.productName}}</p>
         <p>Product Price:{{selectedOrder.productPrice}}</p>
         <p>EMI Months Paid:{{selectedOrder.emiMonthsPaid}}</p>
         <p>Monthly EMI Amount:{{selectedOrder.monthlyEmiAmount}}</p>
-        <p>Tenure Period:{{selectedOrder.tenurePeriod}}</p>
+        <p>Tenure Period:{{selectedOrder.tenurePeriod}} Months</p>
         <p>Purchase Date:{{selectedOrder.purchaseDate}}</p>
         <p>Amount Paid:{{selectedOrder.amountPaid}}</p>
         <p>Amount Balance:{{selectedOrder.amountBalance}}</p>
+        <p>Pending Installment No:{{selectedOrder.installmentNo}}</p>
+        <p>Due Date:{{selectedDueDate}}</p>
+    </div>
+</div>
+<div *ngIf="showPaymentPopup" class="order-overlay">
+    <div class="payment-popup" (disappear)="hidePaymentBox()">
+        <span class="close-btn">&times;</span>
+        <h1>Payment Confirmation</h1>
+        <p>Product Name:{{paymentOrder.productName}}</p>
+        <p>Installment No:{{paymentOrder.installmentNo}}</p>
+        <p>Due Date:{{paymentDueDate}}</p>
+        <p>Payment Amount:{{paymentOrder.monthlyEmiAmount}}</p>
+        <p>Late Payment Fine:{{paymentOrder.fine}}</p>
+        <button class="btn" (click)=pay(paymentOrder.orderId)>Pay Now</button>
     </div>
 </div>
 
 <div *ngIf="activeOrders" class="orders-container">
-    <div *ngFor="let activeOrder of activeOrders" class="order-card">
+    <div *ngFor="let activeOrder of activeOrders; let i=index" class="order-card" name="orderInfo" (click)="showBox($event,activeOrder)">
         <ul>
             <li class="product-name">{{activeOrder.productName}}</li>
             <li class="product-price"><span class="labels">Price</span><span class=values>{{activeOrder.productPrice}}</span></li>
-            <li class="installment-no">Installment {{activeOrder.installmentNo}} Pending</li>
+            <li class="installment-no"><span *ngIf="!activeOrder.pending">No Pending Installment</span><span [hidden]="!activeOrder.pending">Installment {{activeOrder.installmentNo}} Pending</span></li>
             <li class="amount-balance"><span class="labels">Amount Remaining</span><span class="values">{{activeOrder.amountBalance}}</span></li>
             <li class="monthly-emi-amount"><span class="labels">EMI Amount</span><span class="values">{{activeOrder.monthlyEmiAmount}}/per month</span></li>
-            <li class="due-date">Pay Before <span class="values">{{activeOrder.dueDate}}</span><span><button class="btn pay-btn" (click)="showPaymentBox(activeOrder)">Pay Now</button></span></li>
-            <!-- <li><button class="btn">Pay Now</button></li> -->
+            <li class="due-date"><span *ngIf="!activeOrder.pending">Current Installment Paid</span> <span [hidden]="!activeOrder.pending">Pay Before:</span> <span [hidden]="!activeOrder.pending" class="values">{{dueDates[i]}}</span><span><button [disabled]="!activeOrder.pending" class="btn pay-btn" name="payButton" (click)="showBox($event,activeOrder,i)">Pay Now</button></span></li>
         </ul>
     </div>
     <!-- <div class="products-purchased">

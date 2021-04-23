@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ForgetPasswordComponent } from './forget-password/forget-password.component';
 import { DocumentUploadComponent } from './document-upload/document-upload.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import { AdminPendingListComponent } from './admin-pending-list/admin-pending-list.component';
+import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
+import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
@@ -28,6 +31,10 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     NavbarComponent,
     ForgetPasswordComponent,
     DocumentUploadComponent,
+    AdminDashboardComponent,
+    AdminPendingListComponent,
+    AdminAcceptedListComponent,
+    AddProductComponent,
     ProductDescriptionComponent,
     OrderHistoryComponent,
     DisappearDirective,

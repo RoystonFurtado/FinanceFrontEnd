@@ -10,6 +10,9 @@ import { RegisterComponent } from './register/register.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { AdminDashboardComponent} from './admin-dashboard/admin-dashboard.component';
+import { AdminPendingListComponent } from './admin-pending-list/admin-pending-list.component';
+import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -20,6 +23,10 @@ const routes: Routes = [
   {path:'forget-password',component: ForgetPasswordComponent},
   {path:'document-upload',component: DocumentUploadComponent},
   {path:'product-description',component:ProductDescriptionComponent},
+  {path:'admin-dashboard',component:AdminDashboardComponent},
+  {path:'admin-pending-list',component:AdminPendingListComponent},
+  {path:'admin-accepted-list',component:AdminAcceptedListComponent},
+  {path:'add-product',component:AddProductComponent},
   {path:'order-history',component:OrderHistoryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent}
 ];
