@@ -6,23 +6,40 @@
         <p>Product Name:{{product.productName}} </p>
         <p>Product Details:{{product.productDescription}}  <br/></p>
         <p>Product Price:{{product.productPrice}} </p>
+
+        <div *ngIf="orderOverviewPopup==true" class="order-overlay">
+            <div class="order-popup" (OrderDisappear)="hideOrderPopup()">
+                <span class="close-btn">&times;</span>
+
+                 <p>Product Id:{{product.productId}}</p>
+                <p>Product Name:{{product.productName}}</p>
+                <p>Product Price:{{product.productPrice}}</p>
+                <p>Purchase Date:{{this.myDate}}</p>
+                <p>Tenure Period:{{this.tenurePeriod}}</p>
+                <p>Monthly EMI Amount:{{this.amount}}</p>
+              
+                
+                <button class="orderPlacement" (click)="placeOrder">Place Order</button>
+            </div>
+        </div>
     
         <form>
             <label>EMI Period</label><br/>
-            <input type="radio" required name="emiOptions" value="3 Months" ngModel>3 Months<br/><br/>
+            <input type="radio" required name="emiOptions" value="3 Months" [(ngModel)]=this.tenurePeriod>3 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="6 Months" ngModel>6 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="6 Months" [(ngModel)]=this.tenurePeriod>6 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="9 Months" ngModel>9 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="9 Months" [(ngModel)]=this.tenurePeriod>9 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="12 Months" ngModel>12 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="12 Months" [(ngModel)]=this.tenurePeriod>12 Months<br/><br/>
 
             <div *ngIf="emiError">{{emiError}}
             </div>
 
         </form>
-        <button class="description-btn" (click)="buy()">Buy</button>
-
+        <button class="description-btn" (click)="showOrderPopup()">Buy</button>
+       
+         
         
     </div>
 </div>

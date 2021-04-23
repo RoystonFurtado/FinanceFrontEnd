@@ -8,14 +8,14 @@ import { DashboardService } from '../dashboard.service';
 export class DisappearDirective {
   @Output() disappear = new EventEmitter<MouseEvent>();
   constructor(private elementRef:ElementRef) {}
-  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) {
-    const targetElement=event.target as HTMLElement;
+  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) { //$event 
+    const targetElement=event.target as HTMLElement; //Exactly where the user clicked  stored in target element
     const paybtn=document.getElementsByClassName('orders-container')[0];
     //const editbtn=document.getElementsByClassName('contacts-container')[0];
     const closebtn=document.getElementsByClassName('close-btn')[0];
     // const cancelbtn=document.getElementsByClassName('cancel-btn')[0];
     //When clicked anywhere outside add contact box, addcontactbutton and edit contact button(to avoid first click), emit disappear event
-    if( (!(this.elementRef.nativeElement.contains(targetElement))) && !(paybtn.contains(targetElement)) || closebtn.contains(targetElement) )
+    if( (!(this.elementRef.nativeElement.contains(targetElement)))  && !(paybtn.contains(targetElement))|| closebtn.contains(targetElement) )
       this.disappear.emit(event);
   }
 }

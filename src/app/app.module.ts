@@ -16,6 +16,7 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +32,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     OrderHistoryComponent,
     DisappearDirective,
     AdminDashboardComponent
+   
   ],
   imports: [
     BrowserModule,

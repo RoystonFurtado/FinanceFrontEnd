@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import {Order} from  './product-description/product-description.component';
+import { Order } from './order-history/order-history.component';
+
 
 
 @Injectable({
@@ -21,8 +22,5 @@ export class ProductService {
     let url="http://localhost:8188/order";
     return this.http.post(url,order);
   }
-
-
-
 
 }
