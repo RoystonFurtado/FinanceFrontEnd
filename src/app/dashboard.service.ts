@@ -55,5 +55,15 @@ export class DashboardService {
     return this.http.get<ActiveOrder[]>(url);
   }
 
+  updateInstallmentPhase(userId:Number) {
+    let url = baseUrl+"/checkInstallmentPhase?userId="+userId;
+    return this.http.get(url);
+  }
+
+  makePayment(orderId:Number) {
+    let url = baseUrl+"/makePayment?orderId="+orderId;
+    return this.http.get(url);
+  }
+
 
 }
