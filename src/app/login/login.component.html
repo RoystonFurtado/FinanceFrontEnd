@@ -1,13 +1,13 @@
-<div class="logincontainer">
+ng<div class="logincontainer">
     <form class="container">
         <label>Login Type:</label>
         <input name="loginType" value="Admin" type="radio"  [(ngModel)]="loginType">Admin
         <input name="loginType" value="User" type="radio"  [(ngModel)]="loginType">User
         <div class="err" *ngIf="loginError">{{loginError}}</div>
         <div class="fg">
-            <label for="uname"><b>Username</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="username">
-            <div class="err" *ngIf="userNameError">{{userNameError}}</div>
+            <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="email">
+            <div class="err" *ngIf="emailError">{{emailError}}</div>
         </div>
         <div class="fg">
             <label for="psw"><b>Password</b></label>
