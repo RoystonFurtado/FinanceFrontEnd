@@ -1,0 +1,32 @@
+<div class="register-container main-container">
+    <form (ngSubmit)="insertProduct()">
+          <label>Product name</label>
+
+          <input name="productName"  required type="text"   [(ngModel)]="product.productName"/><br/>
+          <div class="err" *ngIf="NameError">{{NameError}}</div><br/>
+
+
+          <label>Description</label>
+          <input name="description"  required type="text"   [(ngModel)]="product.productDescription"/><br/>
+          <div class="err" *ngIf="DescError">{{DescError}}</div><br/>
+
+          <label>price</label>
+          <input name="price"  required  type="number" [(ngModel)]="product.productPrice"/><br/>
+          <div class="err" *ngIf="PriceError">{{PriceError}}</div><br/>
+
+          
+          <label>Category:</label>
+
+          <input name="category" value="Mobile" type="radio"  [(ngModel)]="product.productCategory">Mobile<br/><br/>
+          <input name="category" value="AC" type="radio"  [(ngModel)]="product.productCategory">Air Conditioner<br/><br/>
+          <div class="err" *ngIf="CategoryError">{{CategoryError}}</div>
+
+          <label>Product Image:</label>
+        <input type="file" name="image" (change)="onFileChange($event)">
+
+          <button class="btn" type="submit">insert</button>
+    </form>
+</div>
+
+
+

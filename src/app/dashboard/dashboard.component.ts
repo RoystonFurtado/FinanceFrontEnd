@@ -67,7 +67,7 @@ export class DashboardComponent implements OnInit{
 
   ngOnInit():void {
     //Get card details
-    this.dashboardService.cardDetails(10056).subscribe(response=>{
+    this.dashboardService.cardDetails(10032).subscribe(response=>{
       this.cardNo=response['cardNo'];
       this.expiryDate=response['cardExpiryDate'];
       let d=new Date(this.expiryDate);
@@ -77,7 +77,7 @@ export class DashboardComponent implements OnInit{
     });
 
     //Get Emi Card Type Details
-    this.dashboardService.emiCardTypeDetails(10056).subscribe(response=>{
+    this.dashboardService.emiCardTypeDetails(10032).subscribe(response=>{
       this.cardType=response['cardType'];
       this.cardLimit=response['cardLimit'];
     });

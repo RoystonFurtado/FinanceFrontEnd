@@ -1,3 +1,4 @@
+import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ProductService } from '../product.service';
@@ -35,7 +36,7 @@ export class ProductDescriptionComponent  {
     this.category=response['productCategory'];
     
   
-    this.product= new Product(this.id,this.name,this.description,this.price,this.category,this.image);
+   //this.product= new Product(this.id,this.description,this.name,this.price,this.image,this.category);
     console.log(this.product);
   });
 
