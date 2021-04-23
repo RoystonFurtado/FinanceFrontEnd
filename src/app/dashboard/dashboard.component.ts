@@ -1,4 +1,4 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output } from '@angular/core';
+import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
 
@@ -18,6 +18,21 @@ export class DisappearDirective {
     if( (!(this.elementRef.nativeElement.contains(targetElement))) && !(installmentDiv.contains(targetElement)) || closebtn.contains(targetElement))
       this.disappear.emit(event);
   }
+}
+
+//Pipe to replace null/undefined values
+@Pipe({
+  name: 'replaceNullWithText'
+})
+export class ReplaceNullWithTextPipe implements PipeTransform {
+
+  transform(value: any, repleceText: string = 'N/A'): any {
+    if (typeof value === 'undefined' || value === null) {
+      return repleceText;
+    }
+    return value;
+  }
+
 }
 
 @Component({
@@ -97,8 +112,13 @@ export class DashboardComponent implements OnInit{
     this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
-        let d=new Date(this.activeOrders[i].dueDate);
-        this.dueDates[i]=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+        if(this.activeOrders[i].dueDate===null) {
+          this.dueDates[i]=undefined;
+        }
+        else {
+          let d=new Date(this.activeOrders[i].dueDate);
+          this.dueDates[i]=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+        }
       }
     });
 
@@ -124,8 +144,14 @@ export class DashboardComponent implements OnInit{
     else {
       this.showOrderPopup=true;
       this.selectedOrder=order;
-      let d=new Date(this.selectedOrder.dueDate);
-      this.selectedDueDate=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+      if(this.selectedOrder.installmentNo===0)
+        this.selectedOrder.installmentNo=undefined;
+      if(this.selectedOrder.dueDate===null)
+        this.selectedDueDate=undefined;
+      else {
+        let d=new Date(this.selectedOrder.dueDate);
+        this.selectedDueDate=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
+      }
     }
   }
 

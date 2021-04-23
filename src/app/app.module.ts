@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent, DisappearDirective } from './dashboard/dashboard.component';
+import { DashboardComponent, DisappearDirective, ReplaceNullWithTextPipe } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule } from '@angular/forms';
@@ -30,6 +30,7 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     ProductDescriptionComponent,
     OrderHistoryComponent,
     DisappearDirective,
+    ReplaceNullWithTextPipe,
     AdminDashboardComponent
   ],
   imports: [
