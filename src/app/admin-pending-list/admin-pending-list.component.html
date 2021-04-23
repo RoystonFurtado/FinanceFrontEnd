@@ -1,0 +1,13 @@
+Enter the id of the record to be searched:<br>
+<input type="text" placeholder="Please enter the id of the record to be searched" name="userName" [(ngModel)]="userName"/>
+<button (click) = "display()">Search</button><br>
+    <p>{{userName}}</p>
+    <p>{{mobileNo}}</p>
+    <p>{{email}}</p>
+    <p>{{address}}</p>
+    <p>{{dob}}</p>
+    <a href="http://localhost:8223/downloads/{{ aadharCard }}" >aadharCard</a>
+    <a href="http://localhost:8223/downloads/{{panCard}}" >Pancard</a>
+    <a href={{cancelledChequeLink}} >CancelledCheque</a>
+    <button (click)="acceptUser()">Accept</button>
+    <button (click)="rejectUser()">Reject</button><br>

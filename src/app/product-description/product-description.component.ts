@@ -14,7 +14,7 @@ export class ProductDescriptionComponent  {
     this.route.queryParams.subscribe(params => {
       this.id = params['id'];
   });
-    this.product= new Product(this.id,"iphone 11","Apple iphone 11",49900,'assets/product-images/iphone8.jfif');
+    this.product= new Product(this.id,"iphone 11","Apple iphone 11",49900,'mobile','assets/product-images/iphone8.jfif');
   };
   }
 

@@ -1,30 +1,20 @@
-Enter the id of the record to be searched:<br>
-<input type="text" placeholder="Please enter the id of the record to be searched" name="userName" [(ngModel)]="userName"/>
-<button (click) = "display()">Search</button><br>
-    <p>{{userName}}</p>
-    <p>{{mobileNo}}</p>
-    <p>{{email}}</p>
-    <p>{{address}}</p>
-    <p>{{dob}}</p>
-    <a href="http://localhost:8223/downloads/{{ aadharCard }}" >aadharCard</a>
-    <a href="http://localhost:8223/downloads/{{panCard}}" >Pancard</a>
-    <a href={{cancelledChequeLink}} >CancelledCheque</a>
-    <button (click)="acceptUser()">Accept</button>
-    <button (click)="rejectUser()">Reject</button><br>
-    <button (click)="fetchUsers()">Get all pending users</button>
-    <div *ngFor="let user of users"> 
-        <p>{{user.userName}}</p>
-    <p>{{user.mobileNo}}</p>
-    <p>{{user.email}}</p>
-    <p>{{user.address}}</p>
-    <p>{{user.dob}}</p>
-    <a href="http://localhost:8223/downloads/{{ user.aadharCard }}" >aadharCard</a>
-    <a href="http://localhost:8223/downloads/{{user.panCard}}" >Pancard</a>
-    <a href= "http://localhost:8223/downloads/{{user.CancelledCheque}}">CancelledCheque</a>
-      
-        <br />
-        <br>
-    </div>
+<div class="heading">
+    <p class=".heading1">Hello admin</p>
+</div>
+<div class="mainbody">
+<div class="sample-product main-container">
+    <img src="/assets/pending.jpg" class="image">
+<button class="btn product-btn" (click)="redirectToPendingRequest()">Pending users</button></div>
+
+<div class="sample-product1 main-container">
+    <img src="/assets/accepted.jpg" class="image">
+<button class="btn product-btn" (click)="fetchUsers()">Accepted users</button></div>
+
+<div class="sample-product2 main-container">
+    <img src="/assets/products.png" class="image">
+<button class="btn product-btn" (click)="insertProduct()">Add Product</button></div>
+</div>
+
 
     
     
