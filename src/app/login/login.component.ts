@@ -11,8 +11,8 @@ import { baseUrl, Entity_UserId } from '../app.component';
 })
 export class LoginComponent {
 
-  username: string;
-  userNameError: string;
+  email: string;
+  emailError: string;
   password: string;
   passwordError: string;
   statusMessage: string;
@@ -31,12 +31,12 @@ export class LoginComponent {
       this.loginError = null;
       validated = true;
     }
-    if (this.username == null || this.username.length == 0) {
-      this.userNameError = "User name can't be empty";
+    if (this.email == null || this.email.length == 0) {
+      this.emailError = "Email can't be empty";
       validated = false;
     }
     else{
-      this.userNameError = null;
+      this.emailError = null;
       validated = true;
     }
 
@@ -52,12 +52,12 @@ export class LoginComponent {
     if (validated) {
       console.log()
       if(this.loginType=="Admin"){
-        if(this.username=="admin" && this.password=="admin"){
+        if(this.email=="admin" && this.password=="admin"){
             this.redirectToAdminDashboard();
         }
       }
       if(this.loginType=="User"){
-      this.http.post(baseUrl+"/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+      this.http.post(baseUrl+"/login", { "emailId": this.email, "password": this.password }).subscribe(data => {
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
