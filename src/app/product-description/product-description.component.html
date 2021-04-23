@@ -1,23 +1,27 @@
 <p class="head"> Product Description page</p>
 <div class="description">
     <div class="description-card" >
-        <img class="img1" src={{product.imgUrl}}/>
-        <p>Product Name:{{product.id}} </p>
-        <p>Product Name:{{product.name}} </p>
-        <p>Product Details:{{product.description}}  <br/></p>
-        <p>Product Price:{{product.price}} </p>
+     <img class="img1" src='http://localhost:8223/downloads/{{product.productImage}}'/> 
+        <p>Product Id:{{product.productId}} </p>
+        <p>Product Name:{{product.productName}} </p>
+        <p>Product Details:{{product.productDescription}}  <br/></p>
+        <p>Product Price:{{product.productPrice}} </p>
+    
         <form>
             <label>EMI Period</label><br/>
-            <input type="radio" name="emiOptions" value="3 Months" ngModel>3 Months<br/><br/>
+            <input type="radio" required name="emiOptions" value="3 Months" ngModel>3 Months<br/><br/>
 
-            <input type="radio" name="emiOptions" value="6 Months" ngModel>6 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="6 Months" ngModel>6 Months<br/><br/>
 
-            <input type="radio" name="emiOptions" value="9 Months" ngModel>9 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="9 Months" ngModel>9 Months<br/><br/>
 
-            <input type="radio" name="emiOptions" value="12 Months" ngModel>12 Months<br/><br/>
+            <input type="radio"  required name="emiOptions" value="12 Months" ngModel>12 Months<br/><br/>
+
+            <div *ngIf="emiError">{{emiError}}
+            </div>
 
         </form>
-        <button class="description-btn" >Buy</button>
+        <button class="description-btn" (click)="buy()">Buy</button>
 
         
     </div>

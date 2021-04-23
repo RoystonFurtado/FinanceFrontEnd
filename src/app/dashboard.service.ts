@@ -15,12 +15,16 @@ export class DashboardService {
 
   userId: string;
   constructor(private router: Router, private http: HttpClient) {
-    console.log(this.userId);
+    
     this.userId = sessionStorage.getItem("userId");
+    console.log(this.userId);
+    if (this.userId == null) this.navigateToHome();
+    else this.getOrderDetails();
+  }
     // if (this.userId == null) this.navigateToHome();
     // else this.getOrderDetails()
-      ;
-   }
+  //     ;
+  //  }
 
   
 
@@ -53,6 +57,16 @@ export class DashboardService {
   pendingInstallmentDetails(userId:Number): Observable<ActiveOrder[]> {
     let url = baseUrl+"/pendingInstallmentInfo?userId="+userId;
     return this.http.get<ActiveOrder[]>(url);
+  }
+
+  updateInstallmentPhase(userId:Number) {
+    let url = baseUrl+"/checkInstallmentPhase?userId="+userId;
+    return this.http.get(url);
+  }
+
+  makePayment(orderId:Number) {
+    let url = baseUrl+"/makePayment?orderId="+orderId;
+    return this.http.get(url);
   }
 
 

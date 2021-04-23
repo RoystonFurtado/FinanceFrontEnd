@@ -14,11 +14,13 @@ export class RegisterService {
   userId:string;
 
   register(user:User): Observable<Object>{
+
     let url = baseUrl+"/registerUser";
     return this.http.post(url,user);
   }
 
   documentsUpload(formData: FormData) : Observable<any> {
+
     let url = baseUrl+"/documentsUpload";
     return this.http.post(url, formData); 
   }
