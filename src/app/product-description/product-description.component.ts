@@ -3,11 +3,13 @@ import { getLocaleDateFormat } from '@angular/common';
 import { Directive, ElementRef, EventEmitter, HostListener, Output } from '@angular/core';
 import { Variable } from '@angular/compiler/src/render3/r3_ast';
 import { Component, OnInit } from '@angular/core';
-
+import {Order} from '../order-history/order-history.component';
 import { ActivatedRoute,Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product/product.component';
 import { DatePipe } from '@angular/common';
+import {PlaceOrderService} from '../place-order.service';
+import { ActiveOrder } from '../dashboard/dashboard.component';
 
 
 @Directive({
@@ -38,6 +40,7 @@ export class ProductDescriptionComponent  {
  emiError:string;
   product:Product;
   id:number;
+  userId:number;
   name:string;
   description:string;
   price:number;
@@ -46,10 +49,13 @@ export class ProductDescriptionComponent  {
   myDate:string;
   date:Date;
   tenurePeriod:number;
-  amount:string;
+  amount:number;
   orderOverviewPopup:boolean;
+  order:Order;
+  orderDetails:OrderDetails;
+  productOrderStatus:string="Active";
 
-  constructor( private route: ActivatedRoute,private router:Router,private productService:ProductService,private datePipe: DatePipe){
+  constructor( private route: ActivatedRoute,private router:Router,private productService:ProductService,private placeOrderService:PlaceOrderService, private datePipe: DatePipe){
     this.route.queryParams.subscribe(params => {
       this.id = params['id']; 
   });
@@ -64,12 +70,12 @@ export class ProductDescriptionComponent  {
     this.price=response['productPrice'];
     this.image=response['productImage'];
     this.category=response['productCategory'];
+    
 
     this.product= new Product(this.id,this.name,this.description,this.price,this.category,this.image);
-
+    
   });
 
- 
  
   };
 
@@ -91,10 +97,32 @@ export class ProductDescriptionComponent  {
 
  showOrderPopup(){
   this.orderOverviewPopup=true;
+  var a=this.price; 
+  var b=this.tenurePeriod;
+  this.amount=Math.round(a/b) ;
+    console.log('price is '+ a);
   console.log("Show");
-
  }
-    }
+
+ redirectToOrderPlacement(){
+   this.orderDetails=new OrderDetails(10029,this.id,this.tenurePeriod);
+   this.placeOrderService.orderData(this.orderDetails).subscribe(response=>{
+        alert(response['message']);
+ })
+ }
+
+  }
+
+  export class OrderDetails{
+    constructor(
+          public userId?:number,
+           public productId?:number,
+           public tenurePeriod?:number
+           ){}
+  }
+
+
+
 
 
 

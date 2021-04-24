@@ -16,10 +16,10 @@ export class DashboardService {
   userId: string;
   constructor(private router: Router, private http: HttpClient) {
     
-    this.userId = sessionStorage.getItem("userId");
-    console.log(this.userId);
-    if (this.userId == null) this.navigateToHome();
-    else this.getOrderDetails();
+    // this.userId = sessionStorage.getItem("userId");
+    // console.log(this.userId);
+    // if (this.userId == null) this.navigateToHome();
+    // else this.getOrderDetails();
   }
     // if (this.userId == null) this.navigateToHome();
     // else this.getOrderDetails()

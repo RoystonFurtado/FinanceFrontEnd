@@ -18,6 +18,7 @@ import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { OrderPlacementComponent } from './order-placement/order-placement.component';
 
 
 @NgModule({
@@ -38,7 +39,8 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     ProductDescriptionComponent,
     OrderHistoryComponent,
     DisappearDirective,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    OrderPlacementComponent
    
   ],
   imports: [

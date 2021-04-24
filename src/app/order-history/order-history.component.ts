@@ -70,9 +70,9 @@ export class Order {
   product: Product;
   amountPaid: number;
   tenurePeriod: number;
-  purchaseDate: Date;
+  purchaseDate: string;
   amountBalance: number;
-  orderStatus: string;
+  productOrderStatus: string;
   monthlyEMIAmount: number;
   installments: Array<Installment>;
   emimonthsPaid: number;

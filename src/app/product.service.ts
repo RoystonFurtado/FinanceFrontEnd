@@ -43,9 +43,6 @@ export class ProductService {
   return this.http.get(url);
   }
 
-  orderData(order:Order): Observable<Object>{
-    let url="http://localhost:8188/order";
-    return this.http.post(url,order);
-  }
+
 
 }
