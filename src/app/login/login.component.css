@@ -42,6 +42,9 @@ input[type=password] {
     float: auto;
     padding-top: 16px;
 }
+.psw2{
+    float:ri
+}
 .Last {
     padding: 20px;
  text-align: center;

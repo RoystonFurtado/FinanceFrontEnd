@@ -16,7 +16,7 @@ export class LoginComponent {
   password: string;
   passwordError: string;
   statusMessage: string;
-  loginType:String;
+  loginType:String ="User";
   loginError:String;
 
   constructor(private router: Router, private http: HttpClient) { };
@@ -64,7 +64,7 @@ export class LoginComponent {
         }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
-          this.redirectToDashboard();
+          this.redirectToProductListing();
         }
       }, (e) => {
         this.statusMessage = "Please try again later";
@@ -83,8 +83,8 @@ export class LoginComponent {
   }
 
 
-  redirectToDashboard() {
-    this.router.navigateByUrl('/dashboard');
+  redirectToProductListing() {
+    this.router.navigateByUrl('/product-listing');
   }
   redirectToAdminDashboard(){
     this.router.navigateByUrl('/admin-dashboard');
