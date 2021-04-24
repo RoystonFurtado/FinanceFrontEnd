@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { baseUrl, Entity_UserId } from '../app.component';
+import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +16,9 @@ export class LoginComponent {
   password: string;
   passwordError: string;
   statusMessage: string;
-  loginType:String;
+  loginType:String ="User";
   loginError:String;
+  hide:boolean = true;
 
   constructor(private router: Router, private http: HttpClient) { };
 
@@ -31,7 +32,7 @@ export class LoginComponent {
       this.loginError = null;
       validated = true;
     }
-    if (this.email == null || this.email.length == 0) {
+    if (this.email == null || this.email == undefined || this.email.length == 0) {
       this.emailError = "Email can't be empty";
       validated = false;
     }
@@ -40,7 +41,7 @@ export class LoginComponent {
       validated = true;
     }
 
-    if (validated && this.password == null || this.password.length == 0) {
+    if (this.password == null || this.password == undefined || this.password.length == 0) {
       this.passwordError = "Password can't be empty";
       validated = false;
     }
@@ -64,7 +65,8 @@ export class LoginComponent {
         }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
-          this.redirectToProductPage();
+         sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);
+          this.redirectToProductListing();
         }
       }, (e) => {
         this.statusMessage = "Please try again later";
@@ -86,8 +88,8 @@ export class LoginComponent {
     this.router.navigateByUrl('/product-listing');
   }
 
-  redirectToDashboard() {
-    this.router.navigateByUrl('/dashboard');
+  redirectToProductListing() {
+    this.router.navigateByUrl('/product-listing');
   }
   redirectToAdminDashboard(){
     this.router.navigateByUrl('/admin-dashboard');

@@ -55,14 +55,12 @@ export class ProductComponent implements OnInit {
       })
   }
 
-//   redirectToDescription(id:any){
-//     this.router.navigateByUrl('/product-description?id='+id);
-//   }
 
   redirectToDescription(id:any){
     this.router.navigateByUrl('/product-description?id='+id);
   }
-  redirectToDashboard(){
+
+  redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
   }
 }

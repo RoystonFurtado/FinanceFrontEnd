@@ -14,6 +14,7 @@ import { AdminPendingListComponent } from './admin-pending-list/admin-pending-li
 import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
 import { PaymentComponent, PaymentInfo } from './payment/payment.component';
+import { CreatePasswordComponent } from './create-password/create-password.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -30,7 +31,8 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
   {path:'order-history',component:OrderHistoryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent},
-  {path:'payment',component:PaymentComponent}
+  {path:'payment',component:PaymentComponent},
+  {path:'create-password',component:CreatePasswordComponent}
 ];
 
 @NgModule({

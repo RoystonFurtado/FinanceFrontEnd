@@ -1,7 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { baseUrl } from '../app.component';
+import { baseUrl, Entity_emailId } from '../app.component';
+import { ForgetPasswordService } from '../forget-password.service';
 
 @Component({
   selector: 'app-forget-password',
@@ -9,13 +10,17 @@ import { baseUrl } from '../app.component';
   styleUrls: ['./forget-password.component.css']
 })
 export class ForgetPasswordComponent {
-
   email: string;
-  otp:number;
+  otp: number;
   emailError: string;
-  otpError:string;
+  otpError: string;
+  responseOtp: number;
 
-  constructor(private router:Router, private http: HttpClient) {};
+  constructor(private router: Router,
+    private http: HttpClient,
+    private forgetpassword: ForgetPasswordService
+  ) { };
+
 
   emailVerification() {
     var validated = false;
@@ -27,29 +32,36 @@ export class ForgetPasswordComponent {
       this.emailError = null;
       validated = true;
     }
-    if(this.email == "Email Id") {
-      this.http.post(baseUrl+"/email", {"email": this.email}).subscribe(data => {
+    if (validated) {
+      this.forgetpassword.getEmailOtp(this.email).subscribe(data => {
+        this.responseOtp = data as number;
         console.log(data);
       });
     }
   }
   otpVerification() {
-    var validated = false;
-    if (validated && this.otp == null) {
-      this.otpError = "OTP can't be empty";
-      validated = false;
+
+    if (this.responseOtp == null) {
+      this.otpError = "Retry";
+    }
+    else if (this.otp == null || this.otp == 0) {
+
+      this.otpError = "Please enter a OTP";
+    }
+    else if (this.responseOtp != this.otp) {
+      this.otpError = "Invalid OTP"
     }
     else {
       this.otpError = null;
-      validated = true;
+      console.log("debug");
+      this.redirectToCreatePassword();
     }
   }
-  redirectToCreateLogin() {
-    this.router.navigateByUrl('/createLogin');
+  redirectToCreatePassword() {
+    sessionStorage.setItem(Entity_emailId, this.email);;
+    this.router.navigateByUrl('/create-password');
   }
 
-  //for time beign
-  createPassword() {
-    console.log("otp generated");
-  }
-}
+};
+
+

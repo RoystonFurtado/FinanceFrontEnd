@@ -1,28 +1,53 @@
 <div class="logincontainer">
     <form class="container">
-        <label>Login Type:</label>
-        <input name="loginType" value="Admin" type="radio"  [(ngModel)]="loginType">Admin
-        <input name="loginType" value="User" type="radio"  [(ngModel)]="loginType">User
-        <div class="err" *ngIf="loginError">{{loginError}}</div>
+        <!-- <label>Login Type:</label>
+        <input name="loginType" value="Admin" type="radio" [(ngModel)]="loginType">Admin
+        <input name="loginType" value="User" type="radio" [(ngModel)]="loginType">User
+        <div class="err" *ngIf="loginError">{{loginError}}</div> -->
+        <h1 *ngIf="loginType=='Admin'">Admin Login</h1>
+        <h1 *ngIf="loginType=='User'">User Login</h1>
         <div class="fg">
-            <label for="uname"><b>Email</b></label>
-            <input type="text" placeholder="Enter Username" name="uname" [(ngModel)]="email">
-            <div class="err" *ngIf="emailError">{{emailError}}</div>
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input matInput placeholder="John@abc.com" name="email" [(ngModel)]="email" required>
+                <mat-error *ngIf="emailError">{{emailError}}</mat-error>
+            </mat-form-field>
+            <!-- <label for="uname"><b>Email</b></label>
+            <input type="text" placeholder="Enter EmailId" name="uname" [(ngModel)]="email">
+            <div class="err" *ngIf="emailError">{{emailError}}</div> -->
         </div>
         <div class="fg">
-            <label for="psw"><b>Password</b></label>
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input matInput [type]="hide ? 'password' : 'text'" name="password" [(ngModel)]="password" required>
+                <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                    [attr.aria-pressed]="hide">
+                    <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                </button>
+                <mat-error *ngIf="passwordError">{{passwordError}}</mat-error>
+            </mat-form-field>
+            <!-- <label for="psw"><b>Password</b></label>
             <input type="password" placeholder="Enter Password" name="psw" [(ngModel)]="password">
-            <div class="err" *ngIf="passwordError">{{passwordError}}</div>
+            <div class="err" *ngIf="passwordError">{{passwordError}}</div> -->
         </div>
+
         <div class="psw"><a class="nu" href="/forget-password">Forgot password?</a>
         </div>
         <div class="loginbtn">
             <input type="checkbox" checked="checked" name="remember"> Remember me
         </div>
-        <button type="submit" class="btn loginbtn" (click)="login()">Login</button>
+        <div class="loginbtn">
+            <button mat-raised-button color="primary" type="submit" (click)="login()">Login</button>
+        </div>
 
-        <div class="Last">
+        <div class="Last" *ngIf="loginType=='User'">
             <span class="psw1">Don't have an account? <a class="nu" href="#">Register User</a></span>
+        </div>
+        <div class="Last">
+            <span class="psw2" style="color:brown;" *ngIf="loginType=='User'" (click)="loginType='Admin'">Are you an
+                admin?</span>
+            <span class="psw2" style="color:blue;" *ngIf="loginType=='Admin'" (click)="loginType='User'"> Are you a
+                User?</span>
         </div>
     </form>
 </div>

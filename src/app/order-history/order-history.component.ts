@@ -70,6 +70,9 @@ export class OrderHistoryComponent {
   
       });
   }
+  redirectToProductListing() {
+    this.router.navigateByUrl('/product-listing');
+  }
   
 }
 
