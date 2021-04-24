@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { baseUrl, Entity_UserId } from '../app.component';
+import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId } from '../app.component';
 
 @Component({
   selector: 'app-login',
@@ -11,13 +11,14 @@ import { baseUrl, Entity_UserId } from '../app.component';
 })
 export class LoginComponent {
 
-  username: string;
-  userNameError: string;
+  email: string;
+  emailError: string;
   password: string;
   passwordError: string;
   statusMessage: string;
-  loginType:String;
+  loginType:String ="User";
   loginError:String;
+  hide:boolean = true;
 
   constructor(private router: Router, private http: HttpClient) { };
 
@@ -31,16 +32,16 @@ export class LoginComponent {
       this.loginError = null;
       validated = true;
     }
-    if (this.username == null || this.username.length == 0) {
-      this.userNameError = "User name can't be empty";
+    if (this.email == null || this.email == undefined || this.email.length == 0) {
+      this.emailError = "Email can't be empty";
       validated = false;
     }
     else{
-      this.userNameError = null;
+      this.emailError = null;
       validated = true;
     }
 
-    if (validated && this.password == null || this.password.length == 0) {
+    if (this.password == null || this.password == undefined || this.password.length == 0) {
       this.passwordError = "Password can't be empty";
       validated = false;
     }
@@ -52,19 +53,20 @@ export class LoginComponent {
     if (validated) {
       console.log()
       if(this.loginType=="Admin"){
-        if(this.username=="admin" && this.password=="admin"){
+        if(this.email=="admin" && this.password=="admin"){
             this.redirectToAdminDashboard();
         }
       }
       if(this.loginType=="User"){
-      this.http.post(baseUrl+"/login", { "userName": this.username, "password": this.password }).subscribe(data => {
+      this.http.post(baseUrl+"/login", { "emailId": this.email, "password": this.password }).subscribe(data => {
         console.log(data);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
-          this.redirectToDashboard();
+         sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);
+          this.redirectToProductListing();
         }
       }, (e) => {
         this.statusMessage = "Please try again later";
@@ -83,8 +85,8 @@ export class LoginComponent {
   }
 
 
-  redirectToDashboard() {
-    this.router.navigateByUrl('/dashboard');
+  redirectToProductListing() {
+    this.router.navigateByUrl('/product-listing');
   }
   redirectToAdminDashboard(){
     this.router.navigateByUrl('/admin-dashboard');

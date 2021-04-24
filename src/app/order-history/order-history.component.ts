@@ -15,8 +15,8 @@ export class OrderHistoryComponent {
 
   constructor(private router: Router, private orderhistoryService: OrderHistoryService) {
     console.log(this.userId);
-    // this.userId = sessionStorage.getItem(Entity_UserId);
-    this.userId = "10056";
+    //  this.userId = sessionStorage.getItem(Entity_UserId);
+     this.userId = "10056";
     if (this.userId == null) this.orderhistoryService.navigateToHome();
     else
       this.getOrders();
@@ -27,7 +27,7 @@ export class OrderHistoryComponent {
   orders: Array<Order>;
   transactions: Array<Payment> = Array<Payment>(); //to intiate empty array
   filteredTranscations:Array<Payment>=Array<Payment>();
-  differenceMonth:number=6;
+  differenceMonth:number=1;
   fd = formatDate; //Format Date Method, used in html file
 
   getOrders() {
@@ -53,16 +53,27 @@ export class OrderHistoryComponent {
 
     });
   }
+
+  filterbyMonth(month:number){
+    this.differenceMonth = month;
+    console.log(this.differenceMonth);
+    this.filterTranscation();
+  }
   filterTranscation(){
+    this.filteredTranscations = Array<Payment>();      
       var date = new Date();
       date.setMonth(date.getMonth()-this.differenceMonth);
-      
       this.transactions.forEach((t) => {
         if (formatDate(t.paymentDate,'yyyy-MM-dd','en_US') > formatDate(date,'yyyy-MM-dd','en_US')){ 
           this.filteredTranscations.push(t);
         }
+  
       });
   }
+  redirectToProductListing() {
+    this.router.navigateByUrl('/product-listing');
+  }
+  
 }
 
 export class Order {
