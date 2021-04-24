@@ -62,6 +62,9 @@ export class ProductComponent implements OnInit {
   redirectToDescription(id:any){
     this.router.navigateByUrl('/product-description?id='+id);
   }
+  redirectToDashboard(){
+    this.router.navigateByUrl('/dashboard');
+  }
 }
 
 

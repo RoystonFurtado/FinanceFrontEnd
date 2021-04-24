@@ -13,6 +13,7 @@ import { AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compon
 import { AdminPendingListComponent } from './admin-pending-list/admin-pending-list.component';
 import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { PaymentComponent, PaymentInfo } from './payment/payment.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
   {path:'admin-accepted-list',component:AdminAcceptedListComponent},
   {path:'add-product',component:AddProductComponent},
   {path:'order-history',component:OrderHistoryComponent},
-  {path:'admin-dashboard',component:AdminDashboardComponent}
+  {path:'admin-dashboard',component:AdminDashboardComponent},
+  {path:'payment',component:PaymentComponent}
 ];
 
 @NgModule({

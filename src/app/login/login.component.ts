@@ -64,7 +64,7 @@ export class LoginComponent {
         }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
-          this.redirectToDashboard();
+          this.redirectToProductPage();
         }
       }, (e) => {
         this.statusMessage = "Please try again later";
@@ -82,6 +82,9 @@ export class LoginComponent {
      }
   }
 
+  redirectToProductPage() {
+    this.router.navigateByUrl('/product-listing');
+  }
 
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');

@@ -1,10 +1,10 @@
 <div class="dashboard-container main-container">
     <button class="btn btn1" (click)="getOrderDetails()">Product Purchased</button>
 <div class="userDetailsBox">
-    <p class="card-no">{{cardNo}}</p>
+    <p class="card-no">{{cardDetails.cardNo}}</p>
     <p class="card-expiry-date">{{exp}}</p>
-    <p class="card-type">{{cardType}}</p>
-    <p class="card-user-name">{{userName}}</p>
+    <p class="card-type">{{cardDetails.cardType}}</p>
+    <p class="card-user-name">{{cardDetails.userName}}</p>
 </div>
 <!-- <div class="card-details">
     <p>Total Credit:<span class="values">{{cardLimit}}</span></p>
@@ -13,10 +13,10 @@
 </div> -->
 <div class="progress-bar">
 <div class="progress-bar-value">
-    <span class="credit-used">{{cardCreditUsed}}&#8377;</span>
-    <span class="credit-balance">{{cardBalance}}&#8377;</span>
+    <span class="credit-used">{{cardDetails.cardCreditUsed}}&#8377;</span>
+    <span class="credit-balance">{{cardDetails.cardBalance}}&#8377;</span>
 </div>
-<progress class="card-balance-progress-bar" [value]="cardCreditUsed" [max]="cardLimit"></progress><span class="credit-total">{{cardLimit}}&#8377;</span>
+<progress class="card-balance-progress-bar" [value]="cardDetails.cardCreditUsed" [max]="cardDetails.cardLimit"></progress><span class="credit-total">{{cardDetails.cardLimit}}&#8377;</span>
 </div>
 
 <div *ngIf="showOrderPopup===true" class="order-overlay">
@@ -36,28 +36,16 @@
         <p>Due Date:{{selectedDueDate | replaceNullWithText}}</p>
     </div>
 </div>
-<div *ngIf="showPaymentPopup" class="order-overlay">
-    <div class="payment-popup" (disappear)="hidePaymentBox()">
-        <span class="close-btn">&times;</span>
-        <h1>Payment Confirmation</h1>
-        <p>Product Name:{{paymentOrder.productName | replaceNullWithText}}</p>
-        <p>Installment No:{{paymentOrder.installmentNo | replaceNullWithText}}</p>
-        <p>Due Date:{{paymentDueDate | replaceNullWithText}}</p>
-        <p>Payment Amount:{{paymentOrder.monthlyEmiAmount | replaceNullWithText}}&#8377;</p>
-        <p>Late Payment Fine:{{paymentOrder.fine | replaceNullWithText}}&#8377;</p>
-        <button class="btn" (click)=pay(paymentOrder.orderId)>Pay Now</button>
-    </div>
-</div>
 
 <div *ngIf="activeOrders" class="orders-container">
-    <div *ngFor="let activeOrder of activeOrders; let i=index" class="order-card" name="orderInfo" (click)="showBox($event,activeOrder)">
+    <div *ngFor="let activeOrder of activeOrders; let i=index" class="order-card" name="orderInfo" (click)="showBox(activeOrder)">
         <ul>
             <li class="product-name">{{activeOrder.productName | replaceNullWithText}}</li>
             <li class="product-price"><span class="labels">Price</span><span class=values>{{activeOrder.productPrice | replaceNullWithText}}&#8377;</span></li>
             <li class="installment-no"><span *ngIf="!activeOrder.pending">No Pending Installment</span><span [hidden]="!activeOrder.pending">Installment {{activeOrder.installmentNo}} Pending</span></li>
             <li class="amount-balance"><span class="labels">Amount Remaining</span><span class="values">{{activeOrder.amountBalance | replaceNullWithText}}&#8377;</span></li>
             <li class="monthly-emi-amount"><span class="labels">EMI Amount</span><span class="values">{{activeOrder.monthlyEmiAmount | replaceNullWithText}}&#8377;/per month</span></li>
-            <li class="due-date"><span *ngIf="!activeOrder.pending">Current Installment Paid</span> <span [hidden]="!activeOrder.pending">Pay Before:</span> <span [hidden]="!activeOrder.pending" class="values">{{dueDates[i]}}</span><span><button [disabled]="!activeOrder.pending" class="btn pay-btn" name="payButton" (click)="showBox($event,activeOrder,i)">Pay Now</button></span></li>
+            <li class="due-date"><span *ngIf="!activeOrder.pending">Current Installment Paid</span> <span [hidden]="!activeOrder.pending">Pay Before:</span> <span [hidden]="!activeOrder.pending" class="values">{{dueDates[i]}}</span><span><button [disabled]="!activeOrder.pending" class="btn pay-btn" name="payButton" (click)="redirectToPayment(activeOrder)">Pay Now</button></span></li>
         </ul>
     </div>
     <!-- <div class="products-purchased">
