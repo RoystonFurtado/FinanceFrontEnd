@@ -28,6 +28,7 @@ import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { AccountWarningComponent } from './account-warning/account-warning.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 
 @NgModule({
@@ -52,7 +53,8 @@ import { AccountWarningComponent } from './account-warning/account-warning.compo
 
     OrderPlacementComponent,
     CreatePasswordComponent,
-    AccountWarningComponent
+    AccountWarningComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,

@@ -8,26 +8,8 @@ import { ActivatedRoute,Router } from '@angular/router';
 import { ProductService } from '../product.service';
 import { Product } from '../product/product.component';
 import { DatePipe } from '@angular/common';
-import {PlaceOrderService} from '../place-order.service';
 import { ActiveOrder } from '../dashboard/dashboard.component';
 
-
-@Directive({
-  selector:'[OrderDisappear]'
-})
-export class OrderDisappearDirective {
-  @Output() OrderDisappear=new EventEmitter<MouseEvent>();
-  constructor(private elementRef:ElementRef) {}
-  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) { //$event 
-    const targetElement=event.target as HTMLElement; //Exactly where the user clicked  stored in target element
-   // const orderBtn=document.getElementsByClassName('description-btn')[0]; //Element Reference
-    //const editbtn=document.getElementsByClassName('contacts-container')[0];
-   // const closebtn=document.getElementsByClassName('close-btn')[0];
-    // const cancelbtn=document.getElementsByClassName('cancel-btn')[0];
-    if( (!(this.elementRef.nativeElement.contains(targetElement))))
-      this.OrderDisappear.emit(event);
-  }
-}
 
 @Component({
   selector: 'app-product-description',
@@ -35,7 +17,7 @@ export class OrderDisappearDirective {
   styleUrls: ['./product-description.component.css'],
   providers: [DatePipe]
 })
-export class ProductDescriptionComponent  {
+export class ProductDescriptionComponent {
  validated:boolean;
  emiError:string;
   product:Product;
@@ -52,13 +34,18 @@ export class ProductDescriptionComponent  {
   amount:number;
   orderOverviewPopup:boolean;
   order:Order;
-  orderDetails:OrderDetails;
+  orderSummaryDetails:OrderSummaryDetails;
   productOrderStatus:string="Active";
+  loadOrderComponent:boolean=false;
+  visible:boolean=true;
 
-  constructor( private route: ActivatedRoute,private router:Router,private productService:ProductService,private placeOrderService:PlaceOrderService, private datePipe: DatePipe){
-    this.route.queryParams.subscribe(params => {
-      this.id = params['id']; 
-  });
+
+  constructor( private route: ActivatedRoute,private router:Router,
+    private productService:ProductService,
+     private datePipe: DatePipe){
+     this.id=parseInt(sessionStorage.getItem("productId"));
+     this.userId=parseInt(sessionStorage.getItem("userId"));
+
 
  this.date=new Date();
   this.myDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');
@@ -70,46 +57,29 @@ export class ProductDescriptionComponent  {
     this.price=response['productPrice'];
     this.image=response['productImage'];
     this.category=response['productCategory'];
-    
-
     this.product= new Product(this.id,this.name,this.description,this.price,this.category,this.image);
     
   });
-
- 
   };
 
   buy(){
     if(this.validated){
-      
-      }
+
+    }
       else{
       this.emiError="Select the tenure period";
       }
     }
 
- hideOrderPopup(){
-  this.orderOverviewPopup=false;
-  console.log("Hide")
+
+loadOrderSummary(){
+  this.amount=Math.round(this.price/this.tenurePeriod);
+ this.orderSummaryDetails =new OrderSummaryDetails(this.userId,this.id,this.tenurePeriod,this.amount,this.myDate,this.price);
+ this.loadOrderComponent=true;
+ this.visible=false;
+}
 
 
- }
-
- showOrderPopup(){
-  this.orderOverviewPopup=true;
-  var a=this.price; 
-  var b=this.tenurePeriod;
-  this.amount=Math.round(a/b) ;
-    console.log('price is '+ a);
-  console.log("Show");
- }
-
- redirectToOrderPlacement(){
-   this.orderDetails=new OrderDetails(10029,this.id,this.tenurePeriod);
-   this.placeOrderService.orderData(this.orderDetails).subscribe(response=>{
-        alert(response['message']);
- })
- }
 
   }
 
@@ -120,6 +90,21 @@ export class ProductDescriptionComponent  {
            public tenurePeriod?:number
            ){}
   }
+
+  
+  export class OrderSummaryDetails{
+    constructor(
+          public userId?:number,
+           public productId?:number,
+           public tenurePeriod?:number,
+           public amount?:number,
+           public myDate?:string,
+           public productPrice?:number
+
+
+           ){}
+  }
+  
 
 
 

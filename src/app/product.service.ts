@@ -2,6 +2,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { baseUrl } from './app.component';
 import { Order } from './order-history/order-history.component';
 
 import { Product } from './product/product.component';
@@ -18,22 +19,22 @@ export class ProductService {
 
 
   fetchProduct() : Observable<Product[]>{
-    let url = "http://localhost:8181/product";
+    let url = baseUrl+"/product";
     return this.http.get<Product[]>(url);
   }
 
   fetchByCategory(productCategory: String) : Observable<Product[]>{
-    let url = "http://localhost:8181/categories?productCategory="+productCategory;
+    let url = baseUrl+"/categories?productCategory="+productCategory;
     return this.http.get<Product[]>(url);
   }
 
   fetchByLowToHighPrice() : Observable<Product[]>{
-    let url = "http://localhost:8181/lowToHighPrice";
+    let url = baseUrl+"/lowToHighPrice";
     return this.http.get<Product[]>(url);
   }
 
   fetchByHighToLowPrice() : Observable<Product[]>{
-    let url = "http://localhost:8181/highToLowPrice";
+    let url = baseUrl+"/highToLowPrice";
     return this.http.get<Product[]>(url);
   }
   

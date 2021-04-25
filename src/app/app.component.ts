@@ -12,7 +12,6 @@ export class AppComponent {
 
 export var baseUrl = "http://localhost:8188";
 export var Entity_UserId = "userId"; 
-
 export var Entity_emailId = "emailId"; 
 export var Entity_profileStatus = "profileStatus"; 
 export var ProfileStatus_Accepted = "Accepted"; 

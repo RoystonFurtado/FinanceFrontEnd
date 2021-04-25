@@ -13,7 +13,6 @@ export class PlaceOrderService {
 
   orderData(orderDetails:OrderDetails): Observable<Object>{
     let url="http://localhost:8188/order";
-    console.log("reached");
     return this.http.post(url,orderDetails);
   }
 }
