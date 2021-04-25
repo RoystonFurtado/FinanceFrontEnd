@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDashboardService } from '../admin-dashboard.service';
+import { baseUrl } from '../app.component';
 
 @Component({
   selector: 'app-admin-pending-list',
@@ -35,7 +36,7 @@ export class AdminPendingListComponent implements OnInit {
       this.aadharCard=response['aadharCard'];
       this.panCard=response['panCard'];
       this.cancelledCheque=response['cancelledCheque'];
-      this.cancelledChequeLink="http://localhost:8223/downloads/"+this.cancelledCheque;
+      this.cancelledChequeLink=baseUrl+"/downloads/"+this.cancelledCheque;
     })
 
   }

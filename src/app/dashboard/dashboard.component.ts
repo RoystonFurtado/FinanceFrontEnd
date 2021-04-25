@@ -1,39 +1,6 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
-
-@Directive({
-  selector:'[disappear]'
-})
-export class DisappearDirective {
-  @Output() disappear = new EventEmitter<MouseEvent>();
-  constructor(private elementRef:ElementRef) {}
-  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) {
-    const targetElement=event.target as HTMLElement;
-    const installmentDiv=document.getElementsByClassName('orders-container')[0];
-    const closebtn=document.getElementsByClassName('close-btn')[0];
-    //const paybtn=document.getElementsByClassName('confirm-pay-btn')[0];
-
-    //When clicked anywhere outside add contact box, addcontactbutton and edit contact button(to avoid first click), emit disappear event
-    if( (!(this.elementRef.nativeElement.contains(targetElement))) && !(installmentDiv.contains(targetElement)) || closebtn.contains(targetElement))
-      this.disappear.emit(event);
-  }
-}
-
-//Pipe to replace null/undefined values
-@Pipe({
-  name: 'replaceNullWithText'
-})
-export class ReplaceNullWithTextPipe implements PipeTransform {
-
-  transform(value: any, repleceText: string = 'N/A'): any {
-    if (typeof value === 'undefined' || value === null) {
-      return repleceText;
-    }
-    return value;
-  }
-
-}
 
 @Component({
   selector: 'app-dashboard',

@@ -11,11 +11,15 @@
     width: 900px;
     height: 700px;
     box-shadow: none;
+    /* outline: 1px solid black; */
 }
 .userDetailsBox {
     margin: auto;
     width:350px;
     height: 200px;
+    position: absolute;
+    left:560px;
+    top:70px;
     background-image: url("/assets/credit_card1.png");
     background-repeat: no-repeat;
     background-position: center;
@@ -85,7 +89,7 @@
     border:1px solid gray;
 }
 .order-popup {
-    height: 550px;
+    height: 450px;
 }
 .close-btn {
     position: absolute;
@@ -99,24 +103,29 @@
     cursor:pointer;
 }
 .card-type {
-    position: relative;
-    left:250px;
-    bottom:120px;
+    position: absolute;
+    top:20px;
+    left:260px;
 }
 .card-user-name {
-    position: relative;
-    left: 60px;
-    bottom:47px;
+    position: absolute;
+    top:110px;
+    left:80px;
 }
 .card-expiry-date {
-    position: relative;
+    position: absolute;
+    top:136px;
     left:140px;
-    top:63px;
+    font-size: 18px;
 }
 .card-no {
-    position: relative;
-    left:80px;
-    top:103px;
+    position: absolute;
+    top:160px;
+    left:25px;
+}
+.empty-div {
+    /* outline:1px solid black; */
+    height: 200px;
 }
 .status {
     text-align: center;
