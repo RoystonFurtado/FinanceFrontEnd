@@ -61,6 +61,7 @@ export class ProductComponent implements OnInit {
     this.router.navigateByUrl('/product-description');
     
   }
+
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
   }

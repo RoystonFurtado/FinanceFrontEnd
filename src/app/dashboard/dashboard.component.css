@@ -29,6 +29,40 @@
     padding: 7px 10px ;
 }
 
+.card-balance-progress-bar {
+    width: 400px;
+    height: 50px;
+}
+.progress-bar {
+    width: fit-content;
+    padding: 35px 10px;
+    margin: auto;
+    
+}
+.progress-bar-value {
+    width: 390px;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+    color: red;
+    /* outline: 1px solid black; */
+}
+.progress-bar-value .credit-balance {
+    float: right;
+    position: relative;
+    right: 17px;
+    color: green;
+}
+.progress-bar .credit-total {
+    font-size: 20px;
+    position: relative;
+    bottom: 16px;
+    left: 10px;
+    color:#136bf0;
+}
+
+
 .order-overlay {
     /* background-color: lightgreen; */
     z-index: 1;
@@ -39,7 +73,7 @@
     left:0;
     background-color: rgba(0,0,0,.4);
 }
-.order-popup, .payment-popup {
+.order-popup {
     animation-name: slide-effect;
     animation-duration: .5s;
     width:500px;
@@ -52,9 +86,6 @@
 }
 .order-popup {
     height: 550px;
-}
-.payment-popup {
-    height: 350px;
 }
 .close-btn {
     position: absolute;

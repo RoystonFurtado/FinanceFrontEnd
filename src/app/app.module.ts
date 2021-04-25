@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { DashboardComponent, DisappearDirective } from './dashboard/dashboard.component';
+import { DashboardComponent, DisappearDirective, ReplaceNullWithTextPipe } from './dashboard/dashboard.component';
 import { ProductComponent } from './product/product.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -19,6 +19,7 @@ import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
 import { OrderPlacementComponent } from './order-placement/order-placement.component';
+import { PaymentComponent } from './payment/payment.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -49,9 +50,10 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     ProductDescriptionComponent,
     OrderHistoryComponent,
     DisappearDirective,
+    ReplaceNullWithTextPipe,
     AdminDashboardComponent,
-
     OrderPlacementComponent,
+    PaymentComponent,
     CreatePasswordComponent,
     AccountWarningComponent,
     OrderSummaryComponent

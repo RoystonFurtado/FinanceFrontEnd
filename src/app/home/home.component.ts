@@ -13,7 +13,7 @@ export class HomeComponent {
   productName:string="IPhone8";
   productDescription:string="This is an expensive phone.";
   productPrice:Number=80000;
-  productImageUrl:string="assets/product-images/iphone8.jfif";
+  productImageUrl:string="assets/iphone8.jfif";
 
   redirectToRegister() {
     this.router.navigateByUrl('/register');

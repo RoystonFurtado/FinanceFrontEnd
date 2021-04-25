@@ -4,11 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { baseUrl } from './app.component';
 import { Order } from './order-history/order-history.component';
-
 import { Product } from './product/product.component';
-
-
-
 
 @Injectable({
   providedIn: 'root'
@@ -40,10 +36,12 @@ export class ProductService {
   
   fetchProductDetails(productId:number): Observable<Object>{
     console.log(productId);
-  let url="http://localhost:8188/product-description?productId="+productId;
+  let url=baseUrl+"/product-description?productId="+productId;
   return this.http.get(url);
   }
 
-
-
+  orderData(order:Order): Observable<Object>{
+    let url=baseUrl+"/order";
+    return this.http.post(url,order);
+  }
 }
