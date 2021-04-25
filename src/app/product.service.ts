@@ -4,6 +4,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Product } from './product/product.component';
 import {Order} from  './product-description/product-description.component';
+import { baseUrl } from './app.component';
 
 
 
@@ -16,33 +17,33 @@ export class ProductService {
 
 
   fetchProduct() : Observable<Product[]>{
-    let url = "http://localhost:8181/product";
+    let url = baseUrl+"/product";
     return this.http.get<Product[]>(url);
   }
 
   fetchByCategory(productCategory: String) : Observable<Product[]>{
-    let url = "http://localhost:8181/categories?productCategory="+productCategory;
+    let url = baseUrl+"/categories?productCategory="+productCategory;
     return this.http.get<Product[]>(url);
   }
 
   fetchByLowToHighPrice() : Observable<Product[]>{
-    let url = "http://localhost:8181/lowToHighPrice";
+    let url = baseUrl+"/lowToHighPrice";
     return this.http.get<Product[]>(url);
   }
 
   fetchByHighToLowPrice() : Observable<Product[]>{
-    let url = "http://localhost:8181/highToLowPrice";
+    let url = baseUrl+"/highToLowPrice";
     return this.http.get<Product[]>(url);
   }
   
   fetchProductDetails(productId:number): Observable<Object>{
     console.log(productId);
-  let url="http://localhost:8188/product-description?productId="+productId;
+  let url=baseUrl+"/product-description?productId="+productId;
   return this.http.get(url);
   }
 
   orderData(order:Order): Observable<Object>{
-    let url="http://localhost:8188/order";
+    let url=baseUrl+"/order";
     return this.http.post(url,order);
   }
 }

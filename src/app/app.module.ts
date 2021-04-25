@@ -21,13 +21,23 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountWarningComponent } from './account-warning/account-warning.component';
+import { FooterComponent } from './footer/footer.component';
+import { AppBarComponent } from './app-bar/app-bar.component';
+import { QrCodeComponent } from './qr-code/qr-code.component'
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+  
 
 //Material Components
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { AccountWarningComponent } from './account-warning/account-warning.component';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import { MatGridListModule} from '@angular/material/grid-list';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -49,7 +59,10 @@ import { AccountWarningComponent } from './account-warning/account-warning.compo
     DisappearDirective,
     AdminDashboardComponent,
     CreatePasswordComponent,
-    AccountWarningComponent
+    AccountWarningComponent,
+    FooterComponent,
+    AppBarComponent,
+    QrCodeComponent
   ],
   imports: [
     BrowserModule,
@@ -61,13 +74,23 @@ import { AccountWarningComponent } from './account-warning/account-warning.compo
     MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule,
+    NgxQRCodeModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+    MatProgressSpinnerModule,
   ],
   exports:[
     FormsModule,
     MatFormFieldModule,    
     MatInputModule,    
     BrowserAnimationsModule,
-    MatButtonModule,
+    MatButtonModule,  
+    NgxQRCodeModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+    MatProgressSpinnerModule,
   ],
   providers: [
   ],

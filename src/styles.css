@@ -1,14 +1,14 @@
-You can add global styles to this file, and also import other style files
-*{
+/* You can add global styles to this file, and also import other style files */
+/* *{
     box-sizing: border-box;
     font-family: calibri;
-}
-.main-container {
+} */
+/* .main-container {
     margin: auto;
     box-shadow: 10px 10px 5px lightgray;
     padding: 20px;
-}
-.btn {
+} */
+/* .btn {
     padding:10px;
     border-radius: 5px;
     background-color: #cddc39;
@@ -22,6 +22,6 @@ You can add global styles to this file, and also import other style files
 .img {
     height: 200px;
     width: 150px;
-}
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+} */
+/* html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */

@@ -1,6 +1,6 @@
 <div>
     <h2>Recent Orders</h2>
-    
+
     <p class="container" *ngIf="message">{{message}}</p>
     <div class="container" *ngIf="orders">
         <div class="card" *ngFor="let o of orders">
@@ -8,7 +8,7 @@
             <h3>{{o.product.productName}}</h3>
             <h5>{{o.product.productDescription}}</h5>
             <h4>₹ {{o.product.productPrice}}</h4>
-            <button class="btn" (click)="redirectToDescription('/product-listing')">Buy Again</button>
+            <button class="btn" (click)="redirectToDescription(o.product.productDescription)">Buy Again</button>
         </div>
     </div>
 </div>
@@ -18,17 +18,17 @@
     <h2>Recent Transaction</h2>
     <div class="dropdown">
         <label for="Month">Showing </label>
-        <select name="Month" id="drop"  #filter (change) = "filterbyMonth(filter.value)" >
+        <select name="Month" id="drop" #filter (change)="filterbyMonth(filter.value)">
             <option value="1" (click)="filterbyMonth(1)">Last month</option>
             <option value="3" (click)="filterbyMonth(3)">Last 3 months</option>
             <option value="6" (click)="filterbyMonth(6)">Last 6 months</option>
             <option value="12" (click)="filterbyMonth(12)">Last 1 year</option>
         </select>
     </div>
-     <div *ngIf="filteredTranscations.length == 0">
-         <p align="center">No Recent Transaction</p>
-     </div>
-    <div class="container"  *ngIf="filteredTranscations.length != 0">
+    <div *ngIf="filteredTranscations.length == 0">
+        <p align="center">No Recent Transaction</p>
+    </div>
+    <div class="container" *ngIf="filteredTranscations.length != 0">
         <table class="transactions-tbl" cell>
             <tr>
                 <th>Product</th>

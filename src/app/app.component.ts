@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -6,7 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'FinanceFrontEnd';
+ 
 }
 
 export var baseUrl = "http://localhost:8223";
@@ -16,3 +17,4 @@ export var Entity_profileStatus = "profileStatus";
 export var ProfileStatus_Accepted = "Accepted"; 
 export var ProfileStatus_Rejected = "Rejected"; 
 export var ProfileStatus_Pending = "Pending"; 
+
