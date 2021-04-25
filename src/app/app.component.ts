@@ -9,10 +9,12 @@ export class AppComponent {
   title = 'FinanceFrontEnd';
 }
 
-export var baseUrl = "http://localhost:8181";
+
+export var baseUrl = "http://localhost:8188";
 export var Entity_UserId = "userId"; 
 export var Entity_emailId = "emailId"; 
 export var Entity_profileStatus = "profileStatus"; 
 export var ProfileStatus_Accepted = "Accepted"; 
 export var ProfileStatus_Rejected = "Rejected"; 
 export var ProfileStatus_Pending = "Pending"; 
+

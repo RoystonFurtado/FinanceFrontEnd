@@ -57,17 +57,16 @@ export class ProductComponent implements OnInit {
 
 
   redirectToDescription(id:any){
-    this.router.navigateByUrl('/product-description?id='+id);
+    sessionStorage.setItem("productId",id);
+    this.router.navigateByUrl('/product-description');
+    
   }
 
   redirectToDashboard() {
     this.router.navigateByUrl('/dashboard');
   }
 }
-
-
-  
-
+ 
 // }
 
 export class Product{

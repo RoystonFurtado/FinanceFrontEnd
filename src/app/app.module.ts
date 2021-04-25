@@ -19,11 +19,11 @@ import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { OrderPlacementComponent } from './order-placement/order-placement.component';
 import { PaymentComponent } from './payment/payment.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 //Material Components
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -34,6 +34,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { ReplaceNullWithTextPipe } from './replace-null-with-text.pipe';
 import { DisappearDirective } from './disappear.directive';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 @NgModule({
   declarations: [
@@ -55,9 +56,11 @@ import { DisappearDirective } from './disappear.directive';
     DisappearDirective,
     ReplaceNullWithTextPipe,
     AdminDashboardComponent,
+    OrderPlacementComponent,
     PaymentComponent,
     CreatePasswordComponent,
-    AccountWarningComponent
+    AccountWarningComponent,
+    OrderSummaryComponent
   ],
   imports: [
     BrowserModule,
