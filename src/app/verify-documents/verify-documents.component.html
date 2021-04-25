@@ -12,7 +12,7 @@
       <table class="tbl">
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" [(ngModel)]="isAadharChecked" >View aadharCard</a>
+            <a href="http://localhost:8223/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" >View aadharCard</a>
           </td>
           <td>
             <input type="checkbox" class ="checkbox" *ngIf="enableAadhar" (click)="yourfuncAadhar()">
@@ -39,7 +39,7 @@
   </div><br>
   
   <div class="rejectionReason">
-    <textarea placeholder="Please Mention the reason for the rejection" style="height: 60px; width: 300px; " [(ngModel)]="reason"></textarea>
+    <input type="text" placeholder="Please Mention the reason for the rejection" style="height: 60px; width: 300px; " [(ngModel)]="reason">
   </div><br>
   
   <div>

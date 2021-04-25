@@ -1,0 +1,5 @@
+<div class="container" *ngIf="profileStatus!=ProfileStatus_Accepted">
+    <p *ngIf="profileStatus == ProfileStatus_Pending">Your account verification status is still <span class="pending">pending</span></p>
+    <p *ngIf="profileStatus == ProfileStatus_Rejected">Your account is <span class="rejected">rejected</span></p>
+    <p>You may not be able to buy products until your account is approval</p>
+</div>

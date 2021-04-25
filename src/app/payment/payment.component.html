@@ -1,0 +1,34 @@
+<div class="payment-container main-container">
+<form type="submit" (ngSubmit)="pay()">
+    <div class="form-element">
+        <input type="radio" name="payment-method" value="Credit Card" [(ngModel)]="paymentInfo.paymentMethod"/>
+        <label>Credit Card</label>
+        <br/>
+        <input type="radio" name="payment-method" value="Debit Card" [(ngModel)]="paymentInfo.paymentMethod"/>
+        <label>Debit Card</label>
+    </div>
+
+    <div class="form-element">
+        <label>Card Expiry Date</label>
+        <input class="form-input" type="date" name="card-expiry-date" [(ngModel)]="paymentInfo.cardExpiryDate"/>
+    </div>
+
+    <div class="form-element">
+        <label>Bank Name:</label>
+        <input class="form-input" type="text" name="bankName" [(ngModel)]="paymentInfo.bankName"/>
+    </div>
+
+    <div class="form-element">
+        <label>Card No:</label>
+        <input class="form-input" type="text" name="cardNo" [(ngModel)]="paymentInfo.payerCardNo"/>
+    </div>
+
+    <div class="form-element">
+        <label>Name on Card:</label>
+        <input class="form-input" type="text" name="nameOnCard" [(ngModel)]="paymentInfo.payerName"/>
+    </div>
+
+    <div class="form-element">
+        <button type="submit" class="btn">Pay Now</button>
+    </div>
+</form>

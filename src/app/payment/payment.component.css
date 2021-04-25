@@ -1,0 +1,14 @@
+.payment-container {
+    width: 30vw;
+}
+.form-element {
+    /* outline:1px solid black; */
+    padding: 15px 10px;
+}
+.form-input {
+    display: block;
+    border-radius: 10px;
+    border:1px solid black;
+    width: 300px;
+    padding: 5px;
+}

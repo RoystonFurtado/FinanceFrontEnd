@@ -1,0 +1,22 @@
+
+.container{
+    width: 100%;
+    border: 2px solid gray;
+    border-radius: 15px;
+    background-color: antiquewhite;
+    margin-right: 20px;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.container p {
+    text-align: center;
+}
+.rejected{
+    color: red;
+    font-weight: 500;
+}
+.pending{
+    color: blue;
+    font-weight: 500;
+}

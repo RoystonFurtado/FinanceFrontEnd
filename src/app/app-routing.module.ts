@@ -15,6 +15,8 @@ import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted
 import { AddProductComponent } from './add-product/add-product.component';
 import { VerifyDocumentsComponent } from './verify-documents/verify-documents.component';
 import { HttpClientModule } from '@angular/common/http';
+import { PaymentComponent, PaymentInfo } from './payment/payment.component';
+import { CreatePasswordComponent } from './create-password/create-password.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -32,6 +34,8 @@ const routes: Routes = [
   {path:'order-history',component:OrderHistoryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent},
   {path:'verify-documents',component:VerifyDocumentsComponent}
+  {path:'payment',component:PaymentComponent},
+  {path:'create-password',component:CreatePasswordComponent}
 ];
 
 @NgModule({
