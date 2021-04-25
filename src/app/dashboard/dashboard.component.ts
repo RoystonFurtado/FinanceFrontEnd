@@ -69,7 +69,7 @@ export class DashboardComponent implements OnInit{
 
     //this.dashboardService.updateInstallmentPhase(10056).subscribe(); 
 
-    this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
+    this.dashboardService.pendingInstallmentDetails(10032).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
         let d=new Date(this.activeOrders[i].dueDate);
@@ -84,7 +84,7 @@ export class DashboardComponent implements OnInit{
       alert(response['message']);
 
     //Update Card Details
-    this.dashboardService.cardDetails(10056).subscribe(response=>{
+    this.dashboardService.cardDetails(10032).subscribe(response=>{
       this.cardNo=response['cardNo'];
       this.expiryDate=response['cardExpiryDate'];
       let d=new Date(this.expiryDate);
@@ -94,7 +94,7 @@ export class DashboardComponent implements OnInit{
     });
 
     //Update Pending Installments
-    this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
+    this.dashboardService.pendingInstallmentDetails(10032).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
         let d=new Date(this.activeOrders[i].dueDate);

@@ -101,7 +101,11 @@ export class User{
               public address?:string,
               public password?:string,
               public dob?:string,
-              public emiCard?:emiCard){}
+              public emiCard?:emiCard,
+              public profileStatus?:string,
+              public aadharCard?:string,
+              public panCard?:string,
+              public cancelledCheque ?:string){}
               
 }
 export class emiCard{

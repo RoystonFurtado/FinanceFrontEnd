@@ -13,6 +13,7 @@ export class AdminAcceptedListComponent implements OnInit {
   users:User[];
   constructor(private adminDashboardService:AdminDashboardService,
     private router:Router) { }
+    userName:string;
 
   ngOnInit(): void {
 
@@ -20,6 +21,10 @@ export class AdminAcceptedListComponent implements OnInit {
         this.users=Response;
         console.log(Response);
       });
+    }
+    view(userName:string){
+      console.log(userName);
+
     }
 
   

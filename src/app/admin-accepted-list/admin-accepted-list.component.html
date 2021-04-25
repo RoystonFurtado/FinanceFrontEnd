@@ -6,9 +6,10 @@
     <p>Email id: {{user.emailId}}</p>
     <p>Address : {{user.address}}</p>
     <p>Date of birth{{user.dob}}</p>
-    <a href="http://localhost:8223/downloads/{{ user.aadharCard }}" >aadharCard</a><br>
-    <a href="http://localhost:8223/downloads/{{user.panCard}}" >Pancard</a><br>
-    <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}">cancelledCheque</a>
+    <a href="http://localhost:8223/downloads/{{ user.aadharCard }}" target="_blank">aadharCard</a><br>
+    <a href="http://localhost:8223/downloads/{{user.panCard}}" target="_blank">Pancard</a><br>
+    <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}"target="_blank">cancelledCheque</a>
+    <button (click)="view(user.userName)">click here</button>
       
         <br />
         <br>

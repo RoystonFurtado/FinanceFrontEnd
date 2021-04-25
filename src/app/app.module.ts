@@ -18,6 +18,9 @@ import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted
 import { AddProductComponent } from './add-product/add-product.component';
 import { ProductDescriptionComponent } from './product-description/product-description.component';
 import { OrderHistoryComponent } from './order-history/order-history.component';
+import { RejectUserComponent } from './reject-user/reject-user.component';
+import { AcceptUserComponent } from './accept-user/accept-user.component';
+import { VerifyDocumentsComponent } from './verify-documents/verify-documents.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +40,10 @@ import { OrderHistoryComponent } from './order-history/order-history.component';
     ProductDescriptionComponent,
     OrderHistoryComponent,
     DisappearDirective,
-    AdminDashboardComponent
+    AdminDashboardComponent,
+    RejectUserComponent,
+    AcceptUserComponent,
+    VerifyDocumentsComponent
   ],
   imports: [
     BrowserModule,

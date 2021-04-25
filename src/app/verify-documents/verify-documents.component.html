@@ -1,0 +1,57 @@
+<div class="sample-product main-container">
+    <img class="img" src="/assets/pending.jpg" />
+    <div class="info">
+      <div class="innerInfo">
+    <p><b>Name :</b>{{user.userName}}</p>
+    <p><b>DOB :</b>{{user.dob}}</p>
+    <p><b>Address :</b>{{user.address}}</p>
+    <p><b>Email :</b>{{user.emailId}}</p>
+    <p><b>MobileNo :</b>{{user.mobileNo}}</p><br><br><br><br>
+    </div></div><br><br><br><br>
+    <div class="link">
+      <table class="tbl">
+        <tr>
+          <td>
+            <a href="http://localhost:8223/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" [(ngModel)]="isAadharChecked" >View aadharCard</a>
+          </td>
+          <td>
+            <input type="checkbox" class ="checkbox" *ngIf="enableAadhar" (click)="yourfuncAadhar()">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="http://localhost:8223/downloads/{{user.panCard}}" (click)="enablePanfun()" target="_blank">View PanCard</a>
+          </td>
+          <td>
+            <input type="checkbox" class="checkbox"  *ngIf="enablePan"(click)="yourfuncPan()">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}" (click)="enableChequefun()" target="_blank">View CancelledCheque</a>
+          </td>
+          <td>
+            <input type="checkbox" class="checkbox" *ngIf="enableCheque" (click)="yourfuncCheque()"> 
+          </td>
+        </tr>
+      </table>
+    <br>    
+  </div><br>
+  
+  <div class="rejectionReason">
+    <textarea placeholder="Please Mention the reason for the rejection" style="height: 60px; width: 300px; " [(ngModel)]="reason"></textarea>
+  </div><br>
+  
+  <div>
+    Pick a topic:
+    <input type="radio" ng-model="action" value="accept" (click)="verifyAccept()">Accept
+    <input type="radio" ng-model="action" value="reject" (click)="verifyReject()">Reject
+  </div>
+  <div *ngIf="isErrorPresent">
+    {{errorMessage}}
+  </div>
+  
+    <div class="button">
+      <button (click)="decide()" [disabled]="this.isErrorPresent">Make Changes</button><br><br>
+
+</div>
