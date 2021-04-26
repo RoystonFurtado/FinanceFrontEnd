@@ -13,7 +13,7 @@ export class DocumentUploadComponent {
   constructor(private registerService:RegisterService,
     private router:Router){};
 
-  userId:string;
+  userId:any;
   aadharCard:File;
   panCard:File;
   cancelledCheque:File;

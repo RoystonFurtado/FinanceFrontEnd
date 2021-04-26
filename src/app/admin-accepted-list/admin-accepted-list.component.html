@@ -6,9 +6,9 @@
     <p>Email id: {{user.emailId}}</p>
     <p>Address : {{user.address}}</p>
     <p>Date of birth{{user.dob}}</p>
-    <a href="http://localhost:8223/downloads/{{ user.aadharCard }}" target="_blank">aadharCard</a><br>
-    <a href="http://localhost:8223/downloads/{{user.panCard}}" target="_blank">Pancard</a><br>
-    <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}"target="_blank">cancelledCheque</a>
+    <a href=baseUrl+"/downloads/{{ user.aadharCard }}" target="_blank">aadharCard</a><br>
+    <a href=baseUrl+"/downloads/{{user.panCard}}" target="_blank">Pancard</a><br>
+    <a href=baseUrl+"/downloads/{{user.cancelledCheque}}"target="_blank">cancelledCheque</a>
     <button (click)="view(user.userName)">click here</button>
       
         <br />
@@ -28,9 +28,9 @@
                  <p><b>Address :</b> {{user1.address}}</p>
                  <p><b>Date of Birth :</b> {{user1.dob}}</p>
                 </div>
-                 <!-- <a href="http://localhost:8223/downloads/{{ user1.aadharCard }}">aadharCard</a><br>
-                 <a href="http://localhost:8223/downloads/{{user1.panCard}}" >Pancard</a><br>
-                 <a href="http://localhost:8223/downloads/{{user1.cancelledCheque}}">cancelledCheque</a> -->
+                 <!-- <a href=baseUrl+"/downloads/{{ user1.aadharCard }}">aadharCard</a><br>
+                 <a href=baseUrl+"/downloads/{{user1.panCard}}" >Pancard</a><br>
+                 <a href=baseUrl+"/downloads/{{user1.cancelledCheque}}">cancelledCheque</a> -->
                   <!-- <button (click)="acceptUser(user1.userName)">Accept</button><br><br>
                   <button (click)="rejectUser(user1.userName)">Reject</button> -->
                   <button class="hvr-shutter-in-horizontal" (click)="view(user1)">Verify Documents</button>
@@ -49,9 +49,9 @@
                <p><b>Date of Birth :</b> {{user.dob}}</p>
                </div>
                
-               <!-- <a href="http://localhost:8223/downloads/{{ user.aadharCard }}">aadharCard</a><br>
-               <a href="http://localhost:8223/downloads/{{user.panCard}}" >Pancard</a><br>
-               <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}">cancelledCheque</a> -->
+               <!-- <a href=baseUrl+"/downloads/{{ user.aadharCard }}">aadharCard</a><br>
+               <a href=baseUrl+"/downloads/{{user.panCard}}" >Pancard</a><br>
+               <a href=baseUrl+"/downloads/{{user.cancelledCheque}}">cancelledCheque</a> -->
                 <!-- <button (click)="acceptUser(user.userName)">Accept</button><br><br>
                 <button (click)="rejectUser(user.userName)">Reject</button> -->
                 <button class="hvr-shutter-in-horizontal" (click)="view(user)">Verify Documents</button>

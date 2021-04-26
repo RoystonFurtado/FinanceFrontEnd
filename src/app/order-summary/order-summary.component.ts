@@ -31,9 +31,29 @@ export class OrderSummaryComponent{
   orderOverviewPopup:boolean=false;
   orderStatus:boolean=false;
   orderStatusMessage:string;
+  user:UserDetails;
+  userId:string;
+  id:number;
   @Input() od:OrderSummaryDetails;
   constructor(private placeOrderService:PlaceOrderService,private router:Router) { 
-    
+  this.userId=sessionStorage.getItem("userId");
+  if(this.userId!="" && this.userId!=null){
+  this.id=parseInt(sessionStorage.getItem("userId"));
+  this.placeOrderService.getUserDetails(this.userId).subscribe(response=>{
+    this.user=new UserDetails();
+    this.user.userName=response["userName"];
+    this.user.cardBalance=response["cardBalance"];
+    this.user.cardCreditUsed=response["cardCreditUsed"];
+    this.user.cardLimit=response["cardLimit"];
+    this.user.cardType=response["cardType"];
+    this.user.emailId=response["emailId"];
+    this.user.address=response["address"];
+    this.user.cardExpiryDate=response["cardExpiryDate"];
+});}
+else
+{
+  this.router.navigateByUrl('/login');
+}
   }
   showOrderPopup(){
     this.orderOverviewPopup=true;
@@ -44,7 +64,7 @@ export class OrderSummaryComponent{
     this.router.navigateByUrl('/product-listing');
    }
   redirectToOrderPlacement(){
-    this.orderDetails=new OrderDetails(10029,this.od.productId,this.od.tenurePeriod);
+    this.orderDetails=new OrderDetails(this.id,this.od.productId,this.od.tenurePeriod);
     this.placeOrderService.orderData(this.orderDetails).subscribe(response=>{
          this.orderStatusMessage=response['message'];
   })
@@ -52,4 +72,15 @@ export class OrderSummaryComponent{
     this.orderStatus=false;
   }
   
+}
+
+export class UserDetails {
+   public userName:string;
+   public cardBalance:number;
+   public cardCreditUsed:number;
+   public cardLimit:number;
+   public cardType:string;
+   public emailId:string;
+   public address:string;
+   public cardExpiryDate:Date;
 }

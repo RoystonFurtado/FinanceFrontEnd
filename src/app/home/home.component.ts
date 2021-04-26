@@ -33,7 +33,8 @@ products: Array<Product>;
     this.router.navigateByUrl('/login');
   }
   redirectToDescription(id:any){
-    this.router.navigateByUrl('/product-description?id='+id);
+    sessionStorage.setItem("productId",id);
+    this.router.navigateByUrl('/product-description');
   }
   redirectToProductListing(){
     this.router.navigateByUrl('/product-listing');

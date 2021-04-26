@@ -6,22 +6,47 @@
 <div class="body-wrap">
     <div class="row body">
         <div class="left-pane">
-            <p>Product Price:{{od.productPrice}}</p><br>
-    <p>Purchase Date:{{od.myDate}}</p><br>
-    <p>Tenure Period:{{od.tenurePeriod}}</p><br>
-    <p>Monthly EMI Amount:{{od.amount}}</p><br>
-    <button class="orderPlacement" (click)="redirectToOrderPlacement()">Place Order</button>
-            <!-- <div class="section"> -->
-                <!-- <p>Product Id:{{od.productId}}</p> -->
-    <!-- <p>Product Name:{{od.productName}}</p>  -->
-     
-                
-                <!-- <div class="header">
-
-                </div> -->
-            <!-- </div> -->
+            <div class="section section1">
+                <div class="section-header ">
+                    <p style="color: white;">Logged-in user</p>
+                    <p>{{user.userName}}</p>
+                </div>
+            </div>
+            <div class="section section2">
+                <div class="section-header ">
+                    <p style="color: white;">Address Details</p>
+                    <p>{{user.address}}</p>
+                </div>
+                 
+            </div>
+            <div class="section section3">
+                <div class="section-header ">
+                    <p style="color: white; ">Card Details</p>
+                    <p>Card Balance : {{user.cardBalance}}</p><br>
+                    <p>Card Credit Required : {{od.productPrice}}</p><br>
+                    <p>Card Type : {{user.cardType}}</p><br>
+                    <p>Card Limit : {{user.cardLimit}}</p><br>
+                </div>
+            </div>
         </div>
-        <div class="right-pane"></div>
+        <div class="right-pane">
+            <div class="right-pane-section">
+                <span class="right-pane-text-header">Price details</span>
+                <div class="right-pane-text">
+                    <p>Price (1 item)</p>
+                    <p>₹{{od.productPrice}}</p>
+                </div>
+                <div class="right-pane-text">
+                    <p>Delivery Charges</p>
+                    <p style="color: green;">FREE</p>
+                </div>
+                <div class="right-pane-text total-pane">
+                    <p class="padding-text" style="font-weight: bold;">Total </p>
+                    <p class="padding-text"  style="font-weight: bold;">₹{{od.productPrice}}</p>
+                </div><br><br>
+                <div class="cust-btn-cm cust-btn" (click)="redirectToOrderPlacement()">Place order</div>
+            </div>
+        </div>
     </div>
 </div>
      
