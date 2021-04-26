@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../register.service';
 
@@ -10,90 +11,68 @@ import { RegisterService } from '../register.service';
 
 export class RegisterComponent implements OnInit{
 
+  @ViewChild('myRegistrationForm',{static:false}) public MyForm: NgForm;
+
   constructor(private router:Router,
               private registerService:RegisterService){};
 
   user:User;
   confirmPassword:string;
   cardType:string;
+  cardTypeError:boolean;
 
-  NameError:string;
-  PassError:string;
+  passError:boolean;
   ConPassError:string;
   EmailError:string;
   CardError:string;
   PhoneError:string;
   AddressError:string;
+  ageLimit:string;
+
+  cardTypes: string[] = ['Gold','Titanium'];
 
   ngOnInit(): void {
     this.user=new User();
     this.user.emiCard=new emiCard();
+    let today=new Date();
+    let date=(today.getDate()<10)?"0"+today.getDate():today.getDate();
+    let month=((today.getMonth()+1)<10)?"0"+(today.getMonth()+1):(today.getMonth()+1);
+    let year=today.getFullYear()-21;
+    this.ageLimit=year+'-'+month+'-'+date;
   }
 
-  registerUser() {
-
-    var validated = false;
-    if (this.user.userName == null || this.user.userName.length == 0) {
-      this.NameError = "User name can't be empty";
-      validated = false;
-    }
-    else {
-      this.NameError = null;
-      validated = true;
-    }
-    if (this.user.mobileNo == null || !(this.user.mobileNo.toString().length == 10)) {
-      this.PhoneError = "Invalid Phone No";
-      validated = false;
-    }
-    else {
-      this.PhoneError = null;
-      validated = true;
-    }
-    if (this.user.emailId == null || !(this.user.emailId.includes("@") && this.user.emailId.includes(".com") && (this.user.emailId.indexOf(".com")-this.user.emailId.indexOf("@")>3))) {
-      this.EmailError = "Invalid EmailId";
-      validated = false;
-    }
-    else {
-      this.EmailError = null;
-      validated = true;
-    }
-    if (this.user.password == null || this.user.password.length<8) {
-      this.PassError = "Password length should be atleast 8";
-      validated = false;
-    }
-    else {
-      this.PassError = null;
-      validated = true;
-    }
-    if (!(this.user.password === this.confirmPassword)) {
-      this.ConPassError = "Please enter the password correctly";
-      validated = false;
-    }
-    else {
-      this.ConPassError = null;
-      validated = true;
-    }
-    if (this.user.emiCard.cardType == null) {
-      this.CardError = "Select card type";
-      validated = false;
-    }
-    else {
-      this.CardError = null;
-      validated = true;
-    }
-    
-    if(validated){
-      this.registerService.register(this.user).subscribe(response=>{
-        console.log("User Id-->"+response["registeredUserId"]);
-        this.registerService.userId=response["registeredUserId"];
-        alert(JSON.stringify(response));
-      });
-      this.router.navigateByUrl('/document-upload');
-    }
-
+  onRadioChange() {
+    this.cardTypeError=false;
   }
+
+  numberOnly(event): boolean {
+    const charCode = (event.which) ? event.which : event.keyCode;
+    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+      return false;
+    }
+    return true;
+  }
+
+  register() {
+    if(this.user.emiCard.cardType===undefined)
+      this.cardTypeError=true;
+   else if(this.confirmPassword!==this.user.password)
+      this.passError=true;
+   else {
+     if(this.MyForm.valid) {
+        this.registerService.register(this.user).subscribe(response=>{
+          if(response['status']===true) {
+            this.registerService.userId=response["registeredUserId"];
+            this.router.navigateByUrl('/login');
+          }
+          else
+            alert(response['message']);
+        });
+     }
+   } 
+  }
+
 }
-
 export class User{
   constructor(public userName?:string,
               public mobileNo?:Number,

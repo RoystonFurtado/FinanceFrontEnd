@@ -4,7 +4,7 @@
     <p class="container" *ngIf="message">{{message}}</p>
     <div class="container" *ngIf="orders">
         <div class="card" *ngFor="let o of orders">
-            <img class="img" src={{o.product.productImage}} alt="Product Image" />
+            <img class="img" src="http://localhost:8181/downloads/{{o.product.productImage}}" alt="Product Image" />
             <h3>{{o.product.productName}}</h3>
             <h5>{{o.product.productDescription}}</h5>
             <h4>₹ {{o.product.productPrice}}</h4>

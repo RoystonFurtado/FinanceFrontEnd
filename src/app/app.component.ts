@@ -10,7 +10,7 @@ export class AppComponent {
  
 }
 
-export var baseUrl = "http://localhost:8223";
+export var baseUrl = "http://localhost:8181";
 export var Entity_UserId = "userId"; 
 export var Entity_emailId = "emailId"; 
 export var Entity_profileStatus = "profileStatus"; 
