@@ -13,7 +13,7 @@ export class DocumentUploadComponent {
   constructor(private registerService:RegisterService,
     private router:Router){};
 
-  userId:string;
+  userId:any;
   aadharCard:File;
   panCard:File;
   cancelledCheque:File;
@@ -33,6 +33,7 @@ export class DocumentUploadComponent {
   fileUpload(){
     this.userId=this.registerService.userId;
     let formData: FormData = new FormData();
+    this.userId=10062;
     formData.append('userId', this.userId);
     formData.append('aadharCard',this.aadharCard);
     formData.append('panCard',this.panCard);
