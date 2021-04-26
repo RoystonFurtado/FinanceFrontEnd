@@ -12,7 +12,9 @@ import { RegisterService } from '../register.service';
 export class DocumentUploadComponent {
 
   constructor(private registerService:RegisterService,
-    private router:Router,private navbar:MainService){};
+    private router:Router,private navbar:MainService){
+      this.userId =sessionStorage.getItem(Entity_UserId);
+    };
 
     ngOnInit(): void {
       if(sessionStorage.getItem("userId")===null) {

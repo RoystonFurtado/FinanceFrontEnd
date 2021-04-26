@@ -62,8 +62,11 @@ export var baseUrl = "http://localhost:8181";
 export var Entity_UserId = "userId";
 export var Entity_UserName = "userName";
 export var Entity_emailId = "emailId";
+export var Entity_isDocumentUploaded = "isDocumentUploaded";
 export var Entity_profileStatus = "profileStatus";
+export var Entity_rejectedMessage = "rejectedMessage";
 export var ProfileStatus_Accepted = "Accepted";
 export var ProfileStatus_Rejected = "Rejected";
+export var ProfileStatus_Permanently_Deativated = "Permanently Deactivated";
 export var ProfileStatus_Pending = "Pending";
 

@@ -1,4 +1,4 @@
-.card{
+.card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     width: 300px;
     height: 300px;
@@ -9,20 +9,21 @@
     padding: 10px;
     font-size: small;
 }
-.card img{
 
+.card img {
     height: 40%;
     object-fit: cover;
 }
+
 .tab {
     float: left;
     border: 1px solid #ccc;
     background-color: #f1f1f1;
     width: 150px;
     height: fit-content;
-  }
+}
 
-  .tab button {
+.tab button {
     display: block;
     background-color: inherit;
     color: black;
@@ -34,24 +35,33 @@
     cursor: pointer;
     transition: 0.3s;
     font-size: 17px;
-  }
+}
 
-  .tabcontent {
-    float: left;
-    padding: 0px 12px;
-    border: black;
-    display: grid;
-    grid-template-columns: auto auto auto auto;
-    border-left: none;
-  }
-  .tabProducts{
-      align-self: center;
-  }
-.products{
+.tabcontent {
+    text-align: center;
+    padding: 10px;
+    margin: 8px;
+    border: 1px solid gray;
+    border-radius: 8px;
+    background-color: azure;
+    height: 80%;
+}
+
+.tabProducts {
+    align-self: center;
+}
+
+.products {
     margin-left: 200px;
 }
-.head{
+
+.head {
     text-align: center;
     font-weight: bold;
     font-size: 4pc;
+}
+
+.tabcontent img {
+    height: 40%;
+    object-fit: cover;
 }

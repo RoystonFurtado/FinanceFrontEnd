@@ -1,7 +1,18 @@
-<label>Aadhar Card:</label>
-<input type="file" name="aadharCard" (change)="onFileChange($event)">
-<label>Pan Card:</label>
-<input type="file" name="panCard" (change)="onFileChange($event)">
-<label>Cancelled Cheque:</label>
-<input type="file" name="cancelledCheque" (change)="onFileChange($event)">
-<button class="btn" (click)="fileUpload()">Register</button>
+<div class=document>
+    <h1>Upload Documents</h1>
+    <div class="input">
+        <label>Aadhar Card:</label>
+        <input type="file" name="aadharCard" (change)="onFileChange($event)">
+    </div>
+    <div class="input">
+        <label>Pan Card:</label>
+        <input type="file" name="panCard" (change)="onFileChange($event)">
+    </div>
+    <div class="input">
+        <label>Cancelled Cheque:</label>
+        <input type="file" name="cancelledCheque" (change)="onFileChange($event)">
+    </div>
+    <br/>
+    <br/>
+    <button class="btn" style=" width:100%; text-align: center;" (click)="fileUpload()">Upload for Verification</button>
+</div>
