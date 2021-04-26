@@ -33,7 +33,7 @@ export class DashboardComponent implements OnInit{
 
     //this.dashboardService.updateInstallmentPhase(10056).subscribe(); 
 
-    this.dashboardService.pendingInstallmentDetails(10032).subscribe(response=>{
+    this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
         let d=new Date(this.activeOrders[i].dueDate);

@@ -1,1 +1,37 @@
-<router-outlet></router-outlet>
+<mat-sidenav-container>
+    <mat-sidenav #sidenav mode="side" [opened]='showNav'>
+        <div class="sidenav-header">
+            <h1>Welcome,</h1>
+            <p>{{userName}}</p>
+            <mat-divider></mat-divider>
+        </div>
+        <div class="sidenav-menu">
+            <button mat-stroked-button (click)="redirectToDashboard()">Dashboard</button>
+            <mat-divider></mat-divider>
+            <button mat-stroked-button (click)="redirectToDashboard()">Recent Orders</button>
+            <mat-divider></mat-divider>
+            <button mat-stroked-button (click)="redirectToDashboard()">Buy Products</button>
+            <!-- <mat-divider></mat-divider>            
+            <button mat-stroked-button (click)="redirectToDashboard()"></button> -->
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <mat-toolbar color="primary" *ngIf="showAppBar">
+            <!-- <button mat-icon-button class="example-icon" (click)="sidenav.toggle()" *ngIf="!showNav">
+            <mat-icon>menu</mat-icon>
+          </button> -->
+            <span>{{title}}</span>
+            <span class=" example-spacer "></span>
+            <button mat-flat-button color="accent" *ngIf="!loggedIn" (click)="redirectToLogin() ">Login</button>
+            <button mat-flat-button color="accent" *ngIf="!loggedIn" (click)="redirectToRegister() ">Register</button>
+            <button mat-flat-button color="accent" *ngIf="loggedIn" (click)="logOut()"><mat-icon tooltip="Logout">logout</mat-icon></button>
+
+            <!-- <button mat-icon-button class="example-icon " aria-label="Example icon-button with share icon ">
+            <mat-icon>share</mat-icon>
+          </button> -->
+        </mat-toolbar>
+        <!-- <p><button mat-button (click)="sidenav.toggle() ">sidenav.toggle()</button></p> -->
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>
