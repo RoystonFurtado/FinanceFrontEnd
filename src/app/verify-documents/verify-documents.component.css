@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:ital,wght@0,200;1,600;1,900&display=swap');
+
 .sample-product{
-    width: 500px;
-    height: 650px;
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 20px;
+    height: auto;
+    border: 1px solid lightgray;
+    text-align: center;
+    margin-bottom: 30px;
+    padding-top: 15px;
 }
 .btn1{
     float: right;
@@ -13,12 +21,14 @@
     width: 300px;
 }
 .img{
-    float: left;
+   
     width: 50%;
 }
 .info{
-    float:right;
-    width: 50%;
+    float: left;
+    width: 100%;
+padding-left: 15%;
+text-align: left;
 }
 .link{
     text-align: center;
@@ -28,7 +38,8 @@
     text-align: center;
 }
 .innerInfo{
-    text-align: center;
+    /* text-align: center; */
+    margin-top: 20px;
 }
 .tbl{
     text-align: center;
@@ -45,8 +56,83 @@
     padding-left: 70px;
 }
 a{
-    font-size: 30px;
+    font-size: 20px;
+    float: left;
+    color:#000;
+    margin-bottom: 10px;
 }
 .mat-radio-button ~ .mat-radio-button {
     margin-left: 16px;
   }  
+  a:link {
+    /* color: green; */
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:visited {
+    /* color: pink; */
+    background-color: transparent;
+    text-decoration: none;
+  }
+  
+  a:hover {
+    /* color: red; */
+    font-size: 22px;
+    color: gray;
+    padding-bottom: 15px;
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  a:active {
+    /* color: yellow; */
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  .radioAction{
+      text-align: center;
+  }
+  .make_change{background-color: rgb(240, 238, 238);padding: 10px;margin-top: 20px;font-size: 15px;}
+  .innerInfo p{margin-bottom: 20px;font-size: 18px ;font-family: 'Raleway', sans-serif;font-weight: 700;}
+  .hvr-shutter-in-horizontal {
+    display: inline-block;
+    vertical-align: middle;
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0);
+    position: relative;
+    background: rgb(48, 47, 47);
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+  }
+  .hvr-shutter-in-horizontal:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #e1e1e1;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+    -webkit-transform-origin: 50%;
+    transform-origin: 50%;
+    -webkit-transition-property: transform;
+    transition-property: transform;
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-timing-function: ease-out;
+    transition-timing-function: ease-out;
+  }
+  .hvr-shutter-in-horizontal:hover, .hvr-shutter-in-horizontal:focus, .hvr-shutter-in-horizontal:active {
+    color: white;
+  }
+  .hvr-shutter-in-horizontal:hover:before, .hvr-shutter-in-horizontal:focus:before, .hvr-shutter-in-horizontal:active:before {
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+  }
+  

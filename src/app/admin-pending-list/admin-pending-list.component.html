@@ -1,38 +1,40 @@
 <div class="searchBoxDiv">
 <input type="text" placeholder="Please enter the id of the record to be searched" (input)="display()"name="userName" [(ngModel)]="userName" class="searchBox" style="height:40px;font-size:14pt;" size="60"/>
 </div>
-<div>
+<div class="main_card_div">
     <div *ngFor="let user1 of users1" class="card" > 
-      <img src="/assets/pending.jpg" >
+      <img src="/assets/pending.png" >
+      <div class="sub_card_div">
          <p>Name: {{user1.userName}}</p>
      <p>Mobile no: {{user1.mobileNo}}</p>
      <p>Email id: {{user1.emailId}}</p>
      <p>Address : {{user1.address}}</p>
-     <p>Date of birth{{user1.dob}}</p>
+     <p>Date of birth{{user1.dob}}</p></div>
      <!-- <a href="http://localhost:8223/downloads/{{ user1.aadharCard }}">aadharCard</a><br>
      <a href="http://localhost:8223/downloads/{{user1.panCard}}" >Pancard</a><br>
      <a href="http://localhost:8223/downloads/{{user1.cancelledCheque}}">cancelledCheque</a> -->
       <!-- <button (click)="acceptUser(user1.userName)">Accept</button><br><br>
       <button (click)="rejectUser(user1.userName)">Reject</button> -->
-      <button (click)="verify(user1)">Verify Documents</button>
+      <button class="hvr-shutter-in-horizontal" (click)="verify(user1)">Verify Documents</button>
       </div>
       </div>
-
+      <div class="main_card_div">
     <div *ngIf="displayAll">
  <div *ngFor="let user of users" class="card" > 
-    <img src="/assets/pending.jpg" >
+    <img src="/assets/pending.png" >
+    <div class="sub_card_div">
        <p>Name: {{user.userName}}</p>
    <p>Mobile no: {{user.mobileNo}}</p>
    <p>Email id: {{user.emailId}}</p>
    <p>Address : {{user.address}}</p>
-   <p>Date of birth{{user.dob}}</p>
+   <p>Date of birth{{user.dob}}</p></div>
    <!-- <a href="http://localhost:8223/downloads/{{ user.aadharCard }}">aadharCard</a><br>
    <a href="http://localhost:8223/downloads/{{user.panCard}}" >Pancard</a><br>
    <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}">cancelledCheque</a> -->
     <!-- <button (click)="acceptUser(user.userName)">Accept</button><br><br>
     <button (click)="rejectUser(user.userName)">Reject</button> -->
-    <button (click)="verify(user)">Verify Documents</button>
-    </div></div>
+    <button class="hvr-shutter-in-horizontal" (click)="verify(user)">Verify Documents</button>
+    </div></div></div>
    
 
      
