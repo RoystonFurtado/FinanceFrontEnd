@@ -85,10 +85,11 @@ export class LoginComponent implements OnInit {
       this.http.post(baseUrl+"/login", { "emailId": this.email, "password": this.password }).subscribe(data => {
         console.log(data);
         this.loginData=data as string;
+        console.log(data[Entity_isDocumentUploaded]);
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
-        if(!data[Entity_isDocumentUploaded]){
+        else if(!data[Entity_isDocumentUploaded]){
           sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
           sessionStorage.setItem(Entity_UserName,data["userName"]);
           sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);

@@ -8,6 +8,7 @@
     margin: auto;
     padding: 10px;
     font-size: small;
+    background-color: azure;
 }
 
 .card img {
@@ -38,30 +39,29 @@
 }
 
 .tabcontent {
+    display: grid;
+    grid-template-columns: auto auto auto auto;
     text-align: center;
     padding: 10px;
     margin: 8px;
     border: 1px solid gray;
     border-radius: 8px;
-    background-color: azure;
-    height: 80%;
-}
-
-.tabProducts {
-    align-self: center;
-}
-
-.products {
-    margin-left: 200px;
-}
-
-.head {
-    text-align: center;
-    font-weight: bold;
-    font-size: 4pc;
+    height: 100%;
 }
 
 .tabcontent img {
     height: 40%;
+    margin: 10px;
     object-fit: cover;
+}
+
+.sort {
+    display: block;
+    padding: 10px;
+    width: 100%;
+    text-align: end;
+}
+
+.sort button {
+    margin: 8px;
 }

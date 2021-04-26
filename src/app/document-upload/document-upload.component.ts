@@ -25,16 +25,13 @@ export class DocumentUploadComponent {
         this.navbar.showProductBtn=true;
         this.navbar.showOrderHistoryBtn=false;
       }
-      else {
-        this.redirectToDashboard();
-      }
     }
-
+    
     redirectToDashboard() {
       this.router.navigateByUrl('/dashboard');
     }
 
-  userId:string;
+  userId:any;
   aadharCard:File;
   panCard:File;
   cancelledCheque:File;
@@ -52,7 +49,7 @@ export class DocumentUploadComponent {
 
 
   fileUpload(){
-    this.userId=this.registerService.userId;
+    this.userId=sessionStorage.getItem("userId");
     let formData: FormData = new FormData();
     formData.append('userId', this.userId);
     formData.append('aadharCard',this.aadharCard);
