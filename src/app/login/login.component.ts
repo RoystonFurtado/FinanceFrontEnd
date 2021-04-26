@@ -35,9 +35,10 @@ export class LoginComponent implements OnInit {
     if(sessionStorage.getItem("userId")===null) {
       this.navbar.showDashboardBtn=false;
       this.navbar.showLogoutBtn=false;
-      this.navbar.showLoginBtn=true;
+      this.navbar.showLoginBtn=false;
       this.navbar.showRegisterBtn=true;
       this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=false;
     }
     else {
       this.redirectToDashboard();
@@ -76,6 +77,7 @@ export class LoginComponent implements OnInit {
       console.log()
       if(this.loginType=="Admin"){
         if(this.email=="admin" && this.password=="admin"){
+          sessionStorage.setItem("admin",'admin');
             this.redirectToAdminDashboard();
         }
       }

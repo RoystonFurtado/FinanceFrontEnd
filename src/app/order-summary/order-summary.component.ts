@@ -1,7 +1,8 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, Directive, ElementRef, EventEmitter, HostListener, Input, OnInit, Output } from '@angular/core';
 import {  OrderDetails, OrderSummaryDetails } from '../product-description/product-description.component';
 import {PlaceOrderService} from '../place-order.service';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 @Directive({
   selector: '[OrderDisappear]'
 })
@@ -26,15 +27,28 @@ export class OrderDisappearDirective {
   styleUrls: ['./order-summary.component.css']
 })
 
-export class OrderSummaryComponent{
+export class OrderSummaryComponent implements OnInit{
   orderDetails:OrderDetails;
   orderOverviewPopup:boolean=false;
   orderStatus:boolean=false;
   orderStatusMessage:string;
   @Input() od:OrderSummaryDetails;
-  constructor(private placeOrderService:PlaceOrderService,private router:Router) { 
-    
+  constructor(private placeOrderService:PlaceOrderService,private router:Router,private navbar:MainService) {}
+
+  ngOnInit(): void {
+    if(sessionStorage.getItem("userId")!==null) {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=true;
+    }
+    else {
+      this.redirectToHome();   
+    }
   }
+
   showOrderPopup(){
     this.orderOverviewPopup=true;
    }
@@ -50,6 +64,10 @@ export class OrderSummaryComponent{
   })
     this.showOrderPopup();
     this.orderStatus=false;
+  }
+
+  redirectToHome() {
+    this.router.navigateByUrl('home');
   }
   
 }

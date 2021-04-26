@@ -25,8 +25,23 @@ export class ProductComponent implements OnInit {
     private navbar:MainService) {} 
 
    ngOnInit(): void {
-    console.log(sessionStorage.getItem(Entity_UserId));
-    this.navbar.showDashboardBtn=false;
+    console.log(sessionStorage.getItem("userId"));
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=true;
+    }
   }
 
   fetchAllProducts(){

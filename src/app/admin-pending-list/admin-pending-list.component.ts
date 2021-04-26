@@ -5,6 +5,7 @@ import { AdminDashboardService } from '../admin-dashboard.service';
 import { User } from '../register/register.component';
 import { VerifyDocumentsComponent } from '../verify-documents/verify-documents.component';
 import { baseUrl } from '../app.component';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-admin-pending-list',
@@ -14,7 +15,7 @@ import { baseUrl } from '../app.component';
 export class AdminPendingListComponent implements OnInit {
 
   constructor(private router:Router,
-    private adminDashboardService:AdminDashboardService) { }
+    private adminDashboardService:AdminDashboardService,private navbar:MainService) { }
     cancelledChequeLink:String;
   id:number;
   userName:String;
@@ -30,6 +31,12 @@ export class AdminPendingListComponent implements OnInit {
   users1:User[];
 
   ngOnInit(): void {
+    this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
   this.adminDashboardService.fetchPending().subscribe(Response => {
     this.users=Response;
     console.log(Response);

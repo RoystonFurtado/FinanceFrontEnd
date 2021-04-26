@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { baseUrl, Entity_UserId } from '../app.component';
+import { MainService } from '../main.service';
 import { OrderHistoryService } from '../order-history.service';
 
 @Component({
@@ -10,10 +11,10 @@ import { OrderHistoryService } from '../order-history.service';
   templateUrl: './order-history.component.html',
   styleUrls: ['./order-history.component.css']
 })
-export class OrderHistoryComponent {
+export class OrderHistoryComponent implements OnInit{
 
 
-  constructor(private router: Router, private orderhistoryService: OrderHistoryService) {
+  constructor(private router: Router, private orderhistoryService: OrderHistoryService,private navbar:MainService) {
     console.log(this.userId);
     // this.userId = sessionStorage.getItem(Entity_UserId);
     this.userId = sessionStorage.getItem("userId");
@@ -22,7 +23,26 @@ export class OrderHistoryComponent {
       this.getOrders();
   }
 
-  
+  ngOnInit(): void {
+    console.log(sessionStorage.getItem("userId"));
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=true;
+    }
+  }  
+
   userId: string;
   message: string;
   orders: Array<Order>;

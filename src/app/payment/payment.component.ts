@@ -4,6 +4,7 @@ import { MatRadioChange } from '@angular/material/radio';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
 import { ActiveOrder } from '../dashboard/dashboard.component';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-payment',
@@ -24,9 +25,22 @@ export class PaymentComponent implements OnInit {
   paymentDueDate:string;
 
   constructor(private router:Router,
-    private dashboardService:DashboardService){};
+    private dashboardService:DashboardService,
+    private navbar:MainService){};
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userId")!==null) {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=true;
+    }
+    else {
+      this.redirectToHome();   
+    }
+    
     this.order=this.dashboardService.order;
     let today=new Date();
     let date=(today.getDate()<10)?"0"+today.getDate():today.getDate();
@@ -34,6 +48,10 @@ export class PaymentComponent implements OnInit {
     let year=today.getFullYear();
     this.today=year+'-'+month+'-'+date;  
     console.log(this.order);
+  }
+
+  redirectToHome() {
+    this.router.navigateByUrl('home');
   }
 
   onRadioChange() {

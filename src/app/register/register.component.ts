@@ -1,6 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 import { RegisterService } from '../register.service';
 
 @Component({
@@ -14,7 +15,8 @@ export class RegisterComponent implements OnInit{
   @ViewChild('myRegistrationForm',{static:false}) public MyForm: NgForm;
 
   constructor(private router:Router,
-              private registerService:RegisterService){};
+              private registerService:RegisterService,
+              private navbar:MainService){};
 
   user:User;
   confirmPassword:string;
@@ -32,6 +34,17 @@ export class RegisterComponent implements OnInit{
   cardTypes: string[] = ['Gold','Titanium'];
 
   ngOnInit(): void {
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.redirectToDashboard();
+    }
     this.user=new User();
     this.user.emiCard=new emiCard();
     let today=new Date();
@@ -39,6 +52,10 @@ export class RegisterComponent implements OnInit{
     let month=((today.getMonth()+1)<10)?"0"+(today.getMonth()+1):(today.getMonth()+1);
     let year=today.getFullYear()-21;
     this.ageLimit=year+'-'+month+'-'+date;
+  }
+
+  redirectToDashboard() {
+    this.router.navigateByUrl('/dashboard');
   }
 
   onRadioChange() {

@@ -29,8 +29,18 @@ export class AppBarComponent {
     this.router.navigateByUrl('/product-listing');
   }
 
+  logout() {
+    sessionStorage.removeItem("userId");
+    sessionStorage.removeItem("admin");
+    this.router.navigateByUrl('/');
+  }
+
   redirectToHome() {
     this.router.navigateByUrl('/');
+  }
+
+  redirectToOrderHistory() {
+    this.router.navigateByUrl('/order-history');
   }
 
 }

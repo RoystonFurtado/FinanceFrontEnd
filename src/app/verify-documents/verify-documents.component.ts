@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDashboardService } from '../admin-dashboard.service';
+import { MainService } from '../main.service';
 import { User } from '../register/register.component';
 
 @Component({
@@ -12,7 +13,7 @@ import { User } from '../register/register.component';
 export class VerifyDocumentsComponent implements OnInit {
   
   constructor(private router:Router,
-    private adminDashboardService : AdminDashboardService,private http:HttpClient) { }
+    private adminDashboardService : AdminDashboardService,private http:HttpClient,private navbar:MainService) { }
     user:User;
     enableAadhar:boolean=false;
     enablePan:boolean=false;
@@ -27,6 +28,14 @@ export class VerifyDocumentsComponent implements OnInit {
     isButtonDisable:boolean=true;
 
   ngOnInit(): void {
+
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
+
     console.log(sessionStorage.getItem("userName"));
     this.adminDashboardService.fetchUserFromSession(sessionStorage.getItem("userName")).subscribe(response=>{
       this.user=response;

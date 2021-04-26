@@ -25,12 +25,16 @@ export class HomeComponent implements OnInit{
       this.navbar.showLogoutBtn=false;
       this.navbar.showLoginBtn=true;
       this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
     }
     else {
       this.navbar.showDashboardBtn=true;
       this.navbar.showLogoutBtn=true;
       this.navbar.showLoginBtn=false;
       this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=true;
     }
   }  
 

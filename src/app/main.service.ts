@@ -12,5 +12,6 @@ export class MainService {
   showLogoutBtn:boolean;
   showDashboardBtn:boolean=true;
   showProductBtn:boolean;
+  showOrderHistoryBtn:boolean;
 
 }

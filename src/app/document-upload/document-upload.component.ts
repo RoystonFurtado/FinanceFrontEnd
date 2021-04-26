@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Entity_UserId } from '../app.component';
+import { MainService } from '../main.service';
 import { RegisterService } from '../register.service';
 
 @Component({
@@ -11,7 +12,25 @@ import { RegisterService } from '../register.service';
 export class DocumentUploadComponent {
 
   constructor(private registerService:RegisterService,
-    private router:Router){};
+    private router:Router,private navbar:MainService){};
+
+    ngOnInit(): void {
+      if(sessionStorage.getItem("userId")===null) {
+        this.navbar.showDashboardBtn=false;
+        this.navbar.showLogoutBtn=false;
+        this.navbar.showLoginBtn=true;
+        this.navbar.showRegisterBtn=false;
+        this.navbar.showProductBtn=true;
+        this.navbar.showOrderHistoryBtn=false;
+      }
+      else {
+        this.redirectToDashboard();
+      }
+    }
+
+    redirectToDashboard() {
+      this.router.navigateByUrl('/dashboard');
+    }
 
   userId:string;
   aadharCard:File;

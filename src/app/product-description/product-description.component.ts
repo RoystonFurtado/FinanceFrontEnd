@@ -9,6 +9,7 @@ import { ProductService } from '../product.service';
 import { Product } from '../product/product.component';
 import { DatePipe } from '@angular/common';
 import { ActiveOrder } from '../dashboard/dashboard.component';
+import { MainService } from '../main.service';
 
 
 @Component({
@@ -17,7 +18,7 @@ import { ActiveOrder } from '../dashboard/dashboard.component';
   styleUrls: ['./product-description.component.css'],
   providers: [DatePipe]
 })
-export class ProductDescriptionComponent {
+export class ProductDescriptionComponent implements OnInit {
  validated:boolean;
  emiError:string;
   product:Product;
@@ -46,10 +47,10 @@ export class ProductDescriptionComponent {
 
   constructor( private route: ActivatedRoute,private router:Router,
     private productService:ProductService,
-     private datePipe: DatePipe){
+     private datePipe: DatePipe,
+     private navbar:MainService){
      this.id=parseInt(sessionStorage.getItem("productId"));
      this.userId=parseInt(sessionStorage.getItem("userId"));
-
 
  this.date=new Date();
   this.myDate = this.datePipe.transform(this.date, 'yyyy-MM-dd');
@@ -69,6 +70,26 @@ export class ProductDescriptionComponent {
     this.amount=this.amt12;
   });
   };
+
+  ngOnInit(): void {
+    console.log(sessionStorage.getItem("userId"));
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=true;
+    }
+  }
 
   showModalPopup(){
     this.IsShowModalPopup=true;

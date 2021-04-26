@@ -4,10 +4,11 @@
   </button> -->
     <span class="home-page" (click)="redirectToHome()">Finance System</span>
     <span class="example-spacer"></span>
+    <button mat-flat-button *ngIf="navbar.showOrderHistoryBtn" color="accent" (click)="redirectToOrderHistory()">Products Purchased</button>
     <button mat-flat-button *ngIf="navbar.showDashboardBtn" color="accent" (click)="redirectToDashboard()">Dashboard</button>
-    <button mat-flat-button color="accent" (click)="redirectToHome()">Logout</button>
-    <button mat-flat-button color="accent" (click)="redirectToLogin()">Login</button>
-    <button mat-flat-button color="accent" (click)="redirectToRegister()">Register</button>
+    <button mat-flat-button *ngIf="navbar.showLogoutBtn" color="accent" (click)="logout()">Logout</button>
+    <button mat-flat-button *ngIf="navbar.showLoginBtn" color="accent" (click)="redirectToLogin()">Login</button>
+    <button mat-flat-button *ngIf="navbar.showRegisterBtn" color="accent" (click)="redirectToRegister()">Register</button>
 
     <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with share icon">
     <mat-icon>share</mat-icon>

@@ -3,13 +3,14 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { baseUrl, Entity_emailId } from '../app.component';
 import { ForgetPasswordService } from '../forget-password.service';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
   styleUrls: ['./forget-password.component.css']
 })
-export class ForgetPasswordComponent {
+export class ForgetPasswordComponent implements OnInit {
   email: string;
   otp: number;
   emailError: string;
@@ -19,9 +20,28 @@ export class ForgetPasswordComponent {
 
   constructor(private router: Router,
     private http: HttpClient,
-    private forgetpassword: ForgetPasswordService
+    private forgetpassword: ForgetPasswordService,
+    private navbar:MainService
   ) { };
 
+
+  ngOnInit(): void {
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=true;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.redirectToDashboard();
+    }
+  }
+
+  redirectToDashboard() {
+    this.router.navigateByUrl('/dashboard');
+  }
 
   emailVerification() {
     var validated = false;

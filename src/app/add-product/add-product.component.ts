@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminDashboardService } from '../admin-dashboard.service';
+import { MainService } from '../main.service';
 import { Product, ProductImages } from '../product/product.component';
 
 @Component({
@@ -10,7 +11,7 @@ import { Product, ProductImages } from '../product/product.component';
 })
 export class AddProductComponent implements OnInit {
   constructor(private router:Router,
-    private adminDashboardService:AdminDashboardService){};
+    private adminDashboardService:AdminDashboardService,private navbar:MainService){};
     
 
 image:File;
@@ -27,6 +28,14 @@ onFileChange(event) {
 }
 
 ngOnInit(): void {
+
+  this.navbar.showDashboardBtn=false;
+  this.navbar.showLogoutBtn=false;
+  this.navbar.showLoginBtn=false;
+  this.navbar.showRegisterBtn=false;
+  this.navbar.showProductBtn=false;
+  this.navbar.showOrderHistoryBtn=false;
+
   this.product=new Product();
 this.productImages=new ProductImages();
 
