@@ -7,21 +7,97 @@
         <p>Product Details:{{product.productDescription}} <br/></p>
         <p>Product Price:{{product.productPrice}} </p>
 
-
-        <form>
-            <label>EMI Period</label><br/>
-            <input type="radio" required name="emiOptions" value="3" [(ngModel)]="this.tenurePeriod">3 Months<br/><br/>
-
-            <input type="radio" required name="emiOptions" value="6" [(ngModel)]="this.tenurePeriod">6 Months<br/><br/>
-
-            <input type="radio" required name="emiOptions" value="9" [(ngModel)]="this.tenurePeriod">9 Months<br/><br/>
-
-            <input type="radio" required name="emiOptions" value="12" [(ngModel)]="this.tenurePeriod">12 Months<br/><br/>
-
-            <div *ngIf="emiError">{{emiError}}
+<div class="product-description-container" *ngIf="visible">
+    <div class="product-gallery">
+        <div class="product-image-container" style="opacity: 1;">
+            <img class="image-slider-div" src='http://localhost:8181/downloads/{{product.productImage}}'/> 
+    </div> 
+    </div>
+        
+        <div class="product-details-container">
+            <div class="text-description-container">
+        <!-- <p>Product Id:{{product.productId}} </p>-->
+        
+          
+            <div class=product-name-css>
+                <br><br>
+                <p class="title">{{product.productName}} </p><br> 
+                <br> <p class="ft-med-lt">₹{{product.productPrice}}</p>
+                <hr class="hr-style">
+                <p class="small-text">EMI starting from</p>
+                <div style="overflow: hidden;">
+                    <p style="float: left;" class="price-text">₹{{amount}}</p>
+                    <a [routerLink]="" (click)="showModalPopup()"><p class="emi-text">View EMI options</p></a> 
+                </div>
+                <p class="small-text">For {{tenurePeriod}} months</p>
+                <hr class="hr-style"><br>
+                <div class="cust-btn-cm cust-btn" (click)="loadOrderSummary()">Buy Now</div>
             </div>
-            <button class="description-btn" (click)="loadOrderSummary()">Buy</button>
-        </form>
+
+    </div>
+    <div id="EMI-pop-up" *ngIf="IsShowModalPopup" class="pop-up popactive">
+        
+    <div  class="modal-popup activepopup">
+    <div class="modal-inner-wrap">
+        <div class="emi-pop-up-table-wrap">
+            <button style="border: none;float: right;" (click)="hideModalPopup()">x</button>    
+            <div class="emi-pop-up-table-head ">
+                <div class="emi-pop-up-table-tile-wrap">
+                    <span class="emi-pop-up-table-tile emi-pop-up-table-content-data-wrap">Select</span>
+                </div>
+                <div class="emi-pop-up-table-tile-wrap">
+                    <span class="emi-pop-up-table-tile emi-pop-up-table-content-data-wrap">Months</span>
+                </div>
+                <div class="emi-pop-up-table-tile-wrap">
+                    <span class="emi-pop-up-table-tile emi-pop-up-table-content-data-wrap">EMI</span>
+                </div>
+                <div class="emi-pop-up-table-tile-wrap">
+                    <span class="emi-pop-up-table-tile emi-pop-up-table-content-data-wrap">Overall Cost</span>
+                </div>
+            
+            
+            
+            </div>
+        <div class="emi-pop-up-table-content-wrap">
+            <div class="emi-pop-up-table-content"> <input type="radio" required name="emiOptions" value="3" [(ngModel)]="this.tenurePeriod"/></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">3</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{amt3}}</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{product.productPrice}}</p></div>
+
+        </div>
+        <div class="emi-pop-up-table-content-wrap">
+            <div class="emi-pop-up-table-content"> <input type="radio" required name="emiOptions" value="6" [(ngModel)]="this.tenurePeriod"/></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">6</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{amt6}}</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{product.productPrice}}</p></div>
+
+        </div>
+        <div class="emi-pop-up-table-content-wrap">
+            <div class="emi-pop-up-table-content"> <input type="radio" required name="emiOptions" value="9" [(ngModel)]="this.tenurePeriod"/></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">9</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{amt9}}</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{product.productPrice}}</p></div>
+            
+        </div>
+        <div class="emi-pop-up-table-content-wrap">
+            <div class="emi-pop-up-table-content"> <input type="radio" required name="emiOptions" value="12" [(ngModel)]="this.tenurePeriod"/></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">12</p></div>
+            <div class="emi-pop-up-table-content"><p  class="pop-up-text">₹{{amt12}}</p></div>
+            <div class="emi-pop-up-table-content"><p class="pop-up-text">₹{{product.productPrice}}</p></div>
+            
+        </div>
+        
+    
     </div>
 </div>
-<app-order-summary *ngIf="loadOrderComponent" [od]="orderSummaryDetails"></app-order-summary>
+    </div></div>
+        <!--  <p>Product Details:{{product.productDescription}}  <br/></p>
+        <p>Product Price:{{product.productPrice}} </p> -->
+        </div>
+
+     
+<p style="color:white">© LTI 2021 All rights reserved</p>
+    
+    </div>
+    <app-order-summary *ngIf="loadOrderComponent" [od]="orderSummaryDetails"></app-order-summary>
+  

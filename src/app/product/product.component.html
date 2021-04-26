@@ -1,10 +1,10 @@
 <app-account-warning></app-account-warning>
-<button class="btn" (click)="redirectToDashboard()">Dashboard</button>
 <div class="tabProducts">
     <button class="All products btn" (click)="fetchAllProducts()">All Products</button>
 </div>
 
 <div class="tab">
+    
     <button class="Mobiles" (click)="fetchByCategory('Mobile')">Mobiles</button>
     <button class="Laptops" (click)="fetchByCategory('Laptop')">Laptops</button>
     <button class="AC" (click)="fetchByCategory('AC')">AC</button>
@@ -16,9 +16,9 @@
 <div class="tabcontent">
     <div class="card" *ngFor="let p of products">
         <img src="http://localhost:8181/downloads/{{ p.productImage }}">
-        <p>Product Name:{{p.productName}}</p>
-        <p>Product Details:{{p.productDescription}}</p>
-        <p>Product Price:{{p.productPrice}}</p>
+        <p>{{p.productName}}</p>
+        <p>{{p.productDescription}}</p>
+        <p>Price:{{p.productPrice}}</p>
         <button class="btn product-btn" (click)="redirectToDescription(p.productId)">Buy now</button>
     </div>
 </div>
