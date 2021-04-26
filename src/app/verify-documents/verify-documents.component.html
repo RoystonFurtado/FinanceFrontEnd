@@ -1,18 +1,20 @@
-<div class="sample-product main-container">
-    <img class="img" src="/assets/pending.jpg" />
+<!-- <div class="sample-product main-container"> -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <div class="sample-product">
+    <img class="img" src="/assets/pending.png" />
     <div class="info">
       <div class="innerInfo">
-    <p><b>Name :</b>{{user.userName}}</p>
-    <p><b>DOB :</b>{{user.dob}}</p>
-    <p><b>Address :</b>{{user.address}}</p>
-    <p><b>Email :</b>{{user.emailId}}</p>
-    <p><b>MobileNo :</b>{{user.mobileNo}}</p><br><br><br><br>
+    <p><b>Name :</b> {{user.userName}}</p>
+    <p><b>DOB :</b> {{user.dob}}</p>
+    <p><b>Address :</b> {{user.address}}</p>
+    <p><b>Email :</b> {{user.emailId}}</p>
+    <p><b>MobileNo :</b> {{user.mobileNo}}</p><br><br><br><br>
     </div></div><br><br><br><br>
     <div class="link">
       <table class="tbl">
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" >View aadharCard</a>
+            <a href="http://localhost:8181/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" ><i class="fa fa-eye" aria-hidden="true"></i> View aadharCard</a>
           </td>
           <td>
             <input type="checkbox" class ="checkbox" *ngIf="enableAadhar" (click)="yourfuncAadhar()">
@@ -20,7 +22,7 @@
         </tr>
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.panCard}}" (click)="enablePanfun()" target="_blank">View PanCard</a>
+            <a href="http://localhost:8181/downloads/{{user.panCard}}" (click)="enablePanfun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View PanCard</a>
           </td>
           <td>
             <input type="checkbox" class="checkbox"  *ngIf="enablePan"(click)="yourfuncPan()">
@@ -28,7 +30,7 @@
         </tr>
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}" (click)="enableChequefun()" target="_blank">View CancelledCheque</a>
+            <a href="http://localhost:8181/downloads/{{user.cancelledCheque}}" (click)="enableChequefun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View CancelledCheque</a>
           </td>
           <td>
             <input type="checkbox" class="checkbox" *ngIf="enableCheque" (click)="yourfuncCheque()"> 
@@ -39,12 +41,11 @@
   </div><br>
   
   <div class="rejectionReason">
-    <input type="text" placeholder="Please Mention the reason for the rejection" style="height: 60px; width: 300px; " [(ngModel)]="reason">
+    <input type="text" placeholder="Please Mention the reason for the rejection" style="height: 60px; width: 300px; padding-left: 15px; font-size: 14px; " [(ngModel)]="reason">
   </div><br>
   
-  <div>
-    Pick a topic:
-    <input type="radio" ng-model="action" value="accept" (click)="verifyAccept()" name="action">Accept
+  <div class="radioAction">
+    <input type="radio" ng-model="action" value="accept" (click)="verifyAccept()" name="action" size="20px">Accept<br><br>
     <input type="radio" ng-model="action" value="reject" (click)="verifyReject()" name="action">Reject
   </div>
   <div *ngIf="isErrorPresent">
@@ -52,6 +53,8 @@
   </div>
   
     <div class="button">
-      <button (click)="decide()" [disabled]="this.isErrorPresent">Make Changes</button><br><br>
+      <!-- <button class="make_change hvr-shutter-in-horizontal" (click)="decide()" [disabled]="this.isErrorPresent">Make Changes</button><br><br> -->
+      <button class="make_change hvr-shutter-in-horizontal" (click)="decide()" [disabled]="this.isErrorPresent">Make Changes</button><br><br>
+
 
 </div>

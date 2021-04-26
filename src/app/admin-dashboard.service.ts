@@ -31,7 +31,7 @@ export class AdminDashboardService {
 
   }
    fetchPending():Observable<User[]>{
-    let url = "http://localhost:8223/fetchPendingUser";
+    let url = baseUrl+"/fetchPendingUser";
     return this.http.get<User[]>(url);
 
    }
@@ -41,12 +41,12 @@ export class AdminDashboardService {
      return this.http.get(url);
    }
    rejectUser(userName:String,message:string):Observable<Object>{
-     let url ="http://localhost:8223/rejectUser?userName="+userName+"&message="+message;
+     let url =baseUrl+"/rejectUser?userName="+userName+"&message="+message;
      return this.http.get(url);
    }
 
    fetchUsers():Observable<User[]>{
-    let url1 = "http://localhost:8223/adminDashboardAll";
+    let url1 = baseUrl+"/adminDashboardAll";
     console.log(url1);
      return this.http.get<User[]>(url1);
    }
@@ -62,7 +62,7 @@ export class AdminDashboardService {
      return this.http.post(url,formData);
    }
    fetchAcceptedUser(userName:String):Observable<User[]>{
-     let url="http://localhost:8223/fetchAcceptedUser?userName="+userName;
+     let url=baseUrl+"/fetchAcceptedUser?userName="+userName;
      return this.http.get<User[]>(url);
    }
 }

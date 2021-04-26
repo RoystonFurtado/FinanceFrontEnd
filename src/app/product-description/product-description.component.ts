@@ -30,7 +30,7 @@ export class ProductDescriptionComponent {
   category:string;
   myDate:string;
   date:Date;
-  tenurePeriod:number;
+  tenurePeriod:number=12;
   amount:number;
   orderOverviewPopup:boolean;
   order:Order;
@@ -38,7 +38,11 @@ export class ProductDescriptionComponent {
   productOrderStatus:string="Active";
   loadOrderComponent:boolean=false;
   visible:boolean=true;
-
+  IsShowModalPopup:boolean=false;
+  amt3:number;
+  amt6:number;
+  amt9:number;
+  amt12:number;
 
   constructor( private route: ActivatedRoute,private router:Router,
     private productService:ProductService,
@@ -58,10 +62,21 @@ export class ProductDescriptionComponent {
     this.image=response['productImage'];
     this.category=response['productCategory'];
     this.product= new Product(this.id,this.name,this.description,this.price,this.category,this.image);
-    
+  this.amt3=Math.round(this.price/3);
+  this.amt6=Math.round(this.price/6);
+  this.amt9=Math.round(this.price/9);
+  this.amt12=Math.round(this.price/12);
+    this.amount=this.amt12;
   });
   };
 
+  showModalPopup(){
+    this.IsShowModalPopup=true;
+  }
+  hideModalPopup(){
+    this.amount=Math.round(this.price/this.tenurePeriod);
+    this.IsShowModalPopup=false;
+  }
   buy(){
     if(this.validated){
 

@@ -1,42 +1,59 @@
-<div class="register-container main-container">
-    <form>
-          <label>Name:</label>
+<div class="register-container material-container">
+    <form #myRegistrationForm="ngForm" (ngSubmit)="register()">
+        <h1 class="header">User Registration</h1>
+        <mat-form-field appearance="outline">
+          <mat-label>Name:</mat-label>
+          <input matInput name="username" type="text" pattern="^[\pA-Za-z .'-]+$" #username="ngModel" [(ngModel)]="user.userName" required />
+          <mat-error *ngIf="username.invalid">Please enter a valid name</mat-error>
+        </mat-form-field>
 
-          <input name="userName"  required type="text"   [(ngModel)]="user.userName"/><br/>
-          <div class="err" *ngIf="NameError">{{NameError}}</div><br/>
+        <mat-form-field appearance="outline">
+            <mat-label>Mobile No:</mat-label>
+            <input matInput name="mobileNo" type="text" maxlength="10" (keypress)="numberOnly($event)" pattern="^\d{10}$" #mobileNo="ngModel" [(ngModel)]="user.mobileNo" required />
+            <mat-error *ngIf="mobileNo.invalid">Please enter a valid mobile no</mat-error>
+        </mat-form-field>
 
+        <mat-form-field appearance="outline">
+            <mat-label>Email Id:</mat-label>
+            <input matInput name="emailId" type="text" pattern="^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$" #emailId="ngModel" [(ngModel)]="user.emailId" required />
+            <mat-error *ngIf="emailId.invalid">Please enter a valid email id</mat-error>
+        </mat-form-field>
 
-          <label>Phone Number:</label>
-          <input name="mobileNo"  required type="number"   [(ngModel)]="user.mobileNo"/><br/>
-          <div class="err" *ngIf="PhoneError">{{PhoneError}}</div><br/>
+        <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput name="address" type="text" [(ngModel)]="user.address" required />
+            <mat-error>Please enter your Address</mat-error>
+        </mat-form-field>
 
-          <label>Email:</label>
-          <input name="emailId"  required  type="text" [(ngModel)]="user.emailId"/><br/>
-          <div class="err" *ngIf="EmailError">{{EmailError}}</div><br/>
+        <mat-form-field appearance="outline">
+          <mat-label>Date Of Birth:</mat-label>
+          <input matInput type="date" [max]="ageLimit" name="dob" [(ngModel)]="user.dob" required />
+          <mat-hint>You need to be atleast 21 years old</mat-hint>
+          <mat-error>Please enter a valid Date of Birth</mat-error>
+        </mat-form-field>
 
-          <label>Address:</label>
-          <input name="address"  required type="text"   [(ngModel)]="user.address"/><br/>
-          <div class="err" *ngIf="AddressError">{{AddressError}}</div><br/>
+        <mat-form-field appearance="outline">
+          <mat-label>Password:</mat-label>
+          <input matInput name="password" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$" #password="ngModel" [(ngModel)]="user.password" required />
+          <mat-hint>Password must containt atleast one digit,uppercase letter,lowercase letter & special character</mat-hint>
+          <mat-error *ngIf="password.invalid">Please enter a strong password</mat-error>
+        </mat-form-field>
 
-          <label>Date Of Birth:</label>
-          <input type="date" required name="dob" [(ngModel)]="user.dob" ><br /><br />
+        <mat-form-field appearance="outline">
+            <mat-label>Confirm Password:</mat-label>
+            <input id="confirmPassword" matInput name="confirmPassword" type="password" [(ngModel)]="confirmPassword" required />
+            <mat-error>Please enter the correct password again</mat-error>
+        </mat-form-field>
+        <p class="err" *ngIf="passError">Passwords don't match</p>
 
-          <label>Password:</label>
+        <mat-label>Card Type</mat-label>
+        <mat-radio-group (change)="onRadioChange()" class="example-radio-group" name="card-type" [(ngModel)]="user.emiCard.cardType" required>
+            <mat-radio-button class="example-radio-button" *ngFor="let cardType of cardTypes" [value]="cardType">{{cardType}}</mat-radio-button>
+            <mat-error *ngIf="cardTypeError">Please select a Card Type</mat-error>
+        </mat-radio-group>
 
-          <input name="password"  required type="password"   [(ngModel)]="user.password"/><br/>
-          <div class="err" *ngIf="PassError">{{PassError}}</div><br/>
+        <button type="submit" mat-raised-button color="primary" class="material-btn">Register</button>
 
-          <label>Confirm Password:</label>
-          <input name="confirmPassword"  required type="text" [(ngModel)]="confirmPassword"/><br/>
-          <div class="err" *ngIf="ConPassError">{{ConPassError}}</div><br/>
-
-          <label>Card Type:</label>
-
-          <input name="cardType" value="Gold" type="radio"  [(ngModel)]="user.emiCard.cardType">Gold<br/><br/>
-          <input name="cardType" value="Titanium" type="radio"  [(ngModel)]="user.emiCard.cardType">Titanium<br/><br/>
-          <div class="err" *ngIf="CardError">{{CardError}}</div>
-
-          <button class="btn" (click)="registerUser()">Next</button>
     </form>
 </div>
 

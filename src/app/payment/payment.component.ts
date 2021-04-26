@@ -33,6 +33,7 @@ export class PaymentComponent implements OnInit {
     let month=((today.getMonth()+1)<10)?"0"+(today.getMonth()+1):(today.getMonth()+1);
     let year=today.getFullYear();
     this.today=year+'-'+month+'-'+date;  
+    console.log(this.order);
   }
 
   onRadioChange() {
@@ -54,8 +55,7 @@ export class PaymentComponent implements OnInit {
   showPaymentBox() {
     if(this.paymentInfo.paymentMethod===undefined)
       this.paymentMethodError=true;
-
-    if(this.MyForm.valid) {
+    else if(this.MyForm.valid) {
       this.showPaymentPopup=true;
       let d=new Date(this.order.dueDate);
       this.paymentDueDate=d.getDate()+"/"+(d.getMonth()+1)+"/"+d.getFullYear();
