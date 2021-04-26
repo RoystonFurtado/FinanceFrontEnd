@@ -1,0 +1,25 @@
+.ec {
+    background-color: azure;
+    /* rgb(143, 143, 241);*/
+    width: 500px;
+    margin: 10px;
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.row {
+    /* height: 200px; */
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap-reverse;
+    /* grid-template-columns: auto auto; */
+    margin: 8px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.center-align {
+    margin: auto;
+    text-align: center;
+}

@@ -15,8 +15,8 @@ export class OrderHistoryComponent {
 
   constructor(private router: Router, private orderhistoryService: OrderHistoryService) {
     console.log(this.userId);
-    //  this.userId = sessionStorage.getItem(Entity_UserId);
-     this.userId = "10056";
+    // this.userId = sessionStorage.getItem(Entity_UserId);
+    this.userId = "10032";
     if (this.userId == null) this.orderhistoryService.navigateToHome();
     else
       this.getOrders();

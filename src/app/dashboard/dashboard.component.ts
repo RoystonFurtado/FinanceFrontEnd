@@ -1,45 +1,6 @@
-import { Component, Directive, ElementRef, EventEmitter, HostListener, OnInit, Output, Pipe, PipeTransform } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Router } from '@angular/router';
 import { DashboardService } from '../dashboard.service';
-
-@Directive({
-  selector:'[disappear]'
-})
-export class DisappearDirective {
-  @Output() disappear = new EventEmitter<MouseEvent>();
-  constructor(private elementRef:ElementRef) {}
-
-  @HostListener('document:click',['$event']) onClickOutside(event:MouseEvent) { //$event 
-    const targetElement=event.target as HTMLElement; //Exactly where the user clicked  stored in target element
-    const paybtn=document.getElementsByClassName('orders-container')[0];
-    //const editbtn=document.getElementsByClassName('contacts-container')[0];
-
-
-    const closebtn=document.getElementsByClassName('close-btn')[0];
-    //const paybtn=document.getElementsByClassName('confirm-pay-btn')[0];
-
-    //When clicked anywhere outside add contact box, addcontactbutton and edit contact button(to avoid first click), emit disappear event
-
-    if( (!(this.elementRef.nativeElement.contains(targetElement)))  && !(paybtn.contains(targetElement))|| closebtn.contains(targetElement) )
-
-      this.disappear.emit(event);
-  }
-}
-
-//Pipe to replace null/undefined values
-@Pipe({
-  name: 'replaceNullWithText'
-})
-export class ReplaceNullWithTextPipe implements PipeTransform {
-
-  transform(value: any, repleceText: string = 'N/A'): any {
-    if (typeof value === 'undefined' || value === null) {
-      return repleceText;
-    }
-    return value;
-  }
-
-}
 
 @Component({
   selector: 'app-dashboard',
@@ -72,7 +33,7 @@ export class DashboardComponent implements OnInit{
 
     //this.dashboardService.updateInstallmentPhase(10056).subscribe(); 
 
-    this.dashboardService.pendingInstallmentDetails(10056).subscribe(response=>{
+    this.dashboardService.pendingInstallmentDetails(10032).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
         let d=new Date(this.activeOrders[i].dueDate);

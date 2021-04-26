@@ -13,6 +13,8 @@ import { AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compon
 import { AdminPendingListComponent } from './admin-pending-list/admin-pending-list.component';
 import { AdminAcceptedListComponent } from './admin-accepted-list/admin-accepted-list.component';
 import { AddProductComponent } from './add-product/add-product.component';
+import { VerifyDocumentsComponent } from './verify-documents/verify-documents.component';
+import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent, PaymentInfo } from './payment/payment.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
@@ -34,12 +36,15 @@ const routes: Routes = [
   {path:'create-password',component:CreatePasswordComponent},
   {path:'order-summary',component:OrderSummaryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent},
+  {path:'verify-documents',component:VerifyDocumentsComponent},
+  {path:'payment',component:PaymentComponent},
+  {path:'create-password',component:CreatePasswordComponent},
   {path:'payment',component:PaymentComponent}
 
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes),HttpClientModule],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

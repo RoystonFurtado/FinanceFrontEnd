@@ -1,0 +1,28 @@
+<div class='ec'>
+    <h2>Share</h2>
+    <div class="row">
+        <div class="center-align " style="width:60%; ">
+            <!-- <share-buttons show="6"></share-buttons> -->
+            <div>
+                <button mat-fab shareButton="facebook" #fbBtn="shareButton" [style.backgroundColor]="fbBtn?.color">
+                    <fa-icon *ngIf="fbBtn" [icon]="fbBtn.icon" size="lg"></fa-icon>
+                </button>
+                <button mat-fab shareButton="twitter" #twtBtn="shareButton" [style.backgroundColor]="twtBtn?.color">
+                    <fa-icon *ngIf="twtBtn" [icon]="twtBtn.icon" size="lg"></fa-icon>
+                </button>
+                <button mat-fab shareButton="whatsapp" #waBtn="shareButton" [style.backgroundColor]="waBtn?.color">
+                    <fa-icon *ngIf="waBtn" [icon]="waBtn.icon" size="lg"></fa-icon>
+                </button>
+                <button mat-fab shareButton="pinterest" #tgBtn="shareButton" [style.backgroundColor]="tgBtn?.color">
+                    <fa-icon *ngIf="tgBtn" [icon]="tgBtn.icon" size="lg"></fa-icon>
+                </button>
+            </div>
+            <br />
+            <strong>OR</strong>
+            <br />
+            <br />
+            <p>Scan to visit this site from mobile device</p>
+        </div>
+        <app-qr-code class="display "></app-qr-code>
+    </div>
+</div>

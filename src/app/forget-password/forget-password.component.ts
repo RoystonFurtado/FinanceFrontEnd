@@ -15,6 +15,7 @@ export class ForgetPasswordComponent {
   emailError: string;
   otpError: string;
   responseOtp: number;
+  loading:boolean = false;
 
   constructor(private router: Router,
     private http: HttpClient,
@@ -33,7 +34,9 @@ export class ForgetPasswordComponent {
       validated = true;
     }
     if (validated) {
+      this.loading = true;
       this.forgetpassword.getEmailOtp(this.email).subscribe(data => {
+        this.loading = false;
         this.responseOtp = data as number;
         console.log(data);
       });
