@@ -17,7 +17,7 @@
 
 <div class="tabcontent">
     <div class="card" *ngFor="let p of products">
-        <img src="http://localhost:8223/downloads/{{ p.productImage }}">
+        <img src="{{baseUrl}}/downloads/{{ p.productImage }}">
         <p>Product Name:{{p.productName}}</p>
         <p>Product Details:{{p.productDescription}}</p>
         <p>Product Price:{{p.productPrice}}</p>
