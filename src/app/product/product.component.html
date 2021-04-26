@@ -1,5 +1,4 @@
 <app-account-warning></app-account-warning>
-<button class="btn" (click)="redirectToDashboard()">Dashboard</button>
 <div class="tabProducts">
     <button class="All products btn" (click)="fetchAllProducts()">All Products</button>
 </div>
@@ -17,7 +16,7 @@
 
 <div class="tabcontent">
     <div class="card" *ngFor="let p of products">
-        <img src="http://localhost:8188/downloads/{{ p.productImage }}">
+        <img src="http://localhost:8181/downloads/{{ p.productImage }}">
         <p>Product Name:{{p.productName}}</p>
         <p>Product Details:{{p.productDescription}}</p>
         <p>Product Price:{{p.productPrice}}</p>
