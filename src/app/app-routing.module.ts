@@ -17,6 +17,7 @@ import { VerifyDocumentsComponent } from './verify-documents/verify-documents.co
 import { HttpClientModule } from '@angular/common/http';
 import { PaymentComponent, PaymentInfo } from './payment/payment.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
+import { OrderSummaryComponent } from './order-summary/order-summary.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -32,10 +33,14 @@ const routes: Routes = [
   {path:'admin-accepted-list',component:AdminAcceptedListComponent},
   {path:'add-product',component:AddProductComponent},
   {path:'order-history',component:OrderHistoryComponent},
+  {path:'create-password',component:CreatePasswordComponent},
+  {path:'order-summary',component:OrderSummaryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent},
   {path:'verify-documents',component:VerifyDocumentsComponent},
   {path:'payment',component:PaymentComponent},
-  {path:'create-password',component:CreatePasswordComponent}
+  {path:'create-password',component:CreatePasswordComponent},
+  {path:'payment',component:PaymentComponent}
+
 ];
 
 @NgModule({

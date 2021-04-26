@@ -8,10 +8,9 @@
     left:0;
     background-color: rgba(0,0,0,.4);
 }
-.order-popup {
+.order-popup, .payment-popup {
     animation-name: slide-effect;
     animation-duration: .5s;
-    height: 450px;
     width:500px;
     margin:auto;
     position: relative;
@@ -20,16 +19,6 @@
     background-color:white;
     border:1px solid gray;
 }
-.payment-popup .close-btn {
-    position: absolute;
-    top:10px;
-    right:20px;
-    font-size:25px;
-}
-.payment-popup .close-btn {
-    color: gray;
-}
-.payment-popup .close-btn:hover {
-    color:red;
-    cursor:pointer;
+.order-popup {
+    height: 550px;
 }

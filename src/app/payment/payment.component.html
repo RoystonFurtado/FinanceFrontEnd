@@ -1,34 +1,51 @@
-<div class="payment-container main-container">
-<form type="submit" (ngSubmit)="pay()">
-    <div class="form-element">
-        <input type="radio" name="payment-method" value="Credit Card" [(ngModel)]="paymentInfo.paymentMethod"/>
-        <label>Credit Card</label>
-        <br/>
-        <input type="radio" name="payment-method" value="Debit Card" [(ngModel)]="paymentInfo.paymentMethod"/>
-        <label>Debit Card</label>
+<div class="payment-container material-container">
+    
+    <div *ngIf="showPaymentPopup" class="payment-overlay">
+        <div class="payment-popup" (disappear)="hidePaymentBox()">
+            <span class="close-btn">&times;</span>
+            <h1>Payment Confirmation</h1>
+            <p>Product Name:{{order.productName | replaceNullWithText}}</p>
+            <p>Installment No:{{order.installmentNo | replaceNullWithText}}</p>
+            <p>Due Date:{{paymentDueDate | replaceNullWithText}}</p>
+            <p>Payment Amount:{{order.monthlyEmiAmount | replaceNullWithText}}&#8377;</p>
+            <p>Late Payment Fine:{{order.fine | replaceNullWithText}}&#8377;</p>
+            <button class="btn" (click)=pay()>Pay Now</button>
+        </div>
     </div>
 
-    <div class="form-element">
-        <label>Card Expiry Date</label>
-        <input class="form-input" type="date" name="card-expiry-date" [(ngModel)]="paymentInfo.cardExpiryDate"/>
-    </div>
+<form #myForm="ngForm" type="submit" (ngSubmit)="showPaymentBox()" >
 
-    <div class="form-element">
-        <label>Bank Name:</label>
-        <input class="form-input" type="text" name="bankName" [(ngModel)]="paymentInfo.bankName"/>
-    </div>
+    <label id="example-radio-group-label">Choose your payment method</label>
+        <mat-radio-group (change)="onRadioChange()" aria-labelledby="example-radio-group-label" class="example-radio-group" name="payment-method" [(ngModel)]="paymentInfo.paymentMethod" required>
+            <mat-radio-button class="example-radio-button" *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">{{paymentMethod}}</mat-radio-button>
+            <mat-error *ngIf="paymentMethodError">Please select a payment method</mat-error>
+        </mat-radio-group>
+    
+    <mat-form-field appearance="outline">
+        <mat-label>Card Expiry Date</mat-label>
+        <input matInput type="date" [min]="today" name="card-expiry-date" [(ngModel)]="paymentInfo.cardExpiryDate" required/>
+        <mat-error>Please select a card expiry date</mat-error>
+    </mat-form-field>
 
-    <div class="form-element">
-        <label>Card No:</label>
-        <input class="form-input" type="text" name="cardNo" [(ngModel)]="paymentInfo.payerCardNo"/>
-    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Bank Name</mat-label>
+        <mat-select [(ngModel)]="paymentInfo.bankName" name="bank-name" #select="ngModel" required>
+          <mat-option *ngFor="let bank of banks" [value]="bank">{{bank}}</mat-option>
+        </mat-select>
+        <mat-error *ngIf="select.invalid">Please select a bank</mat-error>
+    </mat-form-field>
 
-    <div class="form-element">
-        <label>Name on Card:</label>
-        <input class="form-input" type="text" name="nameOnCard" [(ngModel)]="paymentInfo.payerName"/>
-    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Card No:</mat-label>
+        <input matInput type="text" maxlength="16" name="cardNo" (keypress)="numberOnly($event)" #cardNo="ngModel" [(ngModel)]="paymentInfo.payerCardNo" pattern="^\d{16}$" required />
+        <mat-error *ngIf="cardNo.invalid">Please enter a valid card No</mat-error>
+    </mat-form-field>
 
-    <div class="form-element">
-        <button type="submit" class="btn">Pay Now</button>
-    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Name on Card:</mat-label>
+        <input matInput type="text" name="nameOnCard" [(ngModel)]="paymentInfo.payerName" pattern="^[\pA-Za-z .'-]+$" #nameOnCard="ngModel" required/>
+        <mat-error *ngIf="nameOnCard.invalid">Please enter a valid name</mat-error>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" class="material-btn">Pay Now</button>
 </form>

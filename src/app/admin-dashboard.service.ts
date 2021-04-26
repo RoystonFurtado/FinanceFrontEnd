@@ -53,12 +53,12 @@ export class AdminDashboardService {
    addProduct(product :Product):Observable<any>{
      //var productImg = {product,image};
      console.log(product);
-     let url = "http://localhost:8223/addProducts";
+     let url = baseUrl+"/addProducts";
       return this.http.post(url,product);
    }
    addProductImage(formData:FormData):Observable<Object>{
      console.log(formData);
-     let url = "http://localhost:8223/addProductImage";
+     let url = baseUrl+"/addProductImage";
      return this.http.post(url,formData);
    }
    fetchAcceptedUser(userName:String):Observable<User[]>{

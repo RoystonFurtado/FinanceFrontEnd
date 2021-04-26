@@ -4,6 +4,7 @@ import { AcceptUserComponent } from '../accept-user/accept-user.component';
 import { AdminDashboardService } from '../admin-dashboard.service';
 import { User } from '../register/register.component';
 import { VerifyDocumentsComponent } from '../verify-documents/verify-documents.component';
+import { baseUrl } from '../app.component';
 
 @Component({
   selector: 'app-admin-pending-list',
@@ -39,6 +40,15 @@ export class AdminPendingListComponent implements OnInit {
     this.adminDashboardService.fetchUser(this.userName).subscribe(response =>{
       this.users1=response;
       this.displayAll=false;
+      this.id=response['id'];
+      this.mobileNo=response['mobileNo'];
+      this.email=response['emailId'];
+      this.address=response['address'];
+      this.dob=response['dob'];
+      this.aadharCard=response['aadharCard'];
+      this.panCard=response['panCard'];
+      this.cancelledCheque=response['cancelledCheque'];
+      this.cancelledChequeLink=baseUrl+"/downloads/"+this.cancelledCheque;
     })
 
   }
