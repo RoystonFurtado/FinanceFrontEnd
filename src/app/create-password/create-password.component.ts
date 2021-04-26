@@ -31,11 +31,13 @@ export class CreatePasswordComponent {
       this.newPasswordError = "Password can't be empty"
     }
     else { validated = true; this.newPasswordError = null; }
+
     if (this.confirmPassword == null || this.confirmPassword.length == 0) {
       validated = false;
       this.confirmPasswordError = "Password can't be empty"
     }
     else { validated = true; this.confirmPasswordError = null; }
+    
     if (this.newPassword != this.confirmPassword) {
       validated = false;
       this.confirmPasswordError = "Password doesn't match";
