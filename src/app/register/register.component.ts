@@ -60,6 +60,7 @@ export class RegisterComponent implements OnInit{
       this.passError=true;
    else {
      if(this.MyForm.valid) {
+       console.log("Inside");
         this.registerService.register(this.user).subscribe(response=>{
           if(response['status']===true) {
             this.registerService.userId=response["registeredUserId"];

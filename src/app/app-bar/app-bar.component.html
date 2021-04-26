@@ -1,9 +1,11 @@
-<mat-toolbar color="primary">
+<mat-toolbar class="tool" color="primary">
     <!-- <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
     <mat-icon>menu</mat-icon>
   </button> -->
-    <span>Finance System</span>
+    <span class="home-page" (click)="redirectToHome()">Finance System</span>
     <span class="example-spacer"></span>
+    <button mat-flat-button *ngIf="navbar.showDashboardBtn" color="accent" (click)="redirectToDashboard()">Dashboard</button>
+    <button mat-flat-button color="accent" (click)="redirectToHome()">Logout</button>
     <button mat-flat-button color="accent" (click)="redirectToLogin()">Login</button>
     <button mat-flat-button color="accent" (click)="redirectToRegister()">Register</button>
 

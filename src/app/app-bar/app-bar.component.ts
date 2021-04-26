@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-app-bar',
@@ -8,9 +9,10 @@ import { Router } from '@angular/router';
 })
 export class AppBarComponent {
 
-  constructor(private router: Router) {
-    
+  constructor(private router: Router,
+    public navbar:MainService) {  
   }
+
   title = 'FinanceFrontEnd';
   redirectToLogin() {
     this.router.navigateByUrl('/login',);
@@ -19,6 +21,16 @@ export class AppBarComponent {
     // console.log(baseUrl + this.router.url);
     this.router.navigateByUrl('/register');
   }
+  redirectToDashboard() {
+    this.router.navigateByUrl('/dashboard');
+  }
 
+  redirectToProducts() {
+    this.router.navigateByUrl('/product-listing');
+  }
+
+  redirectToHome() {
+    this.router.navigateByUrl('/');
+  }
 
 }

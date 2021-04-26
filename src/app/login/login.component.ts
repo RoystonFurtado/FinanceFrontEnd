@@ -4,13 +4,14 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId } from '../app.component';
 import { FormControl, Validators } from '@angular/forms';
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css']
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
 
   email: string;
   emailError: string;
@@ -26,7 +27,20 @@ export class LoginComponent {
   //   Validators.email,`
   // ]);
 
-  constructor(private router: Router, private http: HttpClient) { };
+  constructor(private router: Router, private http: HttpClient,private navbar:MainService) { };
+
+  ngOnInit(): void {
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=true;
+    }
+    else {
+      this.redirectToDashboard();
+    }
+  }
 
   login() {
     var validated = false;
@@ -99,6 +113,9 @@ export class LoginComponent {
   }
   redirectToAdminDashboard(){
     this.router.navigateByUrl('/admin-dashboard');
+  }
+  redirectToDashboard() {
+    this.router.navigateByUrl('/dashboard');
   }
 
 }

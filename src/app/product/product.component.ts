@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 // import {Product} from '../add-product/add-product.component';
  
 import { Entity_UserId } from '../app.component';
+import { MainService } from '../main.service';
 
 import { ProductService } from '../product.service';
 
@@ -19,13 +20,14 @@ export class ProductComponent implements OnInit {
   productId: number;
   products:Product[];
 
+  constructor(private productService: ProductService,
+    private router:Router,
+    private navbar:MainService) {} 
+
    ngOnInit(): void {
     console.log(sessionStorage.getItem(Entity_UserId));
+    this.navbar.showDashboardBtn=false;
   }
-
-  constructor(private productService: ProductService, private router:Router) { 
-
-  } 
 
   fetchAllProducts(){
    

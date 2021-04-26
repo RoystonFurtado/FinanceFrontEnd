@@ -9,7 +9,6 @@
 </div> -->
 
 
-<app-app-bar></app-app-bar>
 <div class="row">
 
     <!-- <app-product class='products'></app-product> -->
@@ -23,7 +22,7 @@
                 <p>Product Price:{{p.productPrice}}</p>
                 <button mat-raised-button color="primary" (click)="redirectToDescription(p.id)">Buy now</button>
             </div>
-            <button mat-stroked-button (click)="redirectToProductListing()" color="primary">view more</button>
+            <button mat-raised-button (click)="redirectToProductListing()" color="primary">view more</button>
         </div>
     </div>
     <div class="col ">
