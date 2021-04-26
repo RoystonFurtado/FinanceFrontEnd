@@ -1,9 +1,7 @@
-
 <app-account-warning></app-account-warning>
 <button class="btn" (click)="redirectToDashboard()">Dashboard</button>
 <div class="tabProducts">
-
-    <button class="All products" (click)="fetchAllProducts()">All Products</button>
+    <button class="All products btn" (click)="fetchAllProducts()">All Products</button>
 </div>
 
 
@@ -23,6 +21,6 @@
         <p>Product Name:{{p.productName}}</p>
         <p>Product Details:{{p.productDescription}}</p>
         <p>Product Price:{{p.productPrice}}</p>
-        <button class="btn product-btn" (click)="redirectToDescription(p.id)">Buy now</button>
+        <button class="btn product-btn" (click)="redirectToDescription(p.productId)">Buy now</button>
     </div>
 </div>

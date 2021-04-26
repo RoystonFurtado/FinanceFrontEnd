@@ -20,6 +20,10 @@ export class HomeComponent {
     this.getProducts();
   };
 products: Array<Product>;
+  // productName:string="IPhone8";
+  // productDescription:string="This is an expensive phone.";
+  // productPrice:Number=80000;
+  // productImageUrl:string="assets/iphone8.jfif";
 
   redirectToRegister() {
     this.router.navigateByUrl('/register');

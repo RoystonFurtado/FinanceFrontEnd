@@ -1,0 +1,18 @@
+<div class="order-popup" >
+
+     <!-- <p>Product Id:{{od.productId}}</p>
+    <p>Product Name:{{od.productName}}</p> -->
+    <p>Product Price:{{od.productPrice}}</p>
+    <p>Purchase Date:{{od.myDate}}</p>
+    <p>Tenure Period:{{od.tenurePeriod}}</p>
+    <p>Monthly EMI Amount:{{od.amount}}</p>
+    <button class="orderPlacement" (click)="redirectToOrderPlacement()">Place Order</button>
+
+    <div *ngIf="orderOverviewPopup==true" class="order-overlay">
+        <div class="order-popup" (OrderDisappear)="hideOrderPopup()">
+            <button class="close-btn" (click)="hideOrderPopup()">&times;</button>
+                <h1>{{orderStatusMessage}}</h1>
+            
+        </div>
+    </div>
+</div>

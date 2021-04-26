@@ -1,0 +1,24 @@
+.order-overlay {
+    /* background-color: lightgreen; */
+    z-index: 1;
+    position:fixed;
+    width: 100vw;
+    height: 100vw;
+    top:0;
+    left:0;
+    background-color: rgba(0,0,0,.4);
+}
+.order-popup, .payment-popup {
+    animation-name: slide-effect;
+    animation-duration: .5s;
+    width:500px;
+    margin:auto;
+    position: relative;
+    top:150px;
+    padding: 30px;
+    background-color:white;
+    border:1px solid gray;
+}
+.order-popup {
+    height: 550px;
+}

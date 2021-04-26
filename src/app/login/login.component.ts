@@ -90,6 +90,9 @@ export class LoginComponent {
      }
   }
 
+  redirectToProductPage() {
+    this.router.navigateByUrl('/product-listing');
+  }
 
   redirectToProductListing() {
     this.router.navigateByUrl('/product-listing');

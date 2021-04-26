@@ -2,9 +2,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from './product/product.component';
-import {Order} from  './product-description/product-description.component';
 import { baseUrl } from './app.component';
+import { Order } from './order-history/order-history.component';
+import { Product } from './product/product.component';
 
 
 

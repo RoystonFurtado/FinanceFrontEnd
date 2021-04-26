@@ -60,8 +60,8 @@ insertProduct() {
     // this.productImages.productId=281;
   });
   console.log(this.productImages.productId);
-  formData.append('productId', this.productImages.productId);
-  formData.append('productImage', this.productImages.productImage);
+  formData.append('productId', "302");
+  formData.append('productImage', this.image);
   console.log(formData);
   this.adminDashboardService.addProductImage(formData).subscribe();
   this.router.navigateByUrl('/admin-dashboard');

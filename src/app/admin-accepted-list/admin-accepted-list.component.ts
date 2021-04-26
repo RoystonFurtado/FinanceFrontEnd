@@ -13,6 +13,11 @@ export class AdminAcceptedListComponent implements OnInit {
   users:User[];
   constructor(private adminDashboardService:AdminDashboardService,
     private router:Router) { }
+    userName:string;
+    user:User;
+    users1:User[];
+    
+    displayAll:boolean=true;
 
   ngOnInit(): void {
 
@@ -20,6 +25,18 @@ export class AdminAcceptedListComponent implements OnInit {
         this.users=Response;
         console.log(Response);
       });
+    }
+    display(){
+      this.adminDashboardService.fetchAcceptedUser(this.userName).subscribe(response =>{
+        this.users1=response;
+        this.displayAll=false;
+      })
+    }
+    view(user:User){
+      sessionStorage.setItem('userName',user.userName);
+      console.log(sessionStorage.getItem("userName"));
+      this.router.navigateByUrl("verify-documents");
+
     }
 
   

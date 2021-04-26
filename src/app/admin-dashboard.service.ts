@@ -14,10 +14,25 @@ export class AdminDashboardService {
 
    }
 
-   fetchUser(userName : String):Observable<Object>{
+   fetchUser(userName : String):Observable<User[]>{
      console.log(userName);
     let url = baseUrl+"/adminDashboard?userName="+userName;
-    return this.http.get(url);
+    return this.http.get<User[]>(url);
+
+   }
+   fetchUserFromSession(userName : String):Observable<Object>{
+    console.log(userName);
+   let url = baseUrl+"/fetchUserFromSession?userName="+userName;
+   let temp=this.http.get(url);
+   temp.subscribe(response=>{
+     console.log(response);
+   })
+   return temp;
+
+  }
+   fetchPending():Observable<User[]>{
+    let url = "http://localhost:8223/fetchPendingUser";
+    return this.http.get<User[]>(url);
 
    }
    acceptUser(userName:String):Observable<Object>{
@@ -25,25 +40,29 @@ export class AdminDashboardService {
      let url = baseUrl+"/acceptUser?userName="+userName;
      return this.http.get(url);
    }
-   rejectUser(userName:String):Observable<Object>{
-     let url =baseUrl+"/rejectUser?userName="+userName;
+   rejectUser(userName:String,message:string):Observable<Object>{
+     let url ="http://localhost:8223/rejectUser?userName="+userName+"&message="+message;
      return this.http.get(url);
    }
 
    fetchUsers():Observable<User[]>{
-    let url1 = baseUrl+"/adminDashboardAll";
+    let url1 = "http://localhost:8223/adminDashboardAll";
     console.log(url1);
      return this.http.get<User[]>(url1);
    }
    addProduct(product :Product):Observable<any>{
      //var productImg = {product,image};
      console.log(product);
-     let url = "http://localhost:8223/addProducts";
+     let url = baseUrl+"/addProducts";
       return this.http.post(url,product);
    }
-   addProductImage(formData:FormData){
+   addProductImage(formData:FormData):Observable<Object>{
      console.log(formData);
-     let url = "http://localhost:8223/addProductImage";
+     let url = baseUrl+"/addProductImage";
      return this.http.post(url,formData);
+   }
+   fetchAcceptedUser(userName:String):Observable<User[]>{
+     let url="http://localhost:8223/fetchAcceptedUser?userName="+userName;
+     return this.http.get<User[]>(url);
    }
 }
