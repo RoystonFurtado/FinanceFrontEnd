@@ -49,6 +49,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { ReplaceNullWithTextPipe } from './replace-null-with-text.pipe';
 import { DisappearDirective } from './disappear.directive';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { ShareComponent } from './share/share.component';
 
 @NgModule({
   declarations: [
@@ -81,7 +82,8 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     FooterComponent,
     AppBarComponent,
     QrCodeComponent,
-    OrderSummaryComponent
+    OrderSummaryComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
