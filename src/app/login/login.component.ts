@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId, Entity_UserName } from '../app.component';
+import { baseUrl, Entity_isDocumentUploaded, Entity_profileStatus as Entity_profileStatus, Entity_rejectedMessage, Entity_UserId, Entity_UserName } from '../app.component';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -72,10 +72,18 @@ export class LoginComponent {
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
+        if(!data[Entity_isDocumentUploaded]){
+          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
+          sessionStorage.setItem(Entity_UserName,data["userName"]);
+          sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);
+          sessionStorage.setItem(Entity_rejectedMessage,data["rejectedMessage"]);
+          this.redirectToDocumentsUpload();
+        }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
          sessionStorage.setItem(Entity_UserName,data["userName"]);
          sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);
+         sessionStorage.setItem(Entity_rejectedMessage,data["rejectedMessage"]);
           this.redirectToProductListing();
         }
        
@@ -96,10 +104,8 @@ export class LoginComponent {
   }
 }
 
-logout() {
-  // remove user from local storage and set current user to null
-  sessionStorage.removeItem(Entity_UserId); //,this.loginData["loggedUserId"]
-  this.redirectToLogin();
+redirectToDocumentsUpload(){  
+  this.router.navigateByUrl('/document-upload');
 }
 
   redirectToProductPage() {

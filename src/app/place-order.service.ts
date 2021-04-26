@@ -16,4 +16,8 @@ export class PlaceOrderService {
     let url=baseUrl+"/order";
     return this.http.post(url,orderDetails);
   }
+  getUserDetails(userId:string): Observable<Object>{
+    let url=baseUrl+"/userDetails?userId="+userId;
+  return this.http.get(url);
+  }
 }
