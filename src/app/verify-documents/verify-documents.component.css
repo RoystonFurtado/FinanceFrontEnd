@@ -32,9 +32,10 @@
 }
 .tbl{
     text-align: center;
-    /* margin-left: 90px; */
+    margin-left: 90px;
+    margin-right: 90px;
     /* border: 1px solid black; */
-    width: 100%;
+    /* width: 100%; */
 }
 .checkbox{
     height: 30px;

@@ -95,7 +95,7 @@ export class VerifyDocumentsComponent implements OnInit {
     
   }
   rejectUser(userName:String){
-    this.adminDashboardService.rejectUser(userName).subscribe(response=>{
+    this.adminDashboardService.rejectUser(userName,this.reason).subscribe(response=>{
 
     });
     this.router.navigateByUrl("admin-pending-list");

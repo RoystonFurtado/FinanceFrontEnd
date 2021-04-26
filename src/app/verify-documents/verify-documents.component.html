@@ -44,8 +44,8 @@
   
   <div>
     Pick a topic:
-    <input type="radio" ng-model="action" value="accept" (click)="verifyAccept()">Accept
-    <input type="radio" ng-model="action" value="reject" (click)="verifyReject()">Reject
+    <input type="radio" ng-model="action" value="accept" (click)="verifyAccept()" name="action">Accept
+    <input type="radio" ng-model="action" value="reject" (click)="verifyReject()" name="action">Reject
   </div>
   <div *ngIf="isErrorPresent">
     {{errorMessage}}

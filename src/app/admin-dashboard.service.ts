@@ -40,8 +40,8 @@ export class AdminDashboardService {
      let url = baseUrl+"/acceptUser?userName="+userName;
      return this.http.get(url);
    }
-   rejectUser(userName:String):Observable<Object>{
-     let url ="http://localhost:8223/rejectUser?userName="+userName;
+   rejectUser(userName:String,message:string):Observable<Object>{
+     let url ="http://localhost:8223/rejectUser?userName="+userName+"&message="+message;
      return this.http.get(url);
    }
 
@@ -60,5 +60,9 @@ export class AdminDashboardService {
      console.log(formData);
      let url = "http://localhost:8223/addProductImage";
      return this.http.post(url,formData);
+   }
+   fetchAcceptedUser(userName:String):Observable<User[]>{
+     let url="http://localhost:8223/fetchAcceptedUser?userName="+userName;
+     return this.http.get<User[]>(url);
    }
 }

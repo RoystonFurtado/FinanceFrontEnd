@@ -33,7 +33,7 @@ const routes: Routes = [
   {path:'add-product',component:AddProductComponent},
   {path:'order-history',component:OrderHistoryComponent},
   {path:'admin-dashboard',component:AdminDashboardComponent},
-  {path:'verify-documents',component:VerifyDocumentsComponent}
+  {path:'verify-documents',component:VerifyDocumentsComponent},
   {path:'payment',component:PaymentComponent},
   {path:'create-password',component:CreatePasswordComponent}
 ];
