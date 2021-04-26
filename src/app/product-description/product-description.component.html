@@ -90,7 +90,10 @@
      
 <p style="color:white">© LTI 2021 All rights reserved</p>
     
-    </div>  
+    </div>
+    <app-order-summary *ngIf="loadOrderComponent" [od]="orderSummaryDetails"></app-order-summary>
+  
+  
     
         <!-- <form>
 
@@ -120,9 +123,5 @@
             <button class="description-btn" (click)="loadOrderSummary()">Buy</button>
 
         </form> -->
-<app-order-summary *ngIf="loadOrderComponent" [od]="orderSummaryDetails"></app-order-summary>
 
-        </form>
-    </div>
-</div>
 
