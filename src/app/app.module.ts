@@ -57,7 +57,7 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     CreatePasswordComponent,
     AccountWarningComponent,
     OrderSummaryComponent
-  ],
+    ],
   imports: [
     BrowserModule,
     AppRoutingModule,

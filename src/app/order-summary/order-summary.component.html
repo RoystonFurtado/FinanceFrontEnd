@@ -1,16 +1,34 @@
-<div class="order-popup" >
-
-     <!-- <p>Product Id:{{od.productId}}</p>
-    <p>Product Name:{{od.productName}}</p> -->
-    <p>Product Price:{{od.productPrice}}</p>
-    <p>Purchase Date:{{od.myDate}}</p>
-    <p>Tenure Period:{{od.tenurePeriod}}</p>
-    <p>Monthly EMI Amount:{{od.amount}}</p>
+<div class="container" >
+<div class="title-bar-wrap">
+    <div class="title-bar">
+   </div>
+</div>
+<div class="body-wrap">
+    <div class="row body">
+        <div class="left-pane">
+            <p>Product Price:{{od.productPrice}}</p><br>
+    <p>Purchase Date:{{od.myDate}}</p><br>
+    <p>Tenure Period:{{od.tenurePeriod}}</p><br>
+    <p>Monthly EMI Amount:{{od.amount}}</p><br>
     <button class="orderPlacement" (click)="redirectToOrderPlacement()">Place Order</button>
+            <!-- <div class="section"> -->
+                <!-- <p>Product Id:{{od.productId}}</p> -->
+    <!-- <p>Product Name:{{od.productName}}</p>  -->
+     
+                
+                <!-- <div class="header">
+
+                </div> -->
+            <!-- </div> -->
+        </div>
+        <div class="right-pane"></div>
+    </div>
+</div>
+     
 
     <div *ngIf="orderOverviewPopup==true" class="order-overlay">
         <div class="order-popup" (OrderDisappear)="hideOrderPopup()">
-            <button class="close-btn" (click)="hideOrderPopup()">&times;</button>
+            <button style="border: none;float: right;" (click)="hideOrderPopup()">x</button>    
                 <h1>{{orderStatusMessage}}</h1>
             
         </div>
