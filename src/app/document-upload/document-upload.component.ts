@@ -11,7 +11,9 @@ import { RegisterService } from '../register.service';
 export class DocumentUploadComponent {
 
   constructor(private registerService:RegisterService,
-    private router:Router){};
+    private router:Router){
+      this.userId =sessionStorage.getItem(Entity_UserId);
+    };
 
   userId:any;
   aadharCard:File;

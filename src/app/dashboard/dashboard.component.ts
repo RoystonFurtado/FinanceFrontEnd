@@ -12,6 +12,7 @@ export class DashboardComponent implements OnInit{
   constructor(private router:Router,
               private dashboardService:DashboardService){};
 
+  userId:number;
   exp:string;
   showOrderPopup:boolean;
   purchaseDate:string;
@@ -24,8 +25,9 @@ export class DashboardComponent implements OnInit{
   activeOrders:ActiveOrder[];
 
   ngOnInit():void {
+    this.userId=Number(sessionStorage.getItem("userId"));
     //Get card details
-    this.dashboardService.cardDetails(10056).subscribe(response=>{
+    this.dashboardService.cardDetails(this.userId).subscribe(response=>{
       this.cardDetails=response;
       let d=new Date(this.cardDetails.cardExpiryDate);
       this.exp=(d.getMonth()+1)+"/"+d.getFullYear();
@@ -33,7 +35,7 @@ export class DashboardComponent implements OnInit{
 
     //this.dashboardService.updateInstallmentPhase(10056).subscribe(); 
 
-    this.dashboardService.pendingInstallmentDetails(10032).subscribe(response=>{
+    this.dashboardService.pendingInstallmentDetails(this.userId).subscribe(response=>{
       this.activeOrders=response;
       for(let i=0;i<this.activeOrders.length;i++) {
         let d=new Date(this.activeOrders[i].dueDate);

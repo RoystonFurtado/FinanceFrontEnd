@@ -1,8 +1,16 @@
+<div class="description" *ngIf="visible">
+    <p class="head"> Product Description page</p>
+    <div class="description-card">
+        <img class="img1" src='http://localhost:8181/downloads/{{product.productImage}}' />
+        <p>Product Id:{{product.productId}} </p>
+        <p>Product Name:{{product.productName}} </p>
+        <p>Product Details:{{product.productDescription}} <br/></p>
+        <p>Product Price:{{product.productPrice}} </p>
 
 <div class="product-description-container" *ngIf="visible">
     <div class="product-gallery">
         <div class="product-image-container" style="opacity: 1;">
-            <img class="image-slider-div" src='http://localhost:8188/downloads/{{product.productImage}}'/> 
+            <img class="image-slider-div" src='http://localhost:8181/downloads/{{product.productImage}}'/> 
     </div> 
     </div>
         

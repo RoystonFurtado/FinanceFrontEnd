@@ -2,15 +2,6 @@
     width: 500px; 
     margin-top: 5%;
 }
-.example-radio-group {
-    display: flex;
-    flex-direction: column;
-    margin: 15px 0;
-  }
-  
-  .example-radio-button {
-    margin: 5px;
-  }
 
   .payment-overlay {
     /* background-color: lightgreen; */
@@ -35,15 +26,4 @@
 }
 .payment-popup {
     height: 350px;
-}
-.close-btn {
-  position: absolute;
-  top:10px;
-  right:20px;
-  font-size:25px;
-  color: gray;
-}
-.close-btn:hover {
-  color:red;
-  cursor:pointer;
 }

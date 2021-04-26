@@ -16,12 +16,13 @@ export class OrderHistoryComponent {
   constructor(private router: Router, private orderhistoryService: OrderHistoryService) {
     console.log(this.userId);
     // this.userId = sessionStorage.getItem(Entity_UserId);
-    this.userId = "10032";
+    this.userId = sessionStorage.getItem("userId");
     if (this.userId == null) this.orderhistoryService.navigateToHome();
     else
       this.getOrders();
   }
 
+  
   userId: string;
   message: string;
   orders: Array<Order>;
@@ -69,6 +70,9 @@ export class OrderHistoryComponent {
         }
   
       });
+  }
+  redirectToDescription(id:any){
+    this.router.navigateByUrl('/product-description?id='+id);
   }
   redirectToProductListing() {
     this.router.navigateByUrl('/product-listing');
