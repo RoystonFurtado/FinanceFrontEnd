@@ -1,22 +1,22 @@
 <div class="description" *ngIf="visible">
-<p class="head"> Product Description page</p>
-    <div class="description-card" >
-     <img class="img1" src='http://localhost:8188/downloads/{{product.productImage}}'/> 
+    <p class="head"> Product Description page</p>
+    <div class="description-card">
+        <img class="img1" src='http://localhost:8223/downloads/{{product.productImage}}' />
         <p>Product Id:{{product.productId}} </p>
         <p>Product Name:{{product.productName}} </p>
-        <p>Product Details:{{product.productDescription}}  <br/></p>
+        <p>Product Details:{{product.productDescription}} <br/></p>
         <p>Product Price:{{product.productPrice}} </p>
 
-    
+
         <form>
             <label>EMI Period</label><br/>
             <input type="radio" required name="emiOptions" value="3" [(ngModel)]="this.tenurePeriod">3 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="6" [(ngModel)]="this.tenurePeriod">6 Months<br/><br/>
+            <input type="radio" required name="emiOptions" value="6" [(ngModel)]="this.tenurePeriod">6 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="9" [(ngModel)]="this.tenurePeriod">9 Months<br/><br/>
+            <input type="radio" required name="emiOptions" value="9" [(ngModel)]="this.tenurePeriod">9 Months<br/><br/>
 
-            <input type="radio"  required name="emiOptions" value="12" [(ngModel)]="this.tenurePeriod">12 Months<br/><br/>
+            <input type="radio" required name="emiOptions" value="12" [(ngModel)]="this.tenurePeriod">12 Months<br/><br/>
 
             <div *ngIf="emiError">{{emiError}}
             </div>

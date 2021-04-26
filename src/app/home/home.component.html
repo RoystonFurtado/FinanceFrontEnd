@@ -1,34 +1,101 @@
-<div class="sample-product main-container">
+<!-- <div class="sample-product main-container">
     <button class="btn btn1" (click)="redirectToRegister()">Register</button>
     <button class="btn btn1" (click)="redirectToLogin()">Login</button>
     <img class="img" src={{productImageUrl}} />
-<p>Product Name:{{productName}}</p>
-<p>Product Details:{{productDescription}}</p>
-<p>Product Price:{{productPrice}}</p>
-<button class="btn product-btn" (click)="redirectToLogin()">Buy Now</button>
-<div>
-    <p>Eligibility Criteria</p>
-    <p>User must be above 21 years of age</p>
-    <p>User must have a bank account</p>
-    <table>
-        <tr>
-            <th>EMI Card</th>
-            <th>Card Limit</th>
-            <th>Validity Period</th>
-            <th>Joining Fee</th>
-        </tr>
-        <tr>
-        <td>Gold</td>
-        <td>200000</td>
-        <td>2</td>
-        <td>500</td>
-        </tr>
-        <tr>
-            <td>Titanium</td>
-            <td>300000</td>
-            <td>3</td>
-            <td>1000</td>
-        </tr>
-    </table>
+    <p>Product Name:{{productName}}</p>
+    <p>Product Details:{{productDescription}}</p>
+    <p>Product Price:{{productPrice}}</p>
+    <button class="btn product-btn" (click)="redirectToLogin()">Buy Now</button>
+</div> -->
+
+
+<app-app-bar></app-app-bar>
+<div class="row">
+
+    <!-- <app-product class='products'></app-product> -->
+    <div style="width:50%;">
+        <h2>Our Products</h2>
+        <div class="products">
+            <div class="productcard" *ngFor="let p of products">
+                <img src="http://localhost:8223/downloads/{{ p.productImage }}">
+                <p>Product Name:{{p.productName}}</p>
+                <p>Product Details:{{p.productDescription}}</p>
+                <p>Product Price:{{p.productPrice}}</p>
+                <button mat-raised-button color="primary" (click)="redirectToDescription(p.id)">Buy now</button>
+            </div>
+            <button mat-stroked-button (click)="redirectToProductListing()" color="primary">view more</button>
+        </div>
+    </div>
+    <div class="col ">
+        <div class="ec ">
+            <h2 align="center-align ">Eligibility Criteria</h2>
+            <ul align="left ">
+                <li>User must be above 21 years of age</li>
+                <li>User must have a bank account</li>
+            </ul>
+        </div>
+        <div class="ec ">
+            <h2>Our Plans</h2>
+            <div class="row">
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front gold">
+                            <p class="flip-text">GOLD</p>
+                            <span class="align-end">know more</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Gold Card</h1>
+                            <ul class='flip-ul'>
+                                <li>with credit limit &#8377;2 Lakhs</li>
+                                <li>valid for 2 years</li>
+                                <li>with only &#8377;500 joing fee</li>
+                            </ul>
+                            <button mat-raised-button color="primary" (click)="redirectToRegister()">Get Now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front titanium">
+                            <p class="flip-text">TITANIUM</p>
+                            <span class="align-end">know more</span>
+                        </div>
+                        <div class="flip-card-back">
+                            <h1>Titanium Card</h1>
+                            <ul class='flip-ul'>
+                                <li>with credit limit &#8377;3 Lakhs</li>
+                                <li>valid for 3 years</li>
+                                <li>with only &#8377;1000 joing fee</li>
+                            </ul>
+                            <button mat-raised-button color="primary" (click)="redirectToRegister()">Get Now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <table class="center-align ">
+                <tr>
+                    <th>EMI Card</th>
+                    <th>Card Limit</th>
+                    <th>Validity Period</th>
+                    <th>Joining Fee</th>
+                </tr>
+                <tr>
+                    <td>Gold</td>
+                    <td>200000</td>
+                    <td>2</td>
+                    <td>500</td>
+                </tr>
+                <tr>
+                    <td>Titanium</td>
+                    <td>300000</td>
+                    <td>3</td>
+                    <td>1000</td>
+                </tr>
+            </table> -->
+        </div>
+        <app-share></app-share>
+    </div>
+
 </div>
-</div>
+
+<app-footer></app-footer>

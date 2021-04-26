@@ -27,17 +27,29 @@ import { PaymentComponent } from './payment/payment.component';
 import { CreatePasswordComponent } from './create-password/create-password.component';
 import { MatSliderModule } from '@angular/material/slider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AccountWarningComponent } from './account-warning/account-warning.component';
+import { FooterComponent } from './footer/footer.component';
+import { AppBarComponent } from './app-bar/app-bar.component';
+import { QrCodeComponent } from './qr-code/qr-code.component'
+import { NgxQRCodeModule } from '@techiediaries/ngx-qrcode';
+import { ShareButtonsModule } from 'ngx-sharebuttons/buttons';
+import { ShareIconsModule } from 'ngx-sharebuttons/icons';
+  
+
 //Material Components
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { AccountWarningComponent } from './account-warning/account-warning.component';
+import {MatToolbarModule} from '@angular/material/toolbar'
+import { MatGridListModule} from '@angular/material/grid-list';
+import { MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatSelectModule} from '@angular/material/select';
 import { ReplaceNullWithTextPipe } from './replace-null-with-text.pipe';
 import { DisappearDirective } from './disappear.directive';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
+import { ShareComponent } from './share/share.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +79,11 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     PaymentComponent,
     CreatePasswordComponent,
     AccountWarningComponent,
-    OrderSummaryComponent
+    FooterComponent,
+    AppBarComponent,
+    QrCodeComponent,
+    OrderSummaryComponent,
+    ShareComponent
   ],
   imports: [
     BrowserModule,
@@ -79,6 +95,12 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     MatIconModule,
     BrowserAnimationsModule,
     MatButtonModule,
+    MatToolbarModule,
+    MatGridListModule,
+    NgxQRCodeModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+    MatProgressSpinnerModule,
     MatRadioModule,
     MatSelectModule
   ],
@@ -87,6 +109,11 @@ import { OrderSummaryComponent } from './order-summary/order-summary.component';
     MatFormFieldModule,    
     MatInputModule,    
     BrowserAnimationsModule,
+    MatButtonModule,  
+    NgxQRCodeModule,
+    ShareButtonsModule,
+    ShareIconsModule,
+    MatProgressSpinnerModule,
     MatButtonModule
   ],
   providers: [

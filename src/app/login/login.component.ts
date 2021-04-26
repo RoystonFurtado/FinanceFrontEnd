@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
 import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId } from '../app.component';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,11 @@ export class LoginComponent {
   loginType:String ="User";
   loginError:String;
   hide:boolean = true;
+
+  // emailFormControl = new FormControl('', [
+  //   Validators.required,
+  //   Validators.email,`
+  // ]);
 
   constructor(private router: Router, private http: HttpClient) { };
 
@@ -96,3 +102,5 @@ export class LoginComponent {
   }
 
 }
+
+

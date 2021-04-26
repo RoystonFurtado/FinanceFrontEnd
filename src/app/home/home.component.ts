@@ -1,5 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { baseUrl } from '../app.component';
+import { Product } from '../product/product.component';
+
+
+
 
 @Component({
   selector: 'app-home',
@@ -8,12 +14,16 @@ import { Router } from '@angular/router';
 })
 export class HomeComponent {
 
-  constructor(private router:Router){};
+   
 
-  productName:string="IPhone8";
-  productDescription:string="This is an expensive phone.";
-  productPrice:Number=80000;
-  productImageUrl:string="assets/iphone8.jfif";
+  constructor(private router:Router, private http: HttpClient){
+    this.getProducts();
+  };
+products: Array<Product>;
+  // productName:string="IPhone8";
+  // productDescription:string="This is an expensive phone.";
+  // productPrice:Number=80000;
+  // productImageUrl:string="assets/iphone8.jfif";
 
   redirectToRegister() {
     this.router.navigateByUrl('/register');
@@ -22,9 +32,22 @@ export class HomeComponent {
   redirectToLogin() {
     this.router.navigateByUrl('/login');
   }
+  redirectToDescription(id:any){
+    this.router.navigateByUrl('/product-description?id='+id);
+  }
+  redirectToProductListing(){
+    this.router.navigateByUrl('/product-listing');
+  }
 
   goToPage(pageName:string){
     this.router.navigate([`${pageName}`]);
+  }
+
+  getProducts() {
+    this.http.get(baseUrl+"/productsByLimit?limit=4").subscribe(data =>  {
+      this.products=data as Array<Product> 
+      console.log(data);
+    }) 
   }
 
 }
