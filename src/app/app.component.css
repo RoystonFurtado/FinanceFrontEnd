@@ -5,3 +5,35 @@
     font-size: 35px;
     color: black;
 } */
+ 
+ .example-spacer {
+     flex: 1 1 auto;
+ }
+ 
+ mat-toolbar button {
+     margin: 8px;
+ }
+ 
+ .sidenav-header {
+     width: 200px;
+     background-color: azure;
+     margin: 8px;
+     text-align: start;
+ }
+ 
+ .sidenav-header p {
+     text-align: end;
+ }
+ 
+ .sidenav-menu {
+     width: 180;
+ }
+ 
+ .sidenav-menu button {
+     width: 100%;
+     background-color: rgb(143, 252, 252);
+     margin: 7px;
+     margin-left: auto;
+     margin-right: auto;
+     text-align: left;
+ }

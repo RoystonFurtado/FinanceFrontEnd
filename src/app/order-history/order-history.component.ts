@@ -22,6 +22,7 @@ export class OrderHistoryComponent {
       this.getOrders();
   }
 
+  
   userId: string;
   message: string;
   orders: Array<Order>;
@@ -69,6 +70,9 @@ export class OrderHistoryComponent {
         }
   
       });
+  }
+  redirectToDescription(id:any){
+    this.router.navigateByUrl('/product-description?id='+id);
   }
   redirectToProductListing() {
     this.router.navigateByUrl('/product-listing');

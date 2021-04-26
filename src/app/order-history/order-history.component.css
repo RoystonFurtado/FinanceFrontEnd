@@ -1,34 +1,67 @@
-.loginbtn{
+.loginbtn {
     display: block;
-    margin:auto;
+    margin: auto;
 }
 
-.container{
+.container {
     padding: 10px;
     display: grid;
     grid-template-columns: auto auto auto;
     align-items: center;
+    height: 40%
 }
 
-.card{
+.card {
     text-align: center;
-    padding: 8px;   
-    margin: 8px;   
+    padding: 10px;
+    margin: 8px;
     border: 1px solid gray;
     border-radius: 8px;
-    background-color: aquamarine;
+    background-color: azure;
+    height: 80%;
 }
-.transactions-tbl, th,td {
-    border:1px solid black;
+
+.transactions-tbl,
+th,
+td {
+    border: 1px solid black;
     border-collapse: collapse;
     width: 500px;
     height: 30px;
+    margin: auto;
+    margin-left: 450px;
+    margin-right: 40px;
 }
-.transactions-tbl th, td{
-    padding:10px;
+
+.transactions-tbl th,
+td {
+    padding: 10px;
     text-align: center;
-    background-color: rgb(69, 143, 228);
+    background-color: rgba(247, 245, 242, 0.938);
+    border-radius: 5px;
 }
-.dropdown{
-    text-align: end;;
+
+.dropdown {
+    text-align: end;
+}
+
+.card img {
+    height: 40%;
+    object-fit: cover;
+}
+
+h1 {
+    margin-left: 10px;
+}
+
+table {
+    width: 90%;
+    margin: auto;
+    border: 0;
+}
+
+table th {
+    text-align: center;
+    font-weight: bold;
+    background-color: azure;
 }
