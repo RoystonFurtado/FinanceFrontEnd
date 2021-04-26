@@ -13,10 +13,10 @@
         </div>
     </div>
 
-<form #myForm="ngForm" type="submit" (ngSubmit)="showPaymentBox()" >
+<form #myForm="ngForm" (ngSubmit)="showPaymentBox()" >
 
-    <label id="example-radio-group-label">Choose your payment method</label>
-        <mat-radio-group (change)="onRadioChange()" aria-labelledby="example-radio-group-label" class="example-radio-group" name="payment-method" [(ngModel)]="paymentInfo.paymentMethod" required>
+    <mat-label>Choose your payment method</mat-label>
+        <mat-radio-group (change)="onRadioChange()" class="example-radio-group" name="payment-method" [(ngModel)]="paymentInfo.paymentMethod" required>
             <mat-radio-button class="example-radio-button" *ngFor="let paymentMethod of paymentMethods" [value]="paymentMethod">{{paymentMethod}}</mat-radio-button>
             <mat-error *ngIf="paymentMethodError">Please select a payment method</mat-error>
         </mat-radio-group>

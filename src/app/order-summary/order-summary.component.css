@@ -8,6 +8,11 @@
     left:0;
     background-color: rgba(0,0,0,.4);
 }
+.order-summary-container {
+    width: 900px;
+    height: 700px;
+    box-shadow: none;
+}
 .order-popup, .payment-popup {
     animation-name: slide-effect;
     animation-duration: .5s;
@@ -20,5 +25,102 @@
     border:1px solid gray;
 }
 .order-popup {
-    height: 550px;
+    height: 150px;
+}
+.container {
+    height: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+.body-wrap{
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        display: block;
+        height: 70%;
+}
+.title-bar-wrap{
+        padding-bottom: 56px;
+        min-width: 978px;
+        position: relative;
+        margin-bottom: 16px;
+}
+.title-bar {
+    position: fixed;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex: auto;
+    -ms-flex: auto;
+    flex: auto;
+    will-change: transform;
+    width: 100%;
+    height: 56px;
+    background-color: #034263;
+    color: #f0f0f0;
+    z-index: 10;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+.body {
+    margin: 0 auto;
+    min-width: 1128px;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-justify-content: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    height: 100%;
+    width: 70%;
+}
+.left-pane{
+        display: inline-block;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        width: 60%;
+        height: 100%;
+}
+.right-pane{
+    position: relative;
+    width: 100%;
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    margin-left: 16px;
+}
+.section{
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-align-items: flex-start;
+        -ms-flex-align: start;
+        align-items: flex-start;
+        width: 25%;
+}
+.header{
+        color: #fff;
+        background-color: #2874f0;
+        height: 48px;
+        text-transform: uppercase;
+        color: #878787;
+        font-size: 16px;
+        font-weight: 500;
+        padding: 14px 24px;
+        border-radius: 2px 2px 0 0;
+}
+.row {
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-flex-flow: row wrap;
+    -ms-flex-flow: row wrap;
+    flex-flow: row wrap;
 }

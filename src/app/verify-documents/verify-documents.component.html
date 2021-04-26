@@ -14,7 +14,7 @@
       <table class="tbl">
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" ><i class="fa fa-eye" aria-hidden="true"></i> View aadharCard</a>
+            <a href="http://localhost:8181/downloads/{{user.aadharCard}}" (click)="enableAadharfun()" target="_blank" ><i class="fa fa-eye" aria-hidden="true"></i> View aadharCard</a>
           </td>
           <td>
             <input type="checkbox" class ="checkbox" *ngIf="enableAadhar" (click)="yourfuncAadhar()">
@@ -22,7 +22,7 @@
         </tr>
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.panCard}}" (click)="enablePanfun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View PanCard</a>
+            <a href="http://localhost:8181/downloads/{{user.panCard}}" (click)="enablePanfun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View PanCard</a>
           </td>
           <td>
             <input type="checkbox" class="checkbox"  *ngIf="enablePan"(click)="yourfuncPan()">
@@ -30,7 +30,7 @@
         </tr>
         <tr>
           <td>
-            <a href="http://localhost:8223/downloads/{{user.cancelledCheque}}" (click)="enableChequefun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View CancelledCheque</a>
+            <a href="http://localhost:8181/downloads/{{user.cancelledCheque}}" (click)="enableChequefun()" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i> View CancelledCheque</a>
           </td>
           <td>
             <input type="checkbox" class="checkbox" *ngIf="enableCheque" (click)="yourfuncCheque()"> 

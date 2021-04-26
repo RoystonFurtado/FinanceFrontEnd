@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { CompileShallowModuleMetadata } from '@angular/compiler';
-import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId } from '../app.component';
+import { baseUrl, Entity_profileStatus as Entity_profileStatus, Entity_UserId, Entity_UserName } from '../app.component';
 import { FormControl, Validators } from '@angular/forms';
 
 @Component({
@@ -20,6 +20,8 @@ export class LoginComponent {
   loginType:String ="User";
   loginError:String;
   hide:boolean = true;
+  redirectToLogin: any;
+  loginData:string;
 
   // emailFormControl = new FormControl('', [
   //   Validators.required,
@@ -66,15 +68,19 @@ export class LoginComponent {
       if(this.loginType=="User"){
       this.http.post(baseUrl+"/login", { "emailId": this.email, "password": this.password }).subscribe(data => {
         console.log(data);
+        this.loginData=data as string;
         if (data["loggedUserId"] == 0) {
           alert(data["message"]);
         }
         else {
          sessionStorage.setItem(Entity_UserId,data["loggedUserId"]);
+         sessionStorage.setItem(Entity_UserName,data["userName"]);
          sessionStorage.setItem(Entity_profileStatus,data["profileStatus"]);
           this.redirectToProductListing();
         }
-      }, (e) => {
+       
+      }, 
+      (e) => {
         this.statusMessage = "Please try again later";
         console.log(this.statusMessage);
         alert(this.statusMessage);
@@ -85,10 +91,16 @@ export class LoginComponent {
       // if(this.username == "sonali" && this.password=="123"){
       //   this.router.navigateByUrl("/dashboard");
       // }
-      
+     
     }
-     }
   }
+}
+
+logout() {
+  // remove user from local storage and set current user to null
+  sessionStorage.removeItem(Entity_UserId); //,this.loginData["loggedUserId"]
+  this.redirectToLogin();
+}
 
   redirectToProductPage() {
     this.router.navigateByUrl('/product-listing');

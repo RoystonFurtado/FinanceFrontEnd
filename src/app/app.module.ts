@@ -50,6 +50,11 @@ import { ReplaceNullWithTextPipe } from './replace-null-with-text.pipe';
 import { DisappearDirective } from './disappear.directive';
 import { OrderSummaryComponent } from './order-summary/order-summary.component';
 import { ShareComponent } from './share/share.component';
+import {MatTableModule} from '@angular/material/table';
+import {MatSortModule} from '@angular/material/sort';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatDividerModule} from '@angular/material/divider';
+
 
 @NgModule({
   declarations: [
@@ -83,7 +88,8 @@ import { ShareComponent } from './share/share.component';
     AppBarComponent,
     QrCodeComponent,
     OrderSummaryComponent,
-    ShareComponent
+    ShareComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -102,7 +108,11 @@ import { ShareComponent } from './share/share.component';
     ShareIconsModule,
     MatProgressSpinnerModule,
     MatRadioModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTableModule,
+    MatSortModule,
+    MatSidenavModule,
+    MatDividerModule,
   ],
   exports:[
     FormsModule,
@@ -114,7 +124,11 @@ import { ShareComponent } from './share/share.component';
     ShareButtonsModule,
     ShareIconsModule,
     MatProgressSpinnerModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule,
+    MatSortModule,
+    MatSidenavModule,
+    MatDividerModule,
   ],
   providers: [
   ],

@@ -1,23 +1,12 @@
-<!-- <div class="sample-product main-container">
-    <button class="btn btn1" (click)="redirectToRegister()">Register</button>
-    <button class="btn btn1" (click)="redirectToLogin()">Login</button>
-    <img class="img" src={{productImageUrl}} />
-    <p>Product Name:{{productName}}</p>
-    <p>Product Details:{{productDescription}}</p>
-    <p>Product Price:{{productPrice}}</p>
-    <button class="btn product-btn" (click)="redirectToLogin()">Buy Now</button>
-</div> -->
+<app-app-bar>
 
-
-<app-app-bar></app-app-bar>
+</app-app-bar>
 <div class="row">
-
-    <!-- <app-product class='products'></app-product> -->
     <div style="width:50%;">
         <h2>Our Products</h2>
         <div class="products">
             <div class="productcard" *ngFor="let p of products">
-                <img src="http://localhost:8223/downloads/{{ p.productImage }}">
+                <img src="http://localhost:8181/downloads/{{ p.productImage }}">
                 <p>Product Name:{{p.productName}}</p>
                 <p>Product Details:{{p.productDescription}}</p>
                 <p>Product Price:{{p.productPrice}}</p>
@@ -72,26 +61,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <table class="center-align ">
-                <tr>
-                    <th>EMI Card</th>
-                    <th>Card Limit</th>
-                    <th>Validity Period</th>
-                    <th>Joining Fee</th>
-                </tr>
-                <tr>
-                    <td>Gold</td>
-                    <td>200000</td>
-                    <td>2</td>
-                    <td>500</td>
-                </tr>
-                <tr>
-                    <td>Titanium</td>
-                    <td>300000</td>
-                    <td>3</td>
-                    <td>1000</td>
-                </tr>
-            </table> -->
         </div>
         <app-share></app-share>
     </div>

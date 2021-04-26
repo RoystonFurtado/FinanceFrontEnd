@@ -39,7 +39,6 @@ const routes: Routes = [
   {path:'verify-documents',component:VerifyDocumentsComponent},
   {path:'payment',component:PaymentComponent},
   {path:'create-password',component:CreatePasswordComponent},
-  {path:'payment',component:PaymentComponent}
 
 ];
 
