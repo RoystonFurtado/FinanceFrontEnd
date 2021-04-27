@@ -90,6 +90,9 @@ a{
     background-color: transparent;
     text-decoration: underline;
   }
+  .error{
+    text-decoration-color: red;
+  }
   .radioAction{
       text-align: center;
   }

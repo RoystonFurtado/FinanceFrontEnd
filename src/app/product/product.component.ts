@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 // import {Product} from '../add-product/add-product.component';
-
-import { Entity_UserId } from '../app.component';
+ 
+import { Entity_UserId,baseUrl } from '../app.component';
 
 import { ProductService } from '../product.service';
 

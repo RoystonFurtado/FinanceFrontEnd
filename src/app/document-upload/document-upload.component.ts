@@ -51,6 +51,7 @@ export class DocumentUploadComponent {
   fileUpload(){
     this.userId=sessionStorage.getItem("userId");
     let formData: FormData = new FormData();
+    this.userId=10062;
     formData.append('userId', this.userId);
     formData.append('aadharCard',this.aadharCard);
     formData.append('panCard',this.panCard);
