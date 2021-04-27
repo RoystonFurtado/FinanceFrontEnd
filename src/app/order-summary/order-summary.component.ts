@@ -50,15 +50,12 @@ export class OrderSummaryComponent implements OnInit{
       this.user.emailId=response["emailId"];
       this.user.address=response["address"];
       this.user.cardExpiryDate=response["cardExpiryDate"];
-  });}
-  else
-  {
-    this.router.navigateByUrl('/login');
-  }
-  }
+  });
+}
+}
 
   ngOnInit(): void {
-    if(sessionStorage.getItem("userId")!==null) {
+    if(sessionStorage.getItem("userId")!==null && sessionStorage.getItem('profileStatus')==='Accepted') {
       this.navbar.showDashboardBtn=true;
       this.navbar.showLogoutBtn=true;
       this.navbar.showLoginBtn=false;
@@ -66,8 +63,11 @@ export class OrderSummaryComponent implements OnInit{
       this.navbar.showProductBtn=true;
       this.navbar.showOrderHistoryBtn=true;
     }
+    else if(sessionStorage.getItem("userId")!==null){
+      this.redirectToProduct();   
+    }
     else {
-      this.redirectToHome();   
+      this.redirectToLogin();
     }
   }
 
@@ -88,8 +88,12 @@ export class OrderSummaryComponent implements OnInit{
     this.orderStatus=false;
   }
 
-  redirectToHome() {
-    this.router.navigateByUrl('home');
+  redirectToLogin() {
+    this.router.navigateByUrl('/login');
+  }
+
+  redirectToProduct() {
+    this.router.navigateByUrl('/product-listing');
   }
   
 }

@@ -101,7 +101,7 @@ export class ProductDescriptionComponent implements OnInit {
   }
   buy(){
     if(this.validated){
-
+      
     }
       else{
       this.emiError="Select the tenure period";

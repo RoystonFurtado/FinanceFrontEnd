@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 // import {Product} from '../add-product/add-product.component';
  
 import { Entity_UserId,baseUrl } from '../app.component';
+import { MainService } from '../main.service';
 
 import { ProductService } from '../product.service';
 
@@ -22,10 +23,25 @@ export class ProductComponent implements OnInit {
   products: Product[];
 
   ngOnInit(): void {
-    console.log(sessionStorage.getItem(Entity_UserId));
+    if(sessionStorage.getItem("userId")===null) {
+      this.navbar.showDashboardBtn=false;
+      this.navbar.showLogoutBtn=false;
+      this.navbar.showLoginBtn=true;
+      this.navbar.showRegisterBtn=true;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=false;
+    }
+    else {
+      this.navbar.showDashboardBtn=true;
+      this.navbar.showLogoutBtn=true;
+      this.navbar.showLoginBtn=false;
+      this.navbar.showRegisterBtn=false;
+      this.navbar.showProductBtn=false;
+      this.navbar.showOrderHistoryBtn=true;
+    }
   }
 
-  constructor(private productService: ProductService, private router: Router) {
+  constructor(private productService: ProductService, private router: Router,private navbar:MainService) {
     this.fetchAllProducts();
   }
 
